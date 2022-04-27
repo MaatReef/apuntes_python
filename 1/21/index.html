@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción JavaScript - Desarrollo Web Completo</title>
+    <link rel="shortcut icon" type=image/jpg href="../../img/logo/favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css2?family=Carrois+Gothic+SC&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <div class="contenido">
+        
+        <p>JavaScript - Notas</p>
+    </div>
+
+    <h1>21 - Arrow Functions</h1>
+    <pre>
+        
+        // Arrow Functions
+
+        const sumar2 = (n1, n2) => console.log( n1 + n2);
+        sumar2(5, 10);
+
+
+        const aprendiendo = tecnologia => console.log(`Aprendiendo ${tecnologia}`)
+
+        aprendiendo('JavaScript');
+
+
+
+
+
+        // Array Methods
+
+        const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'];
+
+        const carrito = [
+            { nombre: 'Monitor 20 Pulgadas', precio: 500 },
+            { nombre: 'Televisión 50 Pulgadas', precio: 700 },
+            { nombre: 'Tablet', precio: 300 },
+            { nombre: 'Audifonos', precio: 200 },
+            { nombre: 'Teclado', precio: 50 },
+            { nombre: 'Celular', precio: 500},
+            { nombre: 'Bocinas', precio: 300},
+            { nombre: 'Laptop', precio: 800}
+        ];
+
+        // forEach
+        meses.forEach( mes => {
+            if(mes == 'Marzo') {
+                console.log('Marzo si existe');
+            }
+        });
+
+        let resultado;
+
+        // Some ideal para arreglo de objetos
+        resultado = carrito.some( producto => producto.nombre === 'Celular');
+
+        // Reduce
+        resultado = carrito.reduce( (total, producto) =>  total + producto.precio, 0);
+
+        // Filter
+        resultado = carrito.filter( producto => producto.precio > 400);
+        resultado = carrito.filter( producto =>  producto.nombre !== 'Celular');
+
+        console.log(resultado);
+
+    </pre>
+    
+    <br>
+    <br>
+
+
+    <div class="context">
+        <a href="../20/index.html">Volver</a>
+        <a href="../../index.html">Inicio</a>
+        <a href="../22/index.html">Siguiente</a>
+    </div>
+    <script src="js/21.js"></script>
+</body>
+</html>

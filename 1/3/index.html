@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción JavaScript - Desarrollo Web Completo</title>
+    <link rel="shortcut icon" type=image/jpg href="../../img/logo/favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css2?family=Carrois+Gothic+SC&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <div class="contenido" id="arriba">
+        <p>Python - Notas</p>
+    </div>
+
+    <h1>3 - Programa un Analizador de Texto.</h1>
+    <ol>
+        <li><a href="#1">Metodo Index()</a></li>
+        <li><a href="#2">Extraer Sub-Strings</a></li>
+        <li><a href="#3">Métodos de String</a></li>
+        <li><a href="#4">Propiedades de Strings</a></li>
+        <li><a href="#5">Listas</a></li>
+        <li><a href="#6">Diccionarios</a></li>
+        <li><a href="#7">Tuples</a></li>
+        <li><a href="#8">Redondeo.</a></li>
+    </ol>
+
+    <p id="1">1. Metodo Index()</p>
+    <pre>
+        index()		-> Indice, siempre comienza por la posiciòn 0, los espacios vacios y los signos de puntuaciones tambièn ocupan espacio
+
+        1. Conocer el indice de un caracter, la posicion del caracter.
+            ->mi_texto = "hola"
+            ->mi_texto.index("o")		->1
+
+        2. Conocer què caracter hay en un ìndice
+            ->mi_texto = "hola"
+            ->mi_texto[3]			->a
+
+        --------------------------------------------------------
+        mi_texto = "Esta es una prueba"
+        resultado = mi_texto[0]			
+
+        print(resultado)			->E
+        --------------------------------------------------------
+        mi_texto = "Esta es una prueba"
+        resultado = mi_texto[9]			
+
+        print(resultado)			->n
+        --------------------------------------------------------
+        mi_texto = "Esta es una prueba"
+        resultado = mi_texto[-4]			
+
+        print(resultado)			->u
+
+        *Pytjhon cuenta de manera negativa de derecha a izquierda.
+        --------------------------------------------------------
+        mi_texto = "Esta es una prueba"
+        resultado = mi_texto.index("n")
+
+        print(resultado)			->9
+        --------------------------------------------------------
+        mi_texto = "Esta es una prueba"
+        resultado = mi_texto.index("x")
+
+        print(resultado)			->Error
+        --------------------------------------------------------
+        mi_texto = "Esta es una prueba"
+        resultado = mi_texto.index("prueba")
+
+        print(resultado)			->12
+        --------------------------------------------------------
+        mi_texto = "Esta es una prueba"
+        resultado = mi_texto.index("prueva")
+
+        print(resultado)			->Error
+        --------------------------------------------------------
+        mi_texto = "Esta es una prueba"
+        resultado = mi_texto.index("P")
+
+        print(resultado)			->Error
+
+        *Sensible a mayusuculas
+        --------------------------------------------------------
+        mi_texto = "Esta es una prueba"
+        resultado = mi_texto.index("a")
+
+        print(resultado)			->3
+
+        *Encuentra la primera y se detiene.
+        --------------------------------------------------------
+        mi_texto = "Esta es una prueba"
+        resultado = mi_texto.index("a", 5)
+
+        print(resultado)			->10
+
+        *No incluye la primera, cuenta desde el indice 5
+        --------------------------------------------------------
+        mi_texto = "Esta es una prueba"
+        resultado = mi_texto.index("a", 5, 10)
+
+        print(resultado)			->Error
+
+        *No encuentra en esa secciòn
+        --------------------------------------------------------
+        mi_texto = "Esta es una prueba"
+        resultado = mi_texto.rindex("a")
+
+        print(resultado)			->17
+
+        *Busca de derecha a izquierda, reverse.
+    </pre>
+    <p class="practica">Práctica</p>
+    <pre>
+        --------------------------------------------------------
+        Práctica Método Index() 1
+        Encuentra y muestra en pantalla qué caracter ocupa la quinta posición dentro de la siguiente palabra: "ordenador"
+        
+        
+        palabra = "ordenador"
+        
+        palabra = "ordenador"
+        
+        resultado = palabra[5]
+        
+        
+        
+        print(resultado)		-> a
+        
+        
+        --------------------------------------------------------
+        
+        Práctica Método Index() 2
+        Encuentra y muestra en pantalla el índice de la primera aparición de la palabra "práctica" en la siguiente frase:
+        
+        "En teoría, la teoría y la práctica son los mismos. En la práctica, no lo son."
+        
+        frase = "En teoría, la teoría y la práctica son los mismos. En la práctica, no lo son."
+        
+        
+        frase = "En teoría, la teoría y la práctica son los mismos. En la práctica, no lo son."
+        
+        resultado = frase.index("práctica")
+        
+        
+        
+        print(resultado)		->26
+        
+        --------------------------------------------------------
+        Práctica Método Index() 3
+        Encuentra y muestra en pantalla el índice de la última aparición de la palabra "practica" en la siguiente frase:
+        
+        "En teoría, la teoría y la práctica son los mismos. En la práctica, no lo son."
+        
+        frase = "En teoría, la teoría y la práctica son los mismos. En la práctica, no lo son."
+        
+        frase = "En teoría, la teoría y la práctica son los mismos. En la práctica, no lo son."
+        
+        
+        
+        resultado = frase.rindex("práctica")		
+        
+        
+        
+        print(resultado)			->57
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <p id="2">2. Extraer Sub-Strings</p>
+    <pre>
+        Slicing -> Rebanar, cortar en rodajas
+
+        nueva_variable = palabra		->Extraemos esa palabra y la almacenamos en otra variable
+        
+        mi_variable = "esta palabra serà extraida"
+        
+        mi_Varaible[5:12]	->Extraemos todos los caracteres comprendidos entre esos limites.
+                    ->5, desde donde 
+                    ->12, hasta donde sin incluirlo
+        
+        mi_Varaible[5:12:2]	->2, el tercer factor, indica cada cuanto elementos se seleccionarà (2 serìa salteado)
+        
+        mi_variable[start:stop:step]
+        --------------------------------------------------------
+        texto = "ABCDEFGHIJKLM"
+        fragmento = texto[2]
+        
+        print(fragmento)	->C
+        
+        --------------------------------------------------------
+        texto = "ABCDEFGHIJKLM"
+        fragmento = texto[2:5]
+        
+        print(fragmento)	->CDE	->No incluye la ultima
+        
+        --------------------------------------------------------
+        texto = "ABCDEFGHIJKLM"
+        fragmento = texto[:5]		-> Toma todo hasta donde COMIENZA
+        
+        print(fragmento)	->ABCDE
+        
+        --------------------------------------------------------
+        texto = "ABCDEFGHIJKLM"
+        fragmento = texto[2:]		-> Toma todo hasta donde termina	
+        print(fragmento)	->CDEFGHIJKLM
+        --------------------------------------------------------
+        
+        texto = "ABCDEFGHIJKLM"
+        fragmento = texto[2:10:2]		
+        
+        print(fragmento)	->CEGI
+        
+        --------------------------------------------------------
+        
+        texto = "ABCDEFGHIJKLM"
+        fragmento = texto[2:10:3]		
+        
+        print(fragmento)	->CFI
+        
+        --------------------------------------------------------
+        
+        texto = "ABCDEFGHIJKLM"
+        fragmento = texto[::3]		
+        
+        print(fragmento)	->ADGJM
+        --------------------------------------------------------
+        texto = "ABCDEFGHIJKLM"
+        fragmento = texto[::-1]		->Toma toda la cadena desde el ùltimo nùmero pero al revès
+        
+        print(fragmento)	->MLKJIHGFEDCBA
+        --------------------------------------------------------
+        
+        texto = "ABCDEFGHIJKLM"
+        fragmento = texto[::-2]		->Toma toda la cadena desde el ùltimo nùmero pero al revès, por el - , saltando 2
+        
+        print(fragmento)	->MKIGECA
+         
+    </pre>
+    <p class="practica">Práctica</p>
+    <pre>
+        --------------------------------------------------------
+        Práctica Sub-Strings 1
+        Extrae la primera palabra de la siguiente frase utilizando slicing, y muéstrala en pantalla:
+
+        "Controlar la complejidad es la esencia de la programación"
+
+        Pista: "Controlar" tiene un largo de 9 caracteres.
+
+        frase = "Controlar la complejidad es la esencia de la programación"
+
+        fragmento = frase[0:9]
+
+
+
+        print(fragmento)		->Controlar
+
+        --------------------------------------------------------
+
+        Práctica Sub-Strings 2
+        Toma cada tercer caracter empezando desde el noveno hasta el final de la frase, e imprime el resultado.
+
+        "Nunca confíes en un ordenador que no puedas lanzar por una ventana"
+
+        frase = "Nunca confíes en un ordenador que no puedas lanzar por una ventana"
+
+        fragmento = frase[9::3]
+
+
+
+        print(fragmento)		-> fsnnrnoq  esaap aea
+
+        --------------------------------------------------------
+        Práctica Sub-Strings 3
+        Invierte la posición de todos los caracteres de la siguiente frase y muestra el resultado en pantalla.
+
+        "Es genial trabajar con ordenadores. No discuten, lo recuerdan todo y no se beben tu cerveza"
+
+        frase = "Es genial trabajar con ordenadores. No discuten, lo recuerdan todo y no se beben tu cerveza"
+
+        fragmento = frase[::-1]
+
+
+
+        print(fragmento)		->azevrec ut nebeb es on y odot nadreucer ol ,netucsid oN .serodanedro noc rajabart laineg sE
+        --------------------------------------------------------  </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <p id="3">3. Métodos de String</p>
+    <pre>
+        upper()		->Pasa a Mayusculas	
+        lower()		->Pasa a Minusculas
+        split()		->Separado en partes(lista)
+        join()		->Unir items usando separador
+        find()		->Encontrar un sub-string
+        replace()	->Reemplazar un sub-string	
+
+        --------------------------------------------------------
+        texto = "Este es el texto de Federico"
+
+        resultado = texto.upper()
+
+        print(resultado)		->"ESTE ES EL TEXTO DE FEDERICO"
+
+        *Los mètodos siempre llevan el ()
+        --------------------------------------------------------
+
+        texto = "Este es el texto de Federico"
+
+        resultado = texto.lower()
+
+        print(resultado)		->"este es el texto de federico"
+
+        --------------------------------------------------------
+        texto = "Este es el texto de Federico"
+
+        resultado = texto[2].upper()
+
+        print(resultado)		->"T"
+
+        --------------------------------------------------------
+
+        texto = "Este es el texto de Federico"
+
+        resultado = texto.split()
+
+        print(resultado)		->['Este','es','el','texto','de','Federico']
+
+        *Obtenemos el resultado como una lista con split()
+        --------------------------------------------------------
+
+        texto = "Este es el texto de Federico"
+
+        resultado = texto.split("t")		->toma t como separador
+
+        print(resultado)		->['Es','e es el','ex','o de Federico']
+
+        --------------------------------------------------------
+
+        a = "Aprender"
+        b = "Python"
+        c = "es"
+        d = "genial"
+        e = " ".join([a,b,c,d])
+
+        print(e)			->Aprender Python es genial
+        --------------------------------------------------------
+
+        a = "Aprender"
+        b = "Python"
+        c = "es"
+        d = "genial"
+        e = "-".join([a,b,c,d])
+
+        print(e)			->Aprender-Python-es-genial
+
+        --------------------------------------------------------
+
+        texto = "Este es el texto de Federico"
+
+        resultado = texto.find("s")	->Busca
+            
+        print(resultado)		->1
+
+
+        *Diferencia con index, si buscamos con find un caracter que no existe arroja un -1, en el caso de index, arroja un error.
+
+        *Util para validar
+        --------------------------------------------------------
+
+        texto = "Este es el texto de Federico"
+
+        resultado = texto.find("g")	->
+            
+        print(resultado)		->-1
+
+        --------------------------------------------------------
+
+        texto = "Este es el texto de Federico"
+
+        resultado = texto.replace("Federico", "todos")	
+            
+        print(resultado)		->Este es el texto de todos
+
+
+        --------------------------------------------------------
+
+        texto = "Este es el texto de Federico"
+
+        resultado = texto.replace("e", "x")		->Reemplaza
+            
+        print(resultado)		->Estx xs xl txxto dx Fxdxrico
+    </pre>
+    <p class="practica">Practica</p>
+    <pre>
+        --------------------------------------------------------
+
+        Práctica Métodos de String 1
+        Imprime el siguiente texto en mayúsculas, empleando el método específico de strings:
+
+        frase = "Especialmente en las comunicaciones electrónicas, la escritura enteramente en mayúsculas equivale a gritar."
+
+        fragmento = frase.upper()
+
+
+
+        print(fragmento)	->ESPECIALMENTE EN LAS COMUNICACIONES ELECTRÓNICAS, LA ESCRITURA ENTERAMENTE EN MAYÚSCULAS EQUIVALE A GRITAR.
+
+        --------------------------------------------------------
+
+        Práctica Métodos de String 2
+        Une la siguiente lista en un string, separando cada elemento con un espacio. Utiliza el método apropiado de listas/strings, y muestra en pantalla el resultado.
+
+        lista_palabras = ["La","legibilidad","cuenta."]
+
+        lista_palabras = ["La", "legibilidad", "cuenta."]
+
+
+        a = lista_palabras[0]
+        b = lista_palabras[1]
+
+        c = lista_palabras[2]
+
+        frase = " ".join([a, b, c])
+
+
+
+        print(frase)		-> La legibilidad cuenta.
+
+        --------------------------------------------------------
+        Práctica Métodos de String 3
+        Reemplaza en la siguiente frase:
+
+        "Si la implementación es difícil de explicar, puede que sea una mala idea."
+
+        los siguientes pares de palabras:
+
+        "difícil" --> "fácil"
+
+        "mala" --> "buena"
+
+        y muestra en pantalla la frase con ambas palabras modificadas.
+
+        Si la implementación es difícil de explicar, puede que sea una mala idea.
+
+
+        frase = "Si la implementación es difícil de explicar, puede que sea una mala idea."
+
+
+
+        resultado = frase.replace("difícil", "facil").replace("mala", "buena")
+
+
+
+        print(resultado)		-> Si la implementación es facil de explicar, puede que sea una buena idea.
+
+        --------------------------------------------------------
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <p id="4">4. Propiedades de Strings</p>
+    <pre>
+        inmutables		-> Las modificaciones previas que realizamos con anterioridad las almacenamos en otras variables.
+        concatenable		-> con el signo +
+        multiplicable		-> *
+        multilineales		-> """ hola mundo"""
+        verificar si contiene	-> 
+        calcular longitud	-> con len(mi_texto)
+
+        --------------------------------------------------------
+
+        nombre = "Carina"
+
+        nombre[0] = "K"
+
+        print(nombre)		->Error, el string es inmutable.
+
+        --------------------------------------------------------
+
+        nombre = "Carina"
+
+        nombre = "Karina"
+
+        print(nombre)		->Karina, nueva variable.
+
+        --------------------------------------------------------
+
+        n1 = "Kari"
+        n2 = "na"
+
+        print(n1 + n2)		->Karina		->Concatenar.
+
+        --------------------------------------------------------
+
+        n1 = "Kari"
+        n2 = "na"
+
+        print(n1 * 10)		->KariKariKariKariKariKari etc..
+
+
+        --------------------------------------------------------
+
+        poema = """Mil pequeños peces blancos
+        como si hirviera
+        el color del agua"""
+
+        print(poema)		->Multilineal.
+
+        --------------------------------------------------------
+
+        poema = """Mil pequeños peces blancos
+        como si hirviera
+        el color del agua"""
+
+        print("agua" in poema)		->True, arroja un boleano
+
+
+        --------------------------------------------------------
+
+        poema = """Mil pequeños peces blancos
+        como si hirviera
+        el color del agua"""
+
+        print("sol" in poema)		->False, arroja un boleano
+
+        --------------------------------------------------------
+            ->not in, es que no estè
+
+        poema = """Mil pequeños peces blancos
+        como si hirviera
+        el color del agua"""
+
+        print("sol" not in poema)		->True, arroja un boleano
+    </pre>
+    <p class="practica">Práctica</p>
+    <pre>
+        --------------------------------------------------------
+
+        Práctica Propiedades de Strings 1
+        Concatena 15 veces el texto "Repetición" y muestra el resultado en pantalla. Por suerte, conoces que los strings son multiplicables y puedes realizar esta actividad de forma simple y elegante.
+
+
+        frase = "Repeticion"
+
+
+
+        print(frase * 15)	
+
+        RepeticionRepeticionRepeticionRepeticionRepeticionRepeticionRepeticionRepeticionRepeticionRepeticionRepeticionRepeticionRepeticionRepeticionRepeticion
+
+
+        --------------------------------------------------------
+
+        Práctica Propiedades de Strings 2
+        Verifica si la palabra "agua" no se encuentra en el siguiente haiku. Debes imprimir el booleano.
+
+        Tierra mojada,
+
+        mis recuerdos de viaje
+
+        entre las lluvias
+        Tierra mojada
+        mis recuerdos de viaje,
+        entre las lluvias
+
+
+        frase = """Tierra mojada,
+
+
+
+        mis recuerdos de viaje
+
+
+
+        entre las lluvias
+
+        Tierra mojada
+
+        mis recuerdos de viaje,
+
+        entre las lluvias"""
+
+
+
+        print("agua" not in frase)	->True
+        --------------------------------------------------------
+
+        Práctica Propiedades de Strings 3
+        Muestra en pantalla el largo (en números de caracteres) de la palabra electroencefalografista.
+
+        electroencefalografista
+
+
+        palabra = "electroencefalografista"
+
+
+
+        print(len(palabra))		->23
+
+        --------------------------------------------------------
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <p id="5">5. Listas</p>
+    <pre>
+        Secuencia ordenada de objetos, puede tener cualquier tipo de datos, y objetos con diferentes datos.
+        mi_lista =['a', hola, 10] 
+
+        Podemos anidar listas.. Listas dentro de listas [[],[]]
+
+
+        --------------------------------------------------------
+
+        mi_lista = ['a', 'b', 'c']
+
+        print(type(mi_lista))			-> <class 'list>
+
+        --------------------------------------------------------
+
+        mi_lista = ['a', 'b', 'c']
+        otra_lista = ['hola', 55, 9.1]
+
+        print(type(mi_lista))
+
+        --------------------------------------------------------
+
+
+        mi_lista = ['a', 'b', 'c']
+        resultado = len(mi_lista)
+
+        print(resultado)		-> 3
+
+        --------------------------------------------------------
+
+        mi_lista = ['a', 'b', 'c']
+        resultado = mi_lista[0]
+
+        print(resultado)		-> a
+
+        --------------------------------------------------------
+
+
+        mi_lista = ['a', 'b', 'c']
+        resultado = mi_lista[0:1]
+
+        print(resultado)		-> ['a']
+
+        --------------------------------------------------------
+        mi_lista = ['a', 'b', 'c']
+        resultado = mi_lista[0:]
+
+        print(resultado)		-> ['a','b','c']
+        --------------------------------------------------------
+
+        mi_lista = ['a', 'b', 'c']
+        mi_lista2 = ['d','e','f']
+
+        resultado = mi_lista[0:]
+
+        print(mi_lista+mi_lista2)		-> ['a','b','c','d','e','f']
+
+        *Las imprimimos de manera concatenada
+        --------------------------------------------------------
+
+        mi_lista = ['a', 'b', 'c']
+        mi_lista2 = ['d','e','f']
+        mi_lista3 = mi_lista + mi_lista2
+
+        resultado = mi_lista[0:]
+
+        print(mi_lista3)		-> ['a','b','c','d','e','f']
+
+        *creamos otra variable que contiene las dos listas
+        --------------------------------------------------------
+        *Las listas pueden modificar su contenido, mientras que los strings no.
+
+
+        mi_lista = ['a', 'b', 'c']
+        mi_lista2 = ['d','e','f']
+        mi_lista3 = mi_lista + mi_lista2
+
+        mi_lista3[0] = 'alfa'
+
+        print(mi_lista3)		-> ['alfa','b','c','d','e','f']
+
+        --------------------------------------------------------
+        *Las listas ademàs tiene mètodos
+
+        mi_lista = ['a', 'b', 'c']
+        mi_lista2 = ['d','e','f']
+        mi_lista3 = mi_lista + mi_lista2
+
+        mi_lista3.append('g')
+
+        print(mi_lista3)		-> ['a','b','c','d','e','f','g']
+
+        *Le agregamos un elemento a la lista de origen
+        --------------------------------------------------------
+
+        mi_lista = ['a', 'b', 'c']
+        mi_lista2 = ['d','e','f']
+        mi_lista3 = mi_lista + mi_lista2
+
+        mi_lista3.pop()		->Sin parametros, eliminamos el ùltimo
+
+        print(mi_lista3)		-> ['a','b','c','d','e']
+
+        --------------------------------------------------------
+
+        mi_lista = ['a', 'b', 'c']
+        mi_lista2 = ['d','e','f']
+        mi_lista3 = mi_lista + mi_lista2
+
+        mi_lista3.pop(0)		-> Especificamos el indice 0
+
+        print(mi_lista3)		-> ['b','c','d','e','f']
+        --------------------------------------------------------
+
+        mi_lista = ['a', 'b', 'c']
+        mi_lista2 = ['d','e','f']
+        mi_lista3 = mi_lista + mi_lista2
+
+        eliminado = mi_lista3.pop(0)		-> Especificamos el indice 0
+
+        print(mi_lista3)		-> ['b','c','d','e','f']
+        print(eliminado)		-> a
+        --------------------------------------------------------
+        *Ordenar las listas, alfabeticamente
+
+        lista = ['g', 'o', 'b', 'm', 'c']
+        lista.sort()				->Re ordena la lista, no devuelve datos.
+
+        print(lista)		->['b','c','g','m','o']
+
+
+        --------------------------------------------------------
+
+        lista = ['g', 'o', 'b', 'm', 'c']
+        nueva_lista = lista.sort()		->No devuelve datos, no se puede asignar a una variable
+
+        print(nueva_lista)		->None, es el resultadod de un objeto que no devuelve nada.
+
+        --------------------------------------------------------
+        *Inversiòn del orden
+
+        lista = ['g', 'o', 'b', 'm', 'c']
+        lista.sort()
+        lista.reverse()			->Al igual que el anterior, no devuelve datos, no se puede asignar a una variable.
+
+        print(lista)		->['o','m','g','c','b']
+
+        ------------------------------------------------------
+    </pre>
+    <p class="practica">Práctica</p>
+    <pre>
+        --------------------------------------------------------
+
+        Práctica Listas 1
+        Crea una lista con 5 elementos, dentro de la variable mi_lista. Puedes incluir strings, booleanos, números, etc.
+
+        mi_lista = ['Casa', 54, 'true', 'Arbol']
+
+
+
+        print(mi_lista)			-> ['Casa', 54, 'true', 'Arbol']
+
+
+        --------------------------------------------------------
+
+        Práctica Listas 2
+        Agrega el elemento "motocicleta" a la siguiente lista de medios de transporte:
+
+        medios_transporte = ["avión", "auto", "barco", "bicicleta"]
+
+        No debes modificar la línea de código ya suministrada, sino que debes emplear el método apropiado de listas para añadir un nuevo elemento.
+
+        medios_transporte = ["avión", "auto", "barco", "bicicleta"]
+
+
+
+        medios_transporte = ["avión", "auto", "barco", "bicicleta"]
+
+
+        modificado = ["motocicleta"]
+
+
+
+        nuevo= medios_transporte + modificado
+
+
+
+        print(medios_transporte)
+
+
+        print(nuevo)
+
+
+        --------------------------------------------------------
+                    -> VERLO
+        Práctica Listas 3
+        Utiliza el método pop() para quitar el tercer elemento de la siguiente lista llamada frutas, y almacénalo en una variable llamada eliminado. Utiliza métodos de listas sin alterar la línea de código ya suministrada.
+
+        manzana
+
+        banana
+
+        mango
+
+        cereza
+
+        sandía
+
+        frutas = ["manzana", "banana", "mango", "cereza", "sandía"]
+
+
+        frutas = ["manzana", "banana", "mango", "cereza", "sandía"]
+
+
+
+        eliminado = frutas.pop(2)
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <p id="6">6. Diccionarios</p>
+    <pre>
+        Colecciòn de pares de claves, cada clave tiene relacionada un determinado valor.
+        Dichas claves son ùnicas..
+
+        mi_dic = { 'c1':'valor1', 'c2':'valor2', 'c3':'valor3' }
+
+        Podemos buscar en los diccionarios en base a su clave.. 
+        No tiene un indice, un orden especifico.
+        El orden es irrelevante, buscamos valores en base a su clave.
+
+        Los diccionarios, util para guardar data que se relacione con otro concepto.
+        Caracteristicas de una persona por ejemplo.
+
+        --------------------------------------------------------
+
+        diccionario = {'c1':'valor1','c2':'valor2'}
+
+        print(type(diccionario))	-> <class 'dict'>
+
+        --------------------------------------------------------
+
+        diccionario = {'c1':'valor1','c2':'valor2'}
+
+        print(diccionario)		-> {'c1':'valor1','c2':'valor2'}
+
+
+        *Los valores se pueden repetir las claves no..
+
+        --------------------------------------------------------
+
+        diccionario = {'c1':'valor1','c2':'valor2'}
+
+        print(diccionario)
+
+        resultado = diccionario['c1']
+        print (resultado)		-> valor1
+
+        --------------------------------------------------------
+
+        cliente = {'nombre':'Juan', 'apellido': 'Fuentes', 'peso': 88, 'talla': 1.76}
+        consulta = (cliente['apellido'])
+
+        print(consulta)		-> Fuentes
+
+        --------------------------------------------------------
+        *Un diccionario puede contener listas, o un diccionario dentro de un diccionario
+                            ->Dic dentro de un dic
+        dic = {'c1': 55, 'c2':[10,20,30], 'c3':{'s1':100, 's2':200}}
+
+        print(dic['c2'])	->[10,20,30]
+
+        print(dic['c2'][1])	->20		->Busqueda especifica
+
+        print(dic'c3')		->{'s1':100, 's2':200}
+
+        print(doc['c3']['s2'])	->200
+
+        --------------------------------------------------------
+
+        dic = {'c1':['a','b','c'], 'c2':['d','e','f']}
+
+        print(dic['c2'][1])		-> e	
+
+        print(dic['c2'][1].upper())	-> E
+
+        print(dic['c1'][0].upper())	-> A
+        --------------------------------------------------------
+        *Agregar elementos a un diccionario
+
+        dic = {1: 'a', 2: 'b'}
+
+        print(dic)				-> {1: 'a', 2: 'b'}
+
+        dic[3] = 'c'
+
+        print(dic)			-> {1: 'a', 2: 'b', 3: 'c'}
+
+        dic[2] = 'B'
+
+        print(dic)			-> {1: 'a', 2: 'B', 3: 'c'}
+
+        print(dic.keys())		->dict_keys([1,2,3])
+        print(dic.values())		->dict_values(['a', 'b', 'c'])
+        print(dic.items())		->dic_items([(1,'a'), (2, 'B'), (3, 'c')])
+
+                                ->Entre parentesis significa que encontraremos una tupla. 
+    </pre>
+    <p class="practica">Práctica</p>
+    <pre>
+        --------------------------------------------------------
+
+        Práctica Diccionarios 1
+        Crea un diccionario llamado mi_dic que almacene la siguiente información de una persona:
+        
+        nombre: Karen
+        
+        apellido: Jurgens
+        
+        edad: 35
+        
+        ocupacion: Periodista
+        
+        Los nombres de las claves y valores deben ser iguales a la consigna.
+        
+        nombre: Karen
+        apellido: Jurgens
+        edad: 35
+        ocupacion: Periodista
+        
+        
+        mi_dic = {'nombre': 'Karen', 'apellido': 'Jurgens', 'edad': 35, 'ocupacion': 'Periodista'}
+        
+        print(mi_dic)
+        
+        --------------------------------------------------------
+        
+        Práctica Diccionarios 2
+        Crea una función print que devuelva del segundo item de la lista llamada points2, dentro del siguiente diccionario.
+        
+        Si el valor 300 cambiara en el futuro, el código debería funcionar igual para devolver el valor que se encuentre en esa misma posición. Para ello, deberás hacer referencia a los nombres de las claves y/o índices según corresponda.
+        
+        mi_dict = {"valores_1":{"v1":3,"v2":6},"puntos":{"points1":9,"points2":[10,300,15]}}
+        print(mi_dict[])
+        
+        
+        mi_dict = {"valores_1":{"v1":3,"v2":6},"puntos":{"points1":9,"points2":[10,300,15]}}
+        
+        
+        
+        print(mi_dict["puntos"]["points2"][1])
+        
+        --------------------------------------------------------
+        
+        Práctica Diccionarios 3
+        Actualiza la información de nuestro diccionario llamado mi_dic  (reasignando nuevos valores a las claves según corresponda), y agrega una nueva clave llamada "pais". Los nuevos datos son:
+        
+        nombre: Karen
+        
+        apellido: Jurgens
+        
+        edad: 36
+        
+        ocupacion: Editora
+        
+        pais: Colombia
+        
+        para ello, no debes cambiar la línea de código ya escrita, sino actualizar los valores mediante métodos de diccionarios.
+        
+        mi_dic = {"nombre":"Karen", "apellido":"Jurgens", "edad":35, "ocupacion":"Periodista"}
+        
+        
+        mi_dic = {"nombre":"Karen", "apellido":"Jurgens", "edad":35, "ocupacion":"Periodista"}
+        
+        
+        
+        mi_dic["pais"] = "Colombia"
+        
+        
+        
+        print(mi_dic)
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <p id="7">7. Tuples</p>
+    <pre>
+       
+    </pre>
+    <p class="practica">Práctica</p>
+    <pre>
+
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <p id="8">8. Redondeo</p>
+    <pre>
+        round(redondeo)	-> Permite reducir los decimales que deseemos.
+
+        round(param1, param2)
+
+        Puede redondear hacia arriba o hacia abajo
+
+        round(5.3)	-> 5
+        round(5.8)	-> 6
+        round(5.5)	-> 6	-> En el medio toma hacia arriba.
+        --------------------------------------------------------
+
+
+        print(round(90/7))	-> 13
+
+        --------------------------------------------------------
+            ->Podemos hacer el redondeo en la misma variable.
+
+        resultado = round(90/7)
+
+        print(resultado)
+
+        --------------------------------------------------------
+        resultado = 90/7
+        redondeo = round(resultado)
+
+        print(redondeo)
+
+        --------------------------------------------------------
+                -> Segundo parametro que indica los decimales, que veremos.
+                
+        valor = round(95.666666666666, 2)
+        print(valor) 	->95.67
+
+        --------------------------------------------------------
+        valor = round(95.666666)
+        print(valor)
+        print(type(valor))	-> int, 
+
+        valor = 95.666666
+        print(round(valor))
+        print(type(valor))	-> float 
+
+        --------------------------------------------------------
+    </pre>
+    <p class="practica">Práctica</p>
+    <pre>
+        --------------------------------------------------------
+
+        Práctica Redondeo 1
+        Redondea el resultado de la división 10/3 a un número con 2 decimales, y muestra en pantalla el valor redondeado.
+        
+        num = round(10/3, 2)
+        
+        
+        
+        print(num)
+        
+        --------------------------------------------------------
+        
+        Práctica Redondeo 2
+        Redondea el resultado de 10.676767 al entero más próximo, y muestra en pantalla el resultado.
+        
+        
+        valor = 10.676767
+        
+        -----------------
+        
+        valor = round(10.676767)
+        
+        
+        
+        print(valor)
+        
+        --------------------------------------------------------
+        Práctica Redondeo 3
+        Calcula la raíz cuadrada de 5, y muestra en pantalla el resultado redondeado con 4 posiciones decimales.
+        
+        raìz = round(5**0.5, 4)	
+        
+        
+        
+        print(raiz)			-> 2.2361
+        
+        --------------------------------------------------------
+        Proyecto del Dìa 2
+        
+        nombre = input("Hola, ingresa tu nombre de usuario:")
+        
+        ventas = float(input("Ingresa la cantidad vendida:"))
+        
+        
+        
+        porcentaje = round((ventas*13)/100, 2)
+        
+        
+        
+        print(f"Felicitaciones {nombre}, tu comisión serà de ${porcentaje}")
+        --------------------------------------------------------
+        
+            Solucion del Teacher.
+        
+        nombre = input("Por favor, dime tu nombre: ")
+        ventas = int(input("Diga sus ventas totales del mes: "))
+        
+        comision = round(ventas * 13 / 100, 2)
+        
+        print(f"Hola {nombre}, tus comisiones de este mes son de ${comision}")    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+
+    
+    <div class="context">
+        <a href="../2/index.html">Volver</a>
+        <a href="../../index.html">Inicio</a>
+        <a href="../4/index.html">Siguiente</a>
+    </div>
+
+    <script src="js/01.js"></script>
+
+</body>
+</html>

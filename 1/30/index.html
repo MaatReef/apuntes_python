@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción JavaScript - Desarrollo Web Completo</title>
+    <link rel="shortcut icon" type=image/jpg href="../../img/logo/favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css2?family=Carrois+Gothic+SC&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <div class="contenido">
+        
+        <p>JavaScript - Notas</p>
+    </div>
+
+    <h1>30 - Promise </h1>
+    <pre>
+        const usuarioAutenticado = new Promise( (resolve, reject) => {
+            const auth = true;
+        
+            if(auth) {
+                resolve('Usuario Autenticado'); // EL PROMISE SE CUMPLE
+            } else {
+                reject('No se pudo iniciar sesión'); // el promise no se cumple
+            }
+        });
+        
+        usuarioAutenticado
+            .then( resultado => console.log(resultado))
+            .catch( error => console.log(error))
+        
+        
+        // En los Promises existen 3 valores
+        // Pending : No se ha cumplido pero tampoco se ha rechazado
+        // Fulfilled : Ya se cumplio
+        // Rejected : Se ha rechazado o no se pudo cumplir
+    </pre>
+
+    
+    <br>
+    <br>
+
+    <div class="context">
+        <a href="../29/index.html">Volver</a>
+        <a href="../../index.html">Inicio</a>
+        <a href="../31/index.html">Siguiente</a>
+    </div>
+    <script src="js/30.js"></script>
+</body>
+</html>

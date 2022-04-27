@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción JavaScript - Desarrollo Web Completo</title>
+    <link rel="shortcut icon" type=image/jpg href="../../img/logo/favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css2?family=Carrois+Gothic+SC&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <div class="contenido">
+        
+        <p>JavaScript - Notas</p>
+    </div>
+
+    <h1>24 - For Each</h1>
+    <pre>
+        // For Loop
+
+        // for( let i = 0; i < 10; i++ ) {
+        //     console.log(i);
+        // }
+
+        // for( let i = 1; i <= 100; i++ ) {
+        //     if( i % 2 === 0 ) {
+        //         console.log(`El Número ${i} es PAR`);
+        //     } else {
+        //         console.log(`El Número ${i} es IMPAR`);
+        //     }
+        // }
+
+        const carrito = [
+            { nombre: 'Monitor 20 Pulgadas', precio: 500 },
+            { nombre: 'Televisión 50 Pulgadas', precio: 700 },
+            { nombre: 'Tablet', precio: 300 },
+            { nombre: 'Audifonos', precio: 200 },
+            { nombre: 'Teclado', precio: 50 },
+            { nombre: 'Celular', precio: 500},
+            { nombre: 'Bocinas', precio: 300},
+            { nombre: 'Laptop', precio: 800}
+        ];
+
+        for(let i = 0; i < carrito.length; i++ ) {
+            console.log( carrito[i].nombre );
+        }
+
+
+
+        // While Loop
+
+        // let i = 20; // Indice
+
+        // while(i < 10) { // Condición
+
+        //     console.log('Desde el while loop');
+
+        //     i++;  // Incremento
+        // }
+
+
+
+        // Do While Loop
+
+        let i = 100;
+
+        do {
+            console.log(i);
+
+            i++;
+        } while( i < 10);
+    </pre>
+
+    
+    <br>
+    <br>
+
+
+    <div class="context">
+        <a href="../23/index.html">Volver</a>
+        <a href="../../index.html">Inicio</a>
+        <a href="../25/index.html">Siguiente</a>
+    </div>
+    <script src="js/24.js"></script>
+</body>
+</html>

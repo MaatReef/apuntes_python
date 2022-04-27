@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción JavaScript - Desarrollo Web Completo</title>
+    <link rel="shortcut icon" type=image/jpg href="../../img/logo/favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css2?family=Carrois+Gothic+SC&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <div class="contenido">
+        
+        <p>JavaScript - Notas</p>
+    </div>
+
+    <h1>33 - Fetch Api</h1>
+    <pre>
+        async function obtenerEmpleados() {
+
+            const archivo = 'empleados.json';
+        
+            // fetch(archivo)
+            //     .then( resultado => resultado.json())
+            //     .then( datos => {
+            //         // console.log(datos.empleados);
+            //
+            //        const { empleados } = datos;
+            //        console.log(empleados);
+            
+            //        empleados.forEach( empleado => {
+            //              console.log(empleado);
+            //              console.log(empleado.id);
+            //              console.log(empleado.nombre);
+            //              console.log(empleado.puesto);
+            //        })        
+            //     });
+        
+            const resultado = await fetch(archivo);
+            const datos = await resultado.json();
+            console.log(datos);
+        }
+        obtenerEmpleados();
+    </pre>
+    
+    <br>
+    <br>
+
+    <div class="context">
+        <a href="../32/index.html">Volver</a>
+        <a href="../../index.html">Inicio</a>
+    </div>
+    <script src="js/33.js"></script>
+
+</body>
+</html>

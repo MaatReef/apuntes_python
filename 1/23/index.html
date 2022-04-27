@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción JavaScript - Desarrollo Web Completo</title>
+    <link rel="shortcut icon" type=image/jpg href="../../img/logo/favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css2?family=Carrois+Gothic+SC&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <div class="contenido">
+        
+        <p>JavaScript - Notas</p>
+    </div>
+
+    <h1>23 - Switch</h1>
+    <pre>
+        const metodoPago = 'efectivo';
+
+        switch(metodoPago) {
+            case 'tarjeta':
+                console.log('Pagaste con tarjeta');
+                break;
+            case 'cheque':
+                console.log('El usuario va a pagar con cheque, revisaremos los fondos primero');
+                break;
+            case 'efectivo':
+                console.log('Pagaste con efectivo');
+                break;
+            default:
+                console.log('Aún no has pagado');
+                break;
+        }
+    </pre>
+
+    
+    <br>
+    <br>
+
+    <div class="context">
+        <a href="../22/index.html">Volver</a>
+        <a href="../../index.html">Inicio</a>
+        <a href="../24/index.html">Siguiente</a>
+    </div>
+    <script src="js/23.js"></script>
+</body>
+</html>

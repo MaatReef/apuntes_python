@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción JavaScript - Desarrollo Web Completo</title>
+    <link rel="shortcut icon" type=image/jpg href="../../img/logo/favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css2?family=Carrois+Gothic+SC&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <div class="contenido">
+        
+        <p>JavaScript - Notas</p>
+    </div>
+
+    <h1>26 - This</h1>
+    <pre>
+        // This
+        const reservacion = {
+            nombre: 'Maat',
+            apellido: 'Reef',
+            total: 5000,
+            pagado: false,
+            informacion: function() {
+                console.log(`El Cliente ${this.nombre} reservó y su cantidad a pagar es de ${this.total}`);
+            }
+        }
+
+        const reservacion2 = {
+            nombre: 'Andrea',
+            apellido: 'Rupert',
+            total: 5000,
+            pagado: false,
+            informacion: function() {
+                console.log(`El Cliente ${this.nombre} reservó y su cantidad a pagar es de ${this.total}`);
+            }
+        }
+
+        reservacion.informacion();
+        reservacion2.informacion();
+    </pre>
+
+    
+    <br>
+    <br>
+
+
+    <div class="context">
+        <a href="../25/index.html">Volver</a>
+        <a href="../../index.html">Inicio</a>
+        <a href="../27/index.html">Siguiente</a>
+    </div>
+    <script src="js/26.js"></script>
+</body>
+</html>

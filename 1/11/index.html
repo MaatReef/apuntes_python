@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción JavaScript - Desarrollo Web Completo</title>
+    <link rel="shortcut icon" type=image/jpg href="../../img/logo/favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css2?family=Carrois+Gothic+SC&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <div class="contenido">
+        
+        <p>JavaScript - Notas</p>
+    </div>
+
+    <h1>11 - Destructuring</h1>
+    <pre>
+        // Objetos
+        const producto = {
+            nombreProducto : "Monitor 20 Pulgadas",
+            precio: 300,
+            disponible: true
+        }
+
+        // Forma anterior
+        // const precioProducto = producto.precio;
+        // const nombreProducto = producto.nombreProducto;
+
+        // console.log(precioProducto);
+        // console.log(nombreProducto);
+
+
+        // Destructuring
+        const {precio, nombreProducto } = producto;
+
+        console.log(precio);
+        console.log(nombreProducto);
+    </pre>
+    
+    <br>
+    <br>
+
+
+    <div class="context">
+        <a href="../10/index.html">Volver</a>
+        <a href="../../index.html">Inicio</a>
+        <a href="../12/index.html">Siguiente</a>
+    </div>
+    <script src="js/11.js"></script>
+
+</body>
+</html>

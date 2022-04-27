@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción JavaScript - Desarrollo Web Completo</title>
+    <link rel="shortcut icon" type=image/jpg href="../../img/logo/favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css2?family=Carrois+Gothic+SC&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <div class="contenido" id="arriba">
+        <p>Python - Notas</p>
+    </div>
+
+    <h1>1 - Programa un Creador de Nombres</h1>
+    <ol>
+        <li><a href="#1">¿Por Qué Python?</a></li>
+        <li><a href="#2">Instalar Python y Pycharm</a></li>
+        <li><a href="#3">Declaración Print </a></li>
+        <li><a href="#4">Strings -> Cadenas de Texto</a></li>
+        <li><a href="#5">Input</a></li>
+    </ol>
+
+    <p id="1">1. ¿Por Qué Python?</p>
+    <pre>
+        Lenguaje de Alto Nivel.
+        Similar al Lenguaje Humano.
+        Ideal para Principiantes.
+    
+        Más productividad, menos código.
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <p id="2">2. Instalar Python y Pycharm</p>
+    <pre>
+        IDE -> Entorno Integrado de Desarrollo
+        Entornos virtuales
+	        Ventajas
+        -Asistencia en la Estructura
+        -Detección de Errores
+        -Depuración
+        -Ejecutar simulaciones, etc
+
+        Usado en este Curso Pycharm	
+        ->https://www.jetbrains.com/pycharm/download/?source=google&medium=cpc&campaign=14127625370&gclid=CjwKCAiAv_KMBhAzEiwAs-rX1E69P0BVt7lxCoibh3yc-_pm1cxARFzrlXOhX_Gm3pTbTP5pqkZILBoCBgYQAvD_BwE#section=windows
+
+        Descargar communnity
+
+        Los archivos terminan con .py
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <p id="3">3. Declaración Print </p>
+    <pre>
+        Imprimir por pantalla -> Mostrar en pantalla
+
+        print (" ")
+
+        Pycharm maneja el inglés, debemos cambiarlo para evitar que pinte los errores
+        ->File ->Setting ->Editori ->Inspections ->ProofReading ->Typo (Desactivado)
+
+        Le damos Run -> Primer Proyecto
+
+        Para imprimir comillas dentro de un pint las ponemos como comillas simples
+        O al revés..	
+        print("Hola mundo te digo 'Hola'")
+
+        Los números no necesitan comillas
+    </pre>
+    <img src="img/1-Print.PNG" alt="">
+    <p class="practica">Práctica</p>
+    <pre>
+        --------------------------------------------------------
+        Práctica Print 1 - 
+        Crea un código que imprima en pantalla la expresión Me encanta estudiar Python. Aclaración: presta mucha atención al texto que debes reproducir, ya que errores ortográficos y de puntuación, espacios en blanco adicionales y saltos de línea innecesarios pueden ocasionar errores inesperados que no son detectados por el módulo de evaluación, devolviendo un error en tu ejercicio.
+        
+        print("Me encanta estudiar Python")
+        --------------------------------------------------------
+        Práctica Print 2 -
+        Crea un código que imprima en pantalla la expresión Estudiar con "Python Total" es super divertido 
+        
+        print('Estudiar con "Python Total" es super divertido')
+        --------------------------------------------------------
+        Práctica Print 3 -
+        Crea un código que imprima en pantalla el número 555, pero no debes imprimirlo directamente, sino como resultado de una operación matemática 
+
+        print(5+550)
+        --------------------------------------------------------
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <p id="4">4. Strings -> Cadenas de Texto</p>
+    <pre>
+        Cadena de Caracteres.
+
+        print('100 + 50') -> String (Entre comillas)
+
+        print("Hola"+'Fede') -> Holafede
+
+        print("Hola "+'Fede') -> Hola fede
+
+        print("Hola"+ " " + 'Fede') -> Hola fede
+
+        print("Me llamo \"Federico\"") -> Me llamo "Federico 	->Con \ Escapamos caracteres
+
+        print("Esta es una lina\nY esta es otra linea")		->Esta es una linea
+                                    ->Y esta es otra linea
+
+        print("\tEsta es la tercera linea") ->\t tabula 4 caracteres	->	Esta es la tercera linea
+
+        print('This isn\'t a number') ->Escapamos el apostofre		->This isn't a number
+
+        print('Este signo \\ es una barra invertida')			-> \ Para imprimir la barra
+    </pre>
+    <img src="img/2-Strings.PNG" alt="">
+    <p class="practica">Práctica</p>
+    <pre>
+        --------------------------------------------------------
+        Práctica String 1 - 
+        Crea un código que imprima en pantalla la siguiente expresión (pero usando print una sola vez): Línea 1 Línea 2 Línea 3
+        
+        print("Línea 1\nLínea 2\nLínea 3")
+        --------------------------------------------------------
+        Práctica String 2 - 
+        Crea un código que imprima en pantalla la siguiente expresión. A B C D E F G H I Notas: - Observa que la distancia horizontal entre los números ha sido creada con una tabulación
+        
+        
+        print("A\tB\tC\nD\tE\tF\nG\tH\tI")
+        --------------------------------------------------------
+        Práctica String 3 - 
+        Crea un código que imprima en pantalla la siguiente expresión: Barra Normal: / Barra Invertida: \ 
+
+        print("Barra Normal: /\nBarra Invertida: \\")
+        --------------------------------------------------------
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <p id="5">5. Input -> Un Prompt</p>
+    <pre>
+        print(input("Dime tu nombre: "))	
+        print(input("Dime tu apellido: "))
+
+        print("Tu nombre es " + input("Dime tu nombre: "))		->Se imprime el texto y la función
+
+        print("Tu nombre es " + input("Dime tu nombre: " + " " + input ("Dime tu apellido: " ))
+
+        print("Tu nombre es " + (input("Dime tu nombre: ")) + " " + (input ("Dime tu apellido: " )))
+                        ->Input dentro de () para visualizarlo mejor.
+    </pre>
+    <img src="img/3-input.PNG" alt="">
+    <p class="practica">Práctica</p>
+    <pre>
+        --------------------------------------------------------
+        Práctica Input 1 -  
+        Crea un código que le permita ingresar una respuesta al usuario, haciéndole la siguiente pregunta: ¿Qué estás estudiando? El código debe poder imprimir en pantalla lo ingresado por el usuario (utilizando print)
+        
+        print(input("¿Qué estás estudiando?"))
+        --------------------------------------------------------
+        Práctica Input 2 - 
+        Crea un código que le permita ingresar una respuesta al usuario, haciéndole la siguiente pregunta: ¿En qué país vives? El código debe poder imprimir en pantalla lo ingresado por el usuario (utilizando print).
+        
+        print(input("¿En qué país vives?"))
+        --------------------------------------------------------
+        Práctica Input 3 - 
+        Crea un código que muestre en pantalla el nombre completo del usuario, permitiéndole ingresar su nombre y apellido con las siguientes instrucciones: Escribe tu nombre: Escribe tu apellido: El código debe poder imprimir en pantalla el nombre y apellido del usuario, separados por un espacio.
+        
+        print(input("Escribe tu nombre:")+" "+input("Escribe tu apellido:"))
+        --------------------------------------------------------
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+
+    
+    <div class="context">
+        <a href="../../index.html">Inicio</a>
+        <a href="../2/index.html">Siguiente</a>
+    </div>
+
+    <script src="js/01.js"></script>
+
+</body>
+</html>

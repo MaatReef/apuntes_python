@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción JavaScript - Desarrollo Web Completo</title>
+    <link rel="shortcut icon" type=image/jpg href="../../img/logo/favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css2?family=Carrois+Gothic+SC&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <div class="contenido">
+        
+        <p>JavaScript - Notas</p>
+    </div>
+
+    <h1>32 - Async / await</h1>
+    <pre>
+        // Async / await
+
+        function descargarNuevosClientes() {
+            return new Promise( resolve => {
+                console.log('Descargando clientes... espere...');
+
+                setTimeout( () => {
+                    resolve('Los Clientes fueron Descargados');
+                }, 5000 );
+            });
+        }
+
+        function descargarUltimosPedidos() {
+            return new Promise( resolve => {
+                console.log('Descargando pedidos... espere...');
+
+                setTimeout( () => {
+                    resolve('Los Pedidos fueron Descargados');
+                }, 3000 );
+            });
+        }
+
+        async function app() {
+        try {
+            //    const clientes = await descargarNuevosClientes();
+            //    const pedidos = await descargarUltimosPedidos();
+            //    console.log(clientes);
+            //    console.log(pedidos);
+
+            const resultado = await Promise.all([ descargarNuevosClientes(), descargarUltimosPedidos() ]);
+            console.log(resultado[0]);
+            console.log(resultado[1]);
+        } catch (error) {
+            console.log(error);
+        }
+
+        
+        }
+
+        app();
+    </pre>
+    
+    <br>
+    <br>
+
+    <div class="context">
+        <a href="../31/index.html">Volver</a>
+        <a href="../../index.html">Inicio</a>
+        <a href="../33/index.html">Siguiente</a>
+    </div>
+    <script src="js/32.js"></script>
+
+</body>
+</html>
