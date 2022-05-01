@@ -1839,7 +1839,57 @@
     </pre>
     <p class="practica">Práctica</p>
     <pre>
+        from random import randint
+        print("Bienvenido al 'adivina el número'")
+        nombre = input("Ingresa tu nombre: ")
+        print(f"Muy bien {nombre}, tendrás 8 intentos para adivinar un número del 1 al 100.")
+        chances = 8
+        num = aleatorio = randint(1,100)
+        print(num)
 
+        while chances > 0:
+        eleccion = int(input("Elige un numero entre el 1 al 100: \n"))
+        if eleccion < 0 or eleccion > 100:
+            print("Debes elegir un número entre el 1 y el 100")
+        elif eleccion == num:
+            print("¡Muy bien, ganastes!")
+            print(f"Te quedaron {chances} intentos")
+            print("Vuelve a empezar")
+            break
+        elif eleccion < num:
+            print(f"El número {eleccion} elegido es menor al número secreto")
+        elif eleccion > num:
+            print(f"El número {eleccion} elegido es mayor al número secreto")
+        chances = chances -1
+        print(f"Te quedan un total de {chances} chances\n")
+        if chances == 0:
+            print(f"¡Sin chances, perdistes!")
+    </pre>
+    <p class="practica">Práctica - Solución del Instructor</p>
+    <pre>
+        from random import randint
+
+        intentos = 0
+        estimado = 0
+        numero_secreto = randint(1,100)
+        nombre = input("Dime tu nombre: ")
+
+        print(f"Bueno {nombre}, he pensado un número entre 1 y 100\nTienes 8 intentos para adivinar")
+
+        while intentos < 8:
+            estimado = int(input("Cuál es el número?: "))
+            intentos += 1
+
+            if estimado < numero_secreto:
+                print("Mi numero es mas alto")
+            elif estimado > numero_secreto:
+                print("Mi numero es mas bajo")
+            else:
+                print(f"Felicitaciones {nombre}! Has adivinado en {intentos} intentos")
+                break
+
+        if estimado != numero_secreto:
+            print(f"Lo siento, se han agotado los intentos. El numero secreto era {numero_secreto}")
     </pre>
     <br> 
     <br> 
