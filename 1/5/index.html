@@ -31,8 +31,7 @@
         <li><a href="#8">Argumentos Indefinidos (*args)</a></li>
         <li><a href="#9">Argumentos Indefinidos (**kwargs)</a></li>
         <li><a href="#10">Problemas Prácticos</a></li>
-        <li><a href="#11">Solución a los Problemas Prácticos</a></li>
-        <li><a href="#12">Proyecto del Dìa</a></li>
+        <li><a href="#11">Proyecto del Dìa</a></li>
     </ol>
 
     <p id="1">1. Métodos, Ayuda y Documentación</p>
@@ -1099,35 +1098,304 @@
     </div>
     <p id="10">10. Problemas Prácticos</p>
     <img src="img/11.1 Ejercicio_1.PNG" alt="">
+    <p class="practica">Práctica</p>
+    <pre>
+        --------------------------------------------------------
+        Ejercicio 1
+        
+        def devolver_distintos(num1, num2, num3):
+            total = num1 + num2 + num3
+            if total > 15:
+                print("Numero mayor a 15")
+                if num1 > num2 and num1 > num3:
+                  print(f"El Numero mayor ingresado es {num1}")
+                elif num2 > num1 and num2 > num3:
+                  print(f"El Numero mayor ingresado es {num2}")
+                else:
+                  print(f"El Numero mayor ingresado es {num3}")
+            elif total < 10:
+                print("Numero menor a 10")
+                if num1 < num2 and num1 < num3:
+                  print(f"El Numero menor ingresado es{num1}")
+                elif num2 < num1 and num2 < num3:
+                  print(f"El Numero menor ingresado es {num2}")
+                else:
+                  print(f"El Numero menor ingresado es {num3}")
+            else:
+                print("Numero entre 10 y 15")
+                if num1 > num2 and num1 < num3:
+                  print(f"El Numero medio ingresado es  {num1}")
+                elif num2 > num1 and num2 < num3:
+                  print(f"El Numero medio ingresado es  {num2}")
+                else:
+                  print(f"El Numero medio ingresado es {num3}")
+        
+        devolver_distintos(1, 10, 2)
+        
+        --------------------------------------------------------
+        
+        Resoluciòn del Instructor
+        
+        def devolver_distintos(a,b,c):
+        
+            suma = a+b+c
+            lista = [a,b,c]
+        
+            if suma > 15:
+                return max(lista)
+            elif suma < 10:
+                return min(lista)
+            else:
+                lista.sort()
+                return lista[1]
+        
+        print(devolver_distintos(20,5,7))
+        
+        --------------------------------------------------------
+    </pre>
     <br> 
     <br> 
     <img src="img/11.2 Ejercicio_2.PNG" alt="">
+    <p class="practica">Práctica</p>
+    <pre>
+        --------------------------------------------------------
+
+        Ejercicio 2
+        
+        Resolución del Instructor
+        
+        def letras_unicas(palabra):
+        
+            mi_set = set()
+        
+            for letra in palabra:
+                mi_set.add(letra)
+        
+            mi_lista = list(mi_set)
+            mi_lista.sort()
+        
+            return mi_lista
+        
+        print(letra_unicas("entretenido"))
+        
+        --------------------------------------------------------
+    </pre>
     <br> 
     <br> 
+
     <img src="img/11.3 Ejercicio_3.PNG" alt="">
+    <p class="practica">Práctica</p>
+    <pre>
+
+        --------------------------------------------------------
+
+        Ejercicio 3
+        
+        def ceros_vecinos(*args):
+        
+            contador = 0
+        
+            for num in args:
+            
+                if contador + 1 == len(args):
+                    return False
+                elif args[contador] == 0 and args[contador + 1] == 0:
+                    return True
+                else:
+                    contador  += 1
+            
+            return False
+        
+        print(ceros_vecinos(5,6,6,4,2,3,4,5))			-> False
+        
+        print(ceros_vecinos(5,6,0,0,2,3,4,5))			-> True
+        
+        --------------------------------------------------------
+    </pre>
     <br> 
     <br> 
     <img src="img/11.4 Ejercicio_4.PNG" alt="">
-    <br> 
-    <br> 
-    <div class="context">
-        <a href="#arriba">Arriba</a>
-    </div>
-    <p id="11">11. Solución a los Problemas Prácticos</p>
     <p class="practica">Práctica</p>
     <pre>
+        --------------------------------------------------------
+
+        Ejercicio 4
         
+        def contar_primos(numero):
+        
+            primos = [2]
+            iteracion = 3
+        
+            if numero < 2:
+                return 0
+        
+            while iteracion <= numero:
+                
+                for n in range(3, iteracion, 2):
+        
+                    if iteracion % n == 0:
+                        iteracion += 2
+                        break
+                else:
+                    primos.append(iteracion)
+                    iteracion += 2
+            print(primos)
+            return len(primos)
+        
+        print(contar_primos(50))		-> [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]
+                            -> 15
+        
+        print(contar_primos(1))			-> 0
+        
+        --------------------------------------------------------
     </pre>
     <br> 
     <br> 
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
-    <p id="12">12 - Proyecto del Día.</p>
+    <br> 
+    <br> 
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <p id="11">11 - Proyecto del Día.</p>
     <img src="img/14.1 Diagrama Ahorcado.png" alt="">
     <p class="practica">Práctica</p>
     <pre>
+        --------------------------------------------------------
+        El programa elige una palabra secreta
+        El progrma muestra una serie de guiones que muestra la cantidad de letras de la palabra elegida.
+        El jugador elige una letra, si la letra hace el match con alguna de la palabra se revela.
+        El jugador tiene 6 vidas, si la descubre antes de perder todas las vidas, gana
         
+        Pistas
+        - Primero importar el metodo choice, para elegir una palabra de una lista
+        - Crear funciones, 	pedir letra
+                    validar letra
+                    chequear letra
+                    ver si ganó
+        - Las funciones primero y luego implementarlas.
+        
+        --------------------------------------------------------
+        Dibujar el grafico, con un diagrama de flujo
+
+        *Refrescar
+        Funciones que devuelven info..
+            def una_funcion(mi_lista):
+                return choice(mi_lista)
+        
+        Funciones que muestran info..
+            def otra_funcion(mi_lista):
+                print(mi_lista)
+        
+        El usaurio solo debe ingresar A, B, o C
+        
+        def eleccion_usuario():
+            ingreso = 'x'
+            while ingreso not in 'abc':
+                ingreso = input("Por facor elige [a] [b] [c]")
+            return ingreso
+        
+        --------------------------------------------------------
+    </pre>
+    <p class="practica">Práctica</p>
+    <pre>
+        --------------------------------------------------------
+        from random import choice
+
+        palabras = ['panadero', 'dinosaurio', 'helipuerto', 'tiburon']
+        letras_correctas = []
+        letras_incorrectas = []
+        intentos = 6
+        aciertos = 0
+        juego_terminado = False
+        
+        
+        def elegir_palbra(lista_palabras):
+            palabra_elegida = choice(lista_palabras)
+            letras_unicas = len(set(palabra_elegida))
+        
+            return palabra_elegida, letras_unicas
+        
+        
+        def pedir_letra():
+            letra_elegida = ''
+            es_valida = False
+            abecedario = 'abcdefghijklmnñopqrstuvwxyz'
+        
+            while not es_valida:
+                letra_elegida = input("Elige una letra: ")
+                if letra_elegida in abecedario and len(letra_elegida) == 1:
+                    es_valida = True
+                else:
+                    print("No has elegido una letra correcta")
+        
+            return letra_elegida
+        
+        
+        def mostrar_nuevo_tablero(palabra_elegida):
+        
+            lista_oculta = []
+        
+            for l in palabra_elegida:
+                if l in letras_correctas:
+                    lista_oculta.append(l)
+                else:
+                    lista_oculta.append('-')
+        
+            print(' '.join(lista_oculta))
+        
+        
+        def chequear_letra(letra_elegida, palabra_oculta, vidas, coincidencias):
+        
+            fin = False
+        
+            if letra_elegida in palabra_oculta:
+                letras_correctas.append(letra_elegida)
+                coincidencias += 1
+            else:
+                letras_incorrectas.append(letra_elegida)
+                vidas -= 1
+        
+            if vidas == 0:
+                fin = perder()
+            elif coincidencias == letras_unicas:
+                fin = ganar(palabra_oculta)
+        
+            return vidas, fin, coincidencias
+        
+        
+        def perder():
+            print("Te has quedado sin vidas")
+            print("La palabra oculta era " + palabra)
+        
+            return True
+        
+        
+        def ganar(palabra_descubierta):
+            mostrar_nuevo_tablero(palabra_descubierta)
+            print("Felicitaciones, has encontrado la palabra!!!")
+        
+            return True
+        
+        
+        palabra, letras_unicas = elegir_palbra(palabras)
+        
+        while not juego_terminado:
+            print('\n' + '*' * 20 + '\n')
+            mostrar_nuevo_tablero(palabra)
+            print('\n')
+            print('Letras incorrectas: ' + '-'.join(letras_incorrectas))
+            print(f'Vidas: {intentos}')
+            print('\n' + '*' * 20 + '\n')
+            letra = pedir_letra()
+        
+            intentos, terminado, aciertos = chequear_letra(letra,palabra,intentos,aciertos)
+        
+            juego_terminado = terminado
+        
+        --------------------------------------------------------
     </pre>
     <br> 
     <br> 
