@@ -19,174 +19,375 @@
         <p>Python - Notas</p>
     </div>
 
-    <h1>5 - Programa el Juego 'El Ahorcado'.</h1>
+    <h1>6 - Programa un Recetario.</h1>
     <ol>
-        <li><a href="#1">Métodos, Ayuda y Documentación</a></li>
-        <li><a href="#2">Funciones</a></li>
-        <li><a href="#3">Crear Funciones</a></li>
-        <li><a href="#4">Return</a></li>
-        <li><a href="#5">Funciones Dinamicas</a></li>
-        <li><a href="#6">Ejemplo de Función</a></li>
-        <li><a href="#7">Interacción entre Funciones</a></li>
-        <li><a href="#8">Argumentos Indefinidos (*args)</a></li>
-        <li><a href="#9">Argumentos Indefinidos (**kwargs)</a></li>
-        <li><a href="#10">Problemas Prácticos</a></li>
-        <li><a href="#11">Solución a los Problemas Prácticos</a></li>
-        <li><a href="#12">Proyecto del Dìa</a></li>
+        <li><a href="#1">Meta del Día 6</a></li>
+        <li><a href="#2">Abrir y Manipular Archivos</a></li>
+        <li><a href="#3">Crear y Escribir Archivos</a></li>
+        <li><a href="#4">Directorios</a></li>
+        <li><a href="#5">Pathlib</a></li>
+        <li><a href="#6">Path</a></li>
+        <li><a href="#7">Limpiar la Consola</a></li>
+        <li><a href="#8">Archivos y Funciones</a></li>
+        <li><a href="#9">Proyecto del Día 6</a></li>
+        <li><a href="#10">Solución al Proyecto del Día 6 - Parte 1</a></li>
+        <li><a href="#11">Solución al Proyecto del Día 6 - Parte 2</a></li>
+        <li><a href="#13">Solución al Proyecto del Día 6 - Parte 3</a></li>
+        <li><a href="#14">Solución al Proyecto del Día 6 - Parte 4</a></li>
+        <li><a href="#15">Probando el Proyecto del Día 6</a></li>
+        <!-- <li><a href="#12"></a></li> -->
     </ol>
 
-    <p id="1">1. Métodos, Ayuda y Documentación</p>
+    <p id="1">1. Meta del Día 6</p>
     <pre>
+        Crear un Recetario, còdigo que se capaz de almacenar una colección de Archivos que contiene recetas.
+        El programa serà capaz de leer esas recetas, de crear recetas nuevas, de elminarlas, de crear y eliminar categorias.
 
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
-        
+        Administrar carpetas y archivos desde python
+
+        -Abrir y manipular archivos
+        -Crear archivos nuevos
+        -Escribir y sobreescribir archivos
+        -Navegar entre directorios
+        -Crear y Eliminar carpetas
+        -Pathlib y Path
     </pre>
     <br> 
     <br> 
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
-    <p id="2">2. Funciones</p>
+    <br>
+    <br>
+    <p id="2">2. Abrir y Manipular Archivos</p>
     <pre>
+        Lo haremos con Python
+        E/S = Entrada / Salida
         
+        I/o = Input / Output
+        
+        -Abrir		-> Open()		-> mi_archivo = open('archivo.txt')	-> Alojando variables.
+        -Leer		-> Read()
+        -Escribir 	-> Write()
+        -Cerrar		-> close()
+        
+        --------------------------------------------------------
+        Para abrir un archivo que ya sabemos que existe desde pycharm
+        
+        mi_archivo = open('prueba.txt')		-> Abrimos
+        
+        print(mi_archivo)			-> Ejecutamos el archivo entre < >
+        
+                        
+        print(mi_archivo.read())		-> Leemos y mostramos
+        
+        
+        mi_archivo.close()			-> Recomendación, cerrarlo.
+        
+        --------------------------------------------------------
+        
+        mi_archivo = open('prueba.txt')		
+        
+                        
+        print(mi_archivo.readline())		-> Leemos una linea
+        
+        
+        mi_archivo.close()			
+        
+        --------------------------------------------------------
+        
+        
+        mi_archivo = open('prueba.txt')		
+        
+                        
+        una_linea = mi_archivo.readline()
+        
+        print(una_linea)				-> Imprimimos una linea
+        
+        
+        mi_archivo.close()			
+        
+        
+        --------------------------------------------------------
+        *Curiosidad para imprimir las siguientes líneas.
+        
+        
+        mi_archivo = open('prueba.txt')		
+        
+                        
+        una_linea = mi_archivo.readline()
+        print(una_linea)					->Imprimimos una linea tras otra, curiosidad que sucede si se pone así.
+                                    -> Además imprime el salto de línea.
+        una_linea = mi_archivo.readline()			
+        print(una_linea)					->El sistema guarda un punto, al insistir nuevamente, reanuda desde el ultimo punto guardado.
+        
+        una_linea = mi_archivo.readline()
+        print(una_linea)				
+        
+        
+        mi_archivo.close()			
+        
+        --------------------------------------------------------
+        
+        
+        
+        mi_archivo = open('prueba.txt')		
+        
+                        
+        una_linea = mi_archivo.readline()
+        print(una_linea)					
+        
+        una_linea = mi_archivo.readline()			
+        print(una_linea.rstrip())					->rstri() No muestra el salto de linea, la segunda linea quedará pegada con la tercera.
+        
+        una_linea = mi_archivo.readline()
+        print(una_linea)				
+        
+        
+        mi_archivo.close()			
+        
+        --------------------------------------------------------
+        *Al ser una colección de Strings, podemos aplicarles sus métodos. 
+        Por ejemplo, poner una línea en mayúsculas
+        
+        print(una_linea.upper())					-> En mayùsculas
+        
+        --------------------------------------------------------
+        
+        *También podremos iterar a través de un Loop
+        
+        mi_archivo = open('prueba.txt')
+        
+        
+        for l in mi_archivo:
+            print("Aqui dice: " + l)			-> Podemos imprimir cada línea y manipular cada ciclo de nuestro bucle.
+        
+        
+        mi_archivo.close()
+        
+        --------------------------------------------------------
+        *Para leer todas las lineas, usamos el método en plural .readlines()
+        *Recomendación, no utilizarlo demasiadas veces, ya que si el archivo es demasiado grande, podremos quedarnos sin memoria.
+        
+        mi_archivo = open('prueba.txt')
+        
+        
+        todas = mi_archivo.readlines()
+        
+        print(todas)				-> Imprimimos una lista con cada uno de los elementos del texto apuntado.
+        
+        
+        mi_archivo.close()
+        
+        --------------------------------------------------------
+        
+        
+        mi_archivo = open('prueba.txt')
+        
+        
+        todas = mi_archivo.readlines()
+        
+        todas = todas.pop()
+        
+        print(todas)					-> Obtenemos la ultima linea que excluimos con pop
+        
+        
+        mi_archivo.close()
+        
+                
     </pre>
+    <br>
+    <br>
+    <img src="img/2.1 Abrir y Leer Archivos.PNG" alt="">
+    <br>
+    <br>
     <p class="practica">Práctica</p>
     <pre>
-
+        --------------------------------------------------------
+        Práctica del Día
+        ----------------
+        Práctica Abrir y Manipular Archivos 1
+        Abre el archivo texto.txt e imprime su contenido.
         
+        Nota: el archivo se encuentra guardado en la misma carpeta donde se aloja tu código
+        
+        archivo = open("texto.txt")
+        print(archivo.read())
+        
+        --------------------------------------------------------
+        Práctica Abrir y Manipular Archivos 2
+        Imprime la primera línea del archivo texto.txt
+        
+        No olvides abrir el archivo y cerrarlo luego de ejecutar tu código.
+        
+        Nota: el archivo se encuentra guardado en la misma carpeta donde se aloja tu código
+        
+        mi_archivo = open("texto.txt")
+        print(mi_archivo.readline())
+        
+        --------------------------------------------------------
+        
+        Práctica Abrir y Manipular Archivos 3
+        Abre el archivo texto.txt e imprime únicamente la segunda línea
+        
+        archivo = open("texto.txt")
+        lineas = archivo.readlines()
+        print(lineas[1])
+        
+        # Alternativa de solución admitida:
+        # lineas = archivo.readline()
+        # lineas = archivo.readline()
+        # print(lineas)
+        
+        --------------------------------------------------------
     </pre>
     <br> 
     <br> 
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
-    <p id="3">3. Crear Funciones</p>
+    <br>
+    <br>
+    <p id="3">3. Crear y Escribir Archivos</p>
     <pre>
+        Ahora tocarà como hacer cambios en el archivo original, en el anterior ejemplo utilizabamos una variable para ayudarnos.
+
+        --------------------------------------------------------
+        De acuerdo a los modos de apertura tendremos
         
+        mi_archivo = open('archivo.txt', 'r')			-> Modo solo lecutra, sin posibilidad de realizar modificaciones en el archivo.
+                                    -> Esta opción viene por defecto.
+        
+        mi_archivo = open('archivo.txt', 'w')			-> Modo solo escritura, si el archivo ya existe es vaciado, se resetea a cero
+                                    -> Si no existe el archivo, lo crea.
+        
+        mi_archivo = open('archivo.txt', 'a')			-> Modo solo escritura posicionandose al final del archivo.
+                                    -> Se crea en caso de que el archivo no exista
+                                    -> Si existe, se posiciona al final del documento, para poder modificarlo a partir de allí.
+        
+        --------------------------------------------------------
+        
+        
+        archivo = open('prueba.txt', 'r')		-> Error en la r, lectura, debemos abrirlo en escritura
+        
+        archivo.write('soy el nuevo texto')		
+        
+        archivo.close()
+        
+        --------------------------------------------------------
+        
+        archivo = open('prueba1.txt', 'w')			-> Escritura, si el archivo tiene texto, lo reemplazamos con el nuevo.	
+        
+        archivo.write('soy el nuevo texto')			-> El archivo tendrá este nuevo contenido a partir de ahora, sobreescribiendo lo anterior.
+        
+        archivo.close()
+        
+        --------------------------------------------------------
+        
+        *Para el salto de línea colocar el \n
+        archivo.write('soy el nuevo texto\n')			
+        O bien
+        archivo.write('''Hola
+        mundo
+        aqui
+        estoy''')			-> otra manera de incorporar el salto de línea.
+        --------------------------------------------------------
+        
+        archivo = open('prueba.txt', 'w')
+                                        -> Poco uso, si se tiene una lista de strings, para escribir en diferentes líneas
+                                        -> Mejor usar un loop for con el método write, para escribir cada elemento separado con un 								salto de linea
+        archivo.writelines(['hola', 'mundo', 'aqui', 'estoy'])		-> Algo confuso, porque en realidad escribe todos los strings uno atras de otro.
+                                        -> holamundoaquiestoy		
+        archivo.close()
+        
+        --------------------------------------------------------
+        
+        archivo = open('prueba.txt', 'w')
+        
+        lista =['hola', 'mundo', 'aqui', 'estoy']
+        
+        
+        for p in lista:					-> Evitamos el uso anterior y lo mejoramos a través del ciclo con writelines, en fin, poco práctico.
+            archivo.writelines(p + '\n')
+                                                
+        archivo.close()
+        
+        --------------------------------------------------------
+        *Usado el 'a', para agregar al final, de esta manera incluimos un log, un registro de un programa que quedará registrado en un archivo. 
+        
+        archivo = open('prueba.txt', 'a')		-> Con w, borraría el contenido anterior y con r no podriamos, solo lectura.
+        
+        
+        arcivo.write('bienvenido')
+                    
+                                    
+        archivo.close()
+        
+        --------------------------------------------------------        
     </pre>
+    <br>
+    <br>
+    <img src="img/3.1 Crear y Escribir Archivos.PNG" alt="">
+    <br>
+    <br>
     <p class="practica">Practica</p>
     <pre>
+        --------------------------------------------------------
+        Práctica:
+        ---------
         
-    </pre>
-    <br> 
-    <br> 
-    <div class="context">
-        <a href="#arriba">Arriba</a>
-    </div>
-    <p id="4">4. Return</p>
-    <pre>
+        Práctica Crear y Escribir Archivos 1
+        Abre el archivo llamado "mi_archivo.txt", y cambia su contenido por el texto "Nuevo texto".
         
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
+        Imprime el contenido completo de "mi_archivo.txt" al finalizar.
         
-    </pre>
-    <br> 
-    <br> 
-    <div class="context">
-        <a href="#arriba">Arriba</a>
-    </div>
-    <p id="5">5. Funciones Dinamicas</p>
-    <pre>
+        Pista: deberás cerrarlo en modo escritura y volverlo a abrir en modo lectura.
         
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
+        archivo = open("mi_archivo.txt", "w")
+        archivo.write("Nuevo texto")
+        archivo.close()
+        archivo = open("mi_archivo.txt", "r")
+        print(archivo.read())
         
-    </pre>
-    <br> 
-    <br> 
-    <div class="context">
-        <a href="#arriba">Arriba</a>
-    </div>
-    <p id="6">6. Ejemplo de Funció</p>
-    <pre>
         
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
+        --------------------------------------------------------
         
-    </pre>
-    <br> 
-    <br> 
-    <div class="context">
-        <a href="#arriba">Arriba</a>
-    </div>
-    <p id="7">7. Interacción entre Funciones</p>
-    <pre>
+        Práctica Crear y Escribir Archivos 2
+        Abre el archivo llamado "mi_archivo.txt", y añade una línea al final del mismo que diga: "Nuevo inicio de sesión".
         
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
+        Imprime el contenido completo de "mi_archivo.txt" al finalizar.
         
-    </pre>
-    <br> 
-    <br> 
-    <div class="context">
-        <a href="#arriba">Arriba</a>
-    </div>
-    <p id="8">8. Argumentos Indefinidos (*args)</p>
-    <pre>
+        Pista: deberás cerrarlo en modo escritura y volverlo a abrir en modo lectura.
         
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
         
-    </pre>
-    <br> 
-    <br> 
-    <div class="context">
-        <a href="#arriba">Arriba</a>
-    </div>
-    <p id="9">9. Argumentos Indefinidos (**kwargs)</p>
-    <pre>
+        archivo = open("mi_archivo.txt","a")
+        archivo.write("Nuevo inicio de sesión")
+        archivo.close()
+        archivo = open("mi_archivo.txt", "r")
+        print(archivo.read())
         
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
+        --------------------------------------------------------
         
-    </pre>
-    <br> 
-    <br> 
-    <div class="context">
-        <a href="#arriba">Arriba</a>
-    </div>
-    <p id="10">10. Problemas Prácticos</p>
-    <pre>
+        Práctica Crear y Escribir Archivos 3
+        Utiliza el método writelines para escribir los valores de la siguiente lista al final del archivo "registro.txt" . Inserta un tabulador entre cada elemento de la lista para separarlos.
         
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
+        registro_ultima_sesion = ["Federico", "20/12/2021", "08:17:32 hs", "Sin errores de carga"]
         
-    </pre>
-    <br> 
-    <br> 
-    <div class="context">
-        <a href="#arriba">Arriba</a>
-    </div>
-    <p id="11">11. Solución a los Problemas Prácticos</p>
-    <pre>
+        Imprime el contenido completo de "registro.txt" al finalizar.
         
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
+        Pista: recuerda que el símbolo para concatenar un tabulador en un string es \t. También, deberás cerrar el archivo en modo escritura y volverlo a abrir en modo lectura para poder imprimir su contenido.
         
-    </pre>
-    <br> 
-    <br> 
-    <div class="context">
-        <a href="#arriba">Arriba</a>
-    </div>
-    <p id="12">12 - Proyecto del Día.</p>
-    <p class="practica">Práctica</p>
-    <pre>
+        registro_ultima_sesion = ["Federico", "20/12/2021", "08:17:32 hs", "Sin errores de carga"]
         
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
+        registro = open("registro.txt","a")
+        for item in registro_ultima_sesion:
+            registro.writelines(item +'\t')
         
+        registro.close()
+        registro = open("registro.txt","r")
+        print(registro.read())
+        
+        --------------------------------------------------------        
     </pre>
     <br> 
     <br> 
@@ -195,8 +396,1226 @@
     </div>
     <br>
     <br>
-
+    <p id="4">4. Directorios</p>
+    <pre>
+        Esto es window
+        C:\\users\\mipc\\archivo.txt	-> Para evitar la interpretación de escapar caracteres \n ejemplo
+        
+        Al tener diferentes manera de interpretar la ruta
+        Usaremos e importaremos..
+        -Path 	
+        -os	-> Operating Systems
+        
+        --------------------------------------------------------
+        
+        import os
+        
+        ruta = os.getcwd()			-> get curring working directory, obtener el directorio actual.
+        
+        print(ruta)		-> C:\users\wind10\Desktop\..
+        
+        --------------------------------------------------------
+        
+        import os
+        
+        ruta = os.chdir('C:\\Users\\larutanecesaria')			-> get change directorio, permite establecer una distinta de trabajo.
+                                        -> Lugar que deseemos.
+        
+        archivo = open('otro_archivo.txt')			-> De la ruta que especficamos con anterioridad.	
+        
+        print(archivo.read())				-> lo imprimimos y lo leemos.
+        
+        --------------------------------------------------------
+        
+        import os
+        
+        ruta = os.makedirs('C::\\Users\\larutanecesaria\\otra')		-> Creamos la carpeta otra.
+        
+        archivo = open('otro_archivo.txt')			-> De la ruta que especficamos con anterioridad.	
+        
+        print(archivo.read())	
+        
+        --------------------------------------------------------
+        
+        import os
+        
+        ruta = 'C:\\Users\\larutanecesaria\\otra\\prueba.txt'
+        
+        elemento = os.path.basename(ruta)	
+        print(elemento)				-> Obtendremos la base, prueba.txt
+        
+        elemento = os.path.dirname(ruta)	
+        print(elemento)				-> Obtendremos la ruta, la primera parte, C:\Users\larutanecesaria\otra
+        
+        --------------------------------------------------------
+        *En caso de querer recibir, ambos elementos en una tupla separados.
+        
+        import os
+        
+        ruta = 'C:\\Users\\larutanecesaria\\otra\\prueba.txt'
+        
+        elemento = os.path.split(ruta)	
+        print(elemento)				-> ('C:\\Users\\larutanecesaria\\otra','prueba.txt')
+        
+        
+        --------------------------------------------------------
+        
+        import os
+        
+        os.rmdir('C:\\Users\\larutanecesaria\\otra')			-> Al ejecutarlo, borramos la carpeta.
+        
+        
+        *os tiene muchos métodos, se pueden investigar más en profundidad.
+        
+        --------------------------------------------------------
+        
+        import os
+        
+        otro_archivo = open('C:\\Users\\larutanecesaria\\otra\\prueba.txt')
+        
+        print(otro_archivo.read())		-> Obtenemos el contenido de un archivo, a través de una ruta especifica, y una carpeta distinta.
+        
+        --------------------------------------------------------
+        *Para crear rutas que sean leìdas por cualquier sistema operativo.
+        
+        from pathlib import Path
+                                    -> Path('/Users/larutanecesaria/otra') -> También funciona así
+        carpeta = Path('C:/Users/larutanecesaria/otra')		-> / es para mac
+        
+        archivo = carpeta / 'otro_archivo.txt'		-> Tenemos ahora la ruta completa.
+                                -> Pero al crearlo a través de Path, cualquier sistema que abra la ruta lo entenderá, win o mac
+        
+        mi_archivo = open(archivo)
+        print(mi_archivo.read())		-> Es decir, como lo usarìa mac lo podremos ver en windows gracias a Path, desde mac igual.
+        
+        --------------------------------------------------------
+        *Otra manera menos legible con la carpeta, màs compacta, tambièn funcionarà
+        
+        from pathlib import Path
+        
+        carpeta = Path('/Users/larutanecesaria/otra') / 'otro_archivo.txt'		
+        
+        mi_archivo = open(carpeta)
+        print(mi_archivo.read())		
+        --------------------------------------------------------        
+    </pre>
+    <br>
+    <br>
+    <img src="img/4.1 Directorios.PNG" alt="">
+    <br> 
+    <br> 
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+    <p id="5">5. Pathlib</p>
+    <pre>
+        Es un componente importante de la biblioteca estandar de python que se utiliza para manipular rutas de sistemas de archivos en cualquier sistema operativo.  
+        ->pathlib se incorpora en la versión 3.4 de python
+        
+        En el anterior punto lo hacíamos sin pathlib, ya que antes no se empleaba se hacía de manera más rústica.
+        Entonces ahora al incorporarlo..
+        --------------------------------------------------------
+                        -> En este caso no usamos ni el open ni el close como anteriormente si.
+                        -> Es decir, pathlib lo hace más "sencillo"
+        from pathlib import Path
+        
+        carpeta = Path("C:/Users/Win10/Desktop/Python/Dia 6/prueba.txt")
+        print(carpeta.read_text())	-> Vemos el contenido del archivo prueba.txt
+        
+        
+        print(carpeta.name)		-> extrae el nombre del archivo	-> prueba.txt
+        
+        
+        print(carpeta.suffix)		-> .txt
+        
+        
+        print(carpeta.stem)		-> prueba		->Podemos entonces diseccionar el archivo.
+        
+        
+        --------------------------------------------------------
+        
+        from pathlib import Path
+        
+        carpeta = Path("C:/Users/Win10/Desktop/Python/Dia 6/prueba.txt")
+        
+        if not carpeta.exists():			-> Verificamos con existes() si el archivo existe o no.
+            print("Este archivo no existe")
+        else:
+            print("Genial, existe")			-> Genial, existe
+        
+        --------------------------------------------------------
+        
+        from pathlib import Path
+        
+        carpeta = Path("C:/Users/Win10/Desktop/Python/Dia 6/pruebass.txt")	-> el archivo pruebass.txt no existirà
+        
+        if not carpeta.exists():			
+            print("Este archivo no existe")			->
+        else:
+            print("Genial, existe")			
+        
+        --------------------------------------------------------
+        
+        from pathlib import Path, PureWindowsPath		-> Transforma la ruta de windows en una ruta pura.
+        
+        carpeta = Path("C:/Users/Win10/Desktop/Python/Dia 6/pruebass.txt")
+        
+        ruta_windows = PureWindowsPath(carpeta)
+        
+        print(ruta_windows)			-> Se adapta al formato de windows.
+        
+        --------------------------------------------------------        
+    </pre>
+    <br>
+    <br>
+    <img src="img/5.1 Pathlib.PNG" alt="">
+    <br> 
+    <br> 
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+    <p id="6">6. Path</p>
+    <pre>
+        Es una de las clases màs importante de Pathlib.
+        Cuando creamos una instancia de la clase Path.. Lo hacemos para representar una ruta a un archivo o un directorio, en el sistema de archivos de nuestra pc.
+        Por lo tanto es util para..
+        -Crear o mover Archivos
+        -Enumerar Archivos			-> Que coincidan con una extensión o un patrón determinado.
+        -Crear rutas basadas en strings		
+        
+        Path puede pasar cualquier colección de strings a un formato de ruta de acceso. 
+        Por ejemplo..
+        
+        mi_ruta = Path('Europa','España','Barcelona','Sagrada_Familia.txt')
+        
+        print(mi_ruta)		-> Europa/España/Barcelona/Sagrada_Familia.txt
+                        -> Como jerarquía de carpetas.
+        
+        --------------------------------------------------------
+        
+        from pathlib import Path
+        
+        guia = Path("Barcelona", "Sagrada_Familia")
+        print(guia)					-> Barceloan\Sagrada_Familia 	-> No es una ruta de acceso pero es lo que hace Path, construye objetos.
+                                                -> Objetos que responden al formato de una ruta de Acceso. 
+        
+                -> El objeto Path asignado a la variable guia, contiene una ruta relativa.
+                                    -> Si fuese una ruta absoluta, serìa una ruta especìfica.
+        
+        --------------------------------------------------------
+        from pathlib import Path
+        
+        
+        base = Path.home()
+        guia = Path(base, "Barcelona", "Sagrada_Familia")
+        
+        print(base)				-> Generamos así el Home, C:\Users\Win10
+                            -> Es una instancia absoluta la que devuelve home()
+        
+        print(guia)		-> C:\Users\Win10\Barceloan\Sagrada_Familia	-> si le pasamos la base primero con el home, imprimimos la ruta completa
+        
+        
+        
+        --------------------------------------------------------
+        * El constructor Path, acepta tanto cadenas, como objetos preexistenes de Path
+        
+        from pathlib import Path
+        
+        base = Path.home()
+        guia = Path(base, "Europa", "España", Path("Barcelona", "Sagrada_Familia.txt"))		-> Path interno
+        
+        print(guia)		-> C:\Users\Win10\Europa\España\Barcelona\Sagrada_Familia.txt
+                            -> De esta manera el constructor Path gestiona de manera "inteligente" ambos tipos de objetos
+                            -> Uniéndolos de manera correcta, agregándole la barra de acuerdo al sistema operativo.
+        
+        --------------------------------------------------------
+        
+        from pathlib import Path
+        
+        base = Path.home()
+        guia = Path(base, "Europa", "España", Path("Barcelona", "Sagrada_Familia.txt"))		
+        
+        guia2 = guia.with_name("La_Pedrera.txt")
+        
+        print(guia)		-> C:\Users\Win10\Europa\España\Barcelona\Sagrada_Familia.txt
+        
+        print(guia2)		-> C:\Users\Win10\Europa\España\Barcelona\La_pedrera.txt		-> Apunta correctamente con with_name
+                                                        -> Creamos una 2ª ruta cambiando el destino.
+        
+        --------------------------------------------------------
+        
+        from pathlib import Path
+        
+        base = Path.home()
+        guia = Path(base, "Europa", "España", Path("Barcelona", "Sagrada_Familia.txt"))		
+        
+        print(guia.parent)	-> C:\Users\Win10\Europa\España\Barcelona		-> El parent trae al padre, el antecesor más inmediato de una ruta determinada.
+        
+        
+        print(guia.parent.parent)		-> C:\Users\Win10\Europa\España
+        
+        print(guia.parent.parent.parent)		-> C:\Users\Win10\Europa
+                                            -> Así seleccionamos una porción de la ruta.
+        
+        --------------------------------------------------------
+        *También podremos usar la clase path, para enumerar archivos dentro de un árbol de carpetas.
     
+        <img src="img/Path .png" alt="">
+        
+        Europa		
+        -> España	-> Barcelona		-> La pedrera.txt
+                            -> Sagrada familia.txt
+        
+                   Idem		-> Madrid
+                
+        ->		-> Francia	-> Paris		-> Torre Eiffel.txt
+        
+        ->		-> consejos.txt
+        
+        ->		-> Normativas.txt
+        
+        
+        Para enumerar todos los archivos del directorio Europa
+        
+        from pathlib import Path
+        
+        guia = Path(Path.home(),"Europa")
+        
+        for text in Path(guia).glob("*.txt"):
+            print(text)				
+                    -> C:\Users\win10\Europa\Consejos.txt
+                    -> C:\Users\win10\Europa\Normativas.txt		-> Devuelve los dos archivos.txt, del directorio Europa.
+                    
+        --------------------------------------------------------
+        
+        from pathlib import Path
+        
+        guia = Path(Path.home(),"Europa")
+        
+        for text in Path(guia).glob("**/*.txt"):	->De manera recursiva usamos el método glob, para encontrar todos los archivos .txt del Directorio Europa
+            print(text)				-> Incluyendo sus subs directorios.
+        
+                    ->C:\Users\win10\Europa\Consejos.txt		
+                    ->C:\Users\win10\Europa\Normativas.txt		
+                    ->C:\Users\win10\Europa\España\Barcelona\La_Pedrera.txt		
+                    ->C:\Users\win10\Europa\España\Barcelona\Sagrada_Familia.txt
+                    ->C:\Users\win10\Europa\España\Madrid\Museo_del_Prado.txt
+                    ->C:\Users\win10\Europa\Francia\Paris\Torre_Eiffel.txt		
+        
+        --------------------------------------------------------
+            También podemos calcular rutas relacionadas entre sí, con relative to.. Cuandos se quiere recuperar una porción de archivos largos.
+        
+        from pathlib import Path
+        
+        guia = Path("Europa", "españa", "Barcelona", "Sagrada_Familia.txt)
+        
+        en_europa = guia.relative_to(Path("Europa"))				-> Desde Europa hacia "abajo" armamos la ruta que se desee.
+        en_espania = guia.relative_to(Path("Europa", "España"))			-> Desde España hacia "abajo"
+        
+        print(en_europa)		-> España\Barcelona\Sagrada_Familia.txt 
+        print(en_espania)		->Barcelona\Sagrada_Familia.txt
+        
+        
+            -> Por lo cual relative_to, devuelve un nuevo objeto Path, relacionado con el argumento determinado.
+        
+        --------------------------------------------------------        
+    </pre>
+    <br>
+    <br>
+    <img src="img/6.2 Path.PNG" alt="">
+    <br>
+    <br>
+    <p class="practica">Práctica</p>
+    <pre>
+        --------------------------------------------------------
+        Práctica del Día:
+        -----------------
+        
+        Práctica Path 1
+        Almacena en la variable ruta_base, un objeto Path que señale el directorio base del usuario.
+        
+        Recuerda importar Path del módulo pathlib, y utilizar el método home()
+        
+        
+        from pathlib import Path
+        
+        ruta_base = Path.home()
+        
+        --------------------------------------------------------
+        Práctica Path 2
+        Implementa y crea una ruta relativa que nos permita llegar al archivo "practicas_path.py" a partir de la siguiente estructura de carpetas:
+        
+        <img src="img/Path practica 2 del dia.png" alt="">
+        
+        Almacena el directorio obtenido en la variable ruta. No olvides importar Path.
+        
+        from pathlib import Path
+        
+        ruta = Path("Curso Python","Día 6","practicas_pa
+        
+        
+        --------------------------------------------------------
+        
+        Práctica Path 3
+        Implementa y crea una ruta absoluta que nos permita llegar al archivo "practicas_path.py" a partir de la siguiente estructura de carpetas:
+        <img src="img/Path practica 3 del dia.png" alt="">
+        
+        Almacena el directorio obtenido en la variable ruta. No olvides importar Path, y de concatenar el objeto Path que refiere a la carpeta base del usuario.
+        
+        from pathlib import Path
+        
+        ruta = Path(Path.home(), "Curso Python","Día 6","practicas_path.py")
+        
+        --------------------------------------------------------        
+    </pre>
+    <br> 
+    <br> 
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+    <p id="7">7. Limpiar la Consola</p>
+    <pre>
+        En este caso se verà en relaciòn Pycharm
+        Puede variar de acuerdo al Idel y al sistema operativo.
+        
+        Primero deberemos importar
+        
+        from os import system
+        
+            system()		-> Irá dentro del código donde limpiaremos la consola de acuerdo a los argumentos que le pasemos.
+                        -> Para windows es system('cls')	, para otro sistema , system('clear')
+        
+        Aquí se vera en pycharm para otro software, habrìa que investigarlo.
+        
+        --------------------------------------------------------
+        
+        from os import system				-> Primero importamos
+        
+        
+        nombre = input("Dime tu nombre: ")
+        edad = input("Dime tu edad: ")
+        
+        system('cls')					-> Donde indicamos la limpieza de consola
+                                -> cls, clean screen						
+        
+        print(f"Tu nombre es {nombre} y tienes {edad} años")
+        
+        --------------------------------------------------------
+        
+        Par configuarlo en pycharm, vamos a..
+        run
+            -> Debug
+                ->Edit Configuration
+                        *en "execution"		-> Emulate terminal in output console (le marcamos el check), apply
+                                    -> Simulamos la termina del windows
+        
+        *Util por ejemplo para el juego del ahorcado, y asi evitamos en cada turno que se llene la consola.
+        
+        --------------------------------------------------------        
+    </pre>
+    <br>
+    <br>
+    <img src="img/7.1 Limpiar la Consola.PNG" alt="">
+    <br> 
+    <br> 
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+    <p id="8">8. Archivos y Funciones</p>
+    <pre>
+        Ahora toca integrar lo de esta lección con lo de la anterior.	
+        De esta manera, tendremos un estructura de còdigo, repetible, ordenada y fácil de mantener.
+        
+        Funciones, son métodos creados por mi mismo
+        
+        def mi_funcion(argumentos):
+        
+            [un codigo que procesa algo]
+            
+            return algo
+            print(algo)
+        
+        
+        def abrir_archivo(ruta,nombre_archivo):
+        
+        
+        def eliminar_archivo(ruta, nombre_archivo):
+        
+        
+        *Las funciones se ejecutarán una vez las invoquemos, se pueden invocar tantas veces se desee, con diversos parámetros.
+        --------------------------------------------------------        
+    </pre>
+    <p class="practica">Práctica</p>
+    <pre>
+        --------------------------------------------------------
+        Práctica Archivos y Funciones 1
+        Crea una función llamada abrir_leer() que abra (open) un archivo indicado como parámetro, y devuelva su contenido (read).
+        
+        def abrir_leer(archivo):
+            archivo = open(archivo)
+            return archivo.read()
+        
+        --------------------------------------------------------
+        
+        Práctica Archivos y Funciones 2
+        Crea una función llamada sobrescribir() que abra (open) un archivo indicado como parámetro, y sobrescriba cualquier contenido anterior por el texto "contenido eliminado
+        
+        
+        def sobrescribir(archivo):
+            archivo_sobrescribir = open(archivo, "w")
+            archivo_sobrescribir.write("contenido eliminado")
+        
+        --------------------------------------------------------
+        
+        Práctica Archivos y Funciones 3
+        Crea una función llamada registro_error() que abra (open) un archivo indicado como parámetro, y lo actualice añadiendo una línea al final que indique "se ha registrado un error de ejecución". Finalmente, debe cerrar el archivo abierto.
+        
+        
+        def registro_error(archivo):
+            mi_archivo = open(archivo, "a")
+            mi_archivo.write("se ha registrado un error de ejecución")
+            mi_archivo.close()
+        
+        
+        
+        --------------------------------------------------------        
+    </pre>
+    <br>
+    <br>
+    <img src="img/8.1 Archivos y Funciones.PNG" alt="">
+    <br> 
+    <br> 
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+    <p id="9">9. Proyecto del Día 6</p>
+    <pre>
+        Administrador de Recetas..
+        El usuario podrá crear, leer y administrar recectas que se encuentren en una base de datos.
+        
+        1ª El programa le darà la bienvenida al usuario.
+        2ª Le brindarà la ruta donde se encuentran las recetas.	
+        3ª Informa la cantidad de Recetas. 
+        
+        4ª Luego le darà la opcion de elegir las siguientes opciones
+        -[1] - leer receta
+        -[2] - crear receta
+        -[3] - leer categorìa
+        -[4] - eliminar receta
+        -[5] - eliminar categorìa
+        -[6] - finalizar programa
+        
+        5ª opcion [1]
+        -eligir categorìa
+        -mostrar recetas
+        -elegir recetas
+        
+        6ª opcion [2]
+        -elegir categorìa
+        -crear nombre
+        -crear contenido	-> EL programa crearà el programa en el lugar correcto.
+        
+        7ª opcion [3]
+        -nombre de categorìa a crear, 
+        -crear categoria crear carpeta con ese nombre
+        
+        8ª opcion [4] igual que la opcion de leer , la 1, pero la borrara.
+        -eligir categorìa
+        -mostrar recetas
+        -elegir recetas
+        -eliminar receta
+        
+        9ª opcion [5]
+        -elegir categorìa
+        -eliminar categoria
+        
+        10 opcion [6]
+        -finalizar el codigo
+        
+        -----
+        Consideraciones.
+        -----
+        
+        -'envolver' el codigo en un loop while, se ejecutarà el programa constante salvo que el usuario presione la oopción 6, salir del programa.
+        
+        -usar system('cls') o ('clear') para limpiar la consola, para no acumular informacion en la consola.
+        
+        -Busca en la documentación más métodos.
+        
+        -compartimenta el còdigo en muchas funciones, usar todas las que sean necesarias.
+        algunas funciones podràn escribirse una vez y ser llamadas luego las veces que se deseen.
+        
+        -realiza un gráfico con el flujo del programa.
+        
+        -lograrlo es opcional, ¡intentarlo no!
+        
+        --------------------------------------------------------        
+    </pre>
+    <br> 
+    <br> 
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+    <p id="10">10. Solución al Proyecto del Día 6 - Parte 1</p>
+    <pre>
+        Primero construir el esquelo, la estructura, básica y lineal del còdigo.
+        Recomendable, escribir el paso a paso..
+        
+        --------------------------------------------------------
+        
+        # Mostrar menu inicio
+        
+        menu = 0
+        
+        if menu == 1:
+            # mostrar categorias
+            # elegir categorias
+            # mostrar recetas
+            # elegir recetas
+            # leer recetas	
+            # volver al inicio
+            pass
+        elif menu == 2:
+            # mostrar categorias
+            # elegir categorias
+            # crear receta nueva
+            # volver inicio
+            pass
+        elif menu == 3:
+            # crear categoria
+            # volver inicio
+            pass
+        elif menu == 4:
+            # mostrar categorias
+            # elegir categorias
+            # mostrar recetas
+            # elegir recetas
+            # eliminar recetas	
+            # volver al inicio
+            pass
+        elif menu == 5:
+            # mostrar categorias
+            # elegir categorias
+            # eliminar categoria
+            # volver inicio
+            pass
+        elif menu == 6:
+            # finalizar programa
+            pass
+        --------------------------------------------------------        
+    </pre>
+    <br> 
+    <br> 
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+    <p id="11">11. Solución al Proyecto del Día 6 - Parte 2</p>
+    <pre>
+        Con la base creada ahora debemos hacer el còdigo ejecutable
+        -importar módulos
+        -crear la variable mi_ruta
+        -crear funcion de inicio.
+        
+        --------------------------------------------------------
+        
+        import os
+        from pathlib import Path
+        from os import system			-> Limpiar la "consola"
+        
+        mi_ruta = Path(Path.home(), "Recetas")
+        
+        def contar_recetas(ruta):
+            contador = 0
+            for txt in Path(ruta).glob("**/*.txt"):
+                contador += 1
+            return contador
+        
+        
+        def inicio():
+            system('cls')
+            print('*' * 50)
+            print('*' * 5 + " Bienvenido al administrador de recetas " + '*' * 5)
+            print('*' * 50)
+            print('\n')
+            print(f"Las recetas se encuentran en {mi_ruta}")
+            print(f"Total recetas: {contar_recetas(mi_ruta)}")					-> Invocamos la otra función y le pasamos el parámetro.
+        
+            eleccion_menu = 'x'									-> Opción incorrecta
+                                    ->La elección debe ser correcta, sino el ciclo continuara.. O bien,	
+            while not eleccion_menu.isnumeric() or int(eleccion_menu) not in range(1,7):	-> Ciclo while hasta que el usuario salga.
+                print("Elige una opcion:")
+                print('''				-> Saltos de línea
+                [1] - Leer receta
+                [2] - Crear receta nueva
+                [3] - Crear categoria nueva
+                [4] - Eliminar receta
+                [5] - Eliminar categoria
+                [6] - Salir del programa''')
+                eleccion_menu = input()				-> La elección de arriba la sobreescribimos con el input del usuario.
+        
+            return int(eleccion_menu)				-> Retornamos la elección si todo está correcto.
+        
+        inicio()							-> Llamamos la función
+        
+        --------------------------------------------------------        
+    </pre>
+    <br> 
+    <br> 
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+    <p id="12">12. Solución al Proyecto del Día 6 - Parte 3</p>
+    <p class="practica">Práctica</p>
+    <pre>
+        4 funciones básicas, que se llamarán desde diversas partes del programa
+        -mostrar categorìas
+        -elegir categorìas
+        -mostrar recetas
+        -elegir recetas
+        
+        --------------------------------------------------------
+        
+        def mostrar_categorias(ruta):					-> Le pasamos la ruta como parámetro
+            print("Categorias:")
+            ruta_categorias = Path(ruta)
+            lista_categorias = []
+            contador = 1
+        
+            for carpeta in ruta_categorias.iterdir():			-> iterdir(), iterar dentro del directorio, pasando por cada uno de sus elementos(carpetas)
+                carpeta_str = str(carpeta.name)
+                print(f"[{contador}] - {carpeta_str}")		-> Para ver todas las capetas y elegir como opción
+                lista_categorias.append(carpeta)
+                contador += 1
+        
+            return lista_categorias
+        
+        
+        if menu == 1:
+            mis_categorias = mostrar_categorias(mi_ruta)
+        
+        
+        
+        
+        elif menu == 2:
+                mis_categorias = mostrar_categorias(mi_ruta)
+        
+        
+        elif menu == 4:
+                mis_categorias = mostrar_categorias(mi_ruta)
+        
+        
+        elif menu == 5:
+                mis_categorias = mostrar_categorias(mi_ruta)
+        
+        --------------------------------------------------------
+        
+        def elegir_categoria(lista):			-> como parametro la propia lista
+            eleccion_correcta = 'x'			-> Con esta variable nos aseguramos que el bucle while continue hasta que sea correcta la opción
+        
+                                                        ->Le sumamos +1, ya que el rango no está definido.
+                                                        ->Lo define el usuario al ingresar categorìas.
+            while not eleccion_correcta.isnumeric() or int(eleccion_correcta) not in range(1, len(lista) + 1):
+                eleccion_correcta = input("\nElije una categoria: ")	
+                                    
+            return lista[int(eleccion_correcta) - 1]	->Retornamos la opcion, como los indices van desde cero y los numeros (int) van desde 1, le restamos -1
+        
+        
+            if menu == 1:
+                mis_categorias = mostrar_categorias(mi_ruta)
+                mi_categoria = elegir_categoria(mis_categorias)		-> elegir_categoria(tendra como parámetro una lista de la función anterior)
+                                        -> Y lo guardamos en mi_categoria
+        
+            elif menu == 2:
+                mis_categorias = mostrar_categorias(mi_ruta)
+                mi_categoria = elegir_categoria(mis_categorias)
+        
+        
+            elif menu == 4:
+                mis_categorias = mostrar_categorias(mi_ruta)
+                mi_categoria = elegir_categoria(mis_categorias)
+        
+            elif menu == 5:
+                mis_categorias = mostrar_categorias(mi_ruta)
+                mi_categoria = elegir_categoria(mis_categorias)
+                    
+        --------------------------------------------------------
+        
+        def mostrar_recetas(ruta):		-> Le pasamos como parámetro la ruta
+            print("Recetas:")
+            ruta_recetas = Path(ruta)		
+            lista_recetas = []			-> Creamos la lista vacia, al iterar la completa el ciclo
+            contador = 1
+        
+            for receta in ruta_recetas.glob('*.txt'):			-> Hacemos el ciclo aplicando .glob para encontrar todos los archivos terminaos en .txt
+                receta_str = str(receta.name)				-> EL nombre lo almacenamos en receta_str
+                print(f"[{contador}] - {receta_str}")
+                lista_recetas.append(receta)				-> Le agregamos la receta completa a la lista vacia inicializada más arriba
+                contador += 1			-> Sumamos el contador en +1
+        
+            return lista_recetas		-> Retornamos la lista completa.
+        
+        
+        if menu == 1:
+                mis_categorias = mostrar_categorias(mi_ruta)
+                mi_categoria = elegir_categoria(mis_categorias)
+                mis_recetas = mostrar_recetas(mi_categoria)		-> La llamamos para cada opción, la ruta es la que viene en mi categoría, será la ruta armada.
+        
+        elif menu == 4:
+                mis_categorias = mostrar_categorias(mi_ruta)
+                mi_categoria = elegir_categoria(mis_categorias)
+                mis_recetas = mostrar_recetas(mi_categoria)
+        
+        --------------------------------------------------------
+        
+        def elegir_recetas(lista):					-> Parecido al elegir categorías.
+            eleccion_receta = 'x'		-> opción incorrecta para darle chance al ciclo while	con sus respectivas condiciones.
+                            -> Si la opción es correcta, juega el while
+        
+            while not eleccion_receta.isnumeric() or int(eleccion_receta) not in range(1, len(lista) + 1):
+                eleccion_receta = input("\nElije una receta: ")								-> input
+        
+            return lista[int(eleccion_receta) - 1]			-> -1 para que se equipare con los números de los índices.
+        
+        
+        if menu == 1:
+                mis_categorias = mostrar_categorias(mi_ruta)
+                mi_categoria = elegir_categoria(mis_categorias)
+                mis_recetas = mostrar_recetas(mi_categoria)
+                mi_receta = elegir_recetas(mis_recetas)				-> El parametro es el de la función anterior, al mostrar las recetas.
+        
+        elif menu == 4:
+                mis_categorias = mostrar_categorias(mi_ruta)
+                mi_categoria = elegir_categoria(mis_categorias)
+                mis_recetas = mostrar_recetas(mi_categoria)
+                mi_receta = elegir_recetas(mis_recetas)
+        
+        
+        --------------------------------------------------------        
+    </pre>
+    <br> 
+    <br> 
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+    <p id="13">13. Solución al Proyecto del Día 6 - Parte 4</p>
+    <p class="practica">Práctica</p>
+    <pre>
+        Ahora toca armar las funciones más específicas..
+        -funciones específicas
+        -programar el inicio
+        --------------------------------------------------------
+        
+        def leer_receta(receta):
+            print(Path.read_text(receta))			-> Le pasamos en función del Path
+        
+            if menu == 1:
+                mis_categorias = mostrar_categorias(mi_ruta)
+                mi_categoria = elegir_categoria(mis_categorias)
+                mis_recetas = mostrar_recetas(mi_categoria)
+                mi_receta = elegir_recetas(mis_recetas)
+                leer_receta(mi_receta)					-> Le pasamos mi_receta yo que ya eligio el usuario antes.
+        
+        --------------------------------------------------------
+        
+        def crear_receta(ruta):				-> A la receta le pasamos por la ruta.
+            existe = False				-> Si la receta que creamos existe o no.
+        
+            while not existe:						-> El ciclo continúa hasta que creemos una que no exista.
+                print("Escribe el nombre de tu receta: ")
+                nombre_receta = input() + '.txt'			-> Guardamos de acuerdo el input, con el .txt
+                print("Escribe tu nueva receta: ")			
+                contenido_receta = input()				->-> Escribir la receta. con el contenido a través del input
+                ruta_nueva = Path(ruta, nombre_receta)		-> En función del path, la ruta es la que llega a la categoría concatenando el nombre de la receta.
+        
+                if not os.path.exists(ruta_nueva):			-> Si no existe la ruta.
+                    Path.write_text(ruta_nueva, contenido_receta)		
+                    print(f"Tu receta {nombre_receta} ha sido creada")		-> 
+                    existe = True						-> Cambiamos a true, para que no ingrese al ciclo nuevamente.
+                else:
+                    print("Lo siento, esa receta ya existe")			-> Si existe, la receta ya existe, el loop se repite.
+        
+        elif menu == 2:
+                mis_categorias = mostrar_categorias(mi_ruta)
+                mi_categoria = elegir_categoria(mis_categorias)
+                crear_receta(mi_categoria)				-> Creamos la receta en función de la categoría.
+        
+        
+        --------------------------------------------------------
+        
+        
+        def crear_categoria(ruta):			-> Parecida a la anterior.
+            existe = False
+        
+            while not existe:
+                print("Escribe el nombre de la nueva categoria: ")
+                nombre_categoria = input()
+                ruta_nueva = Path(ruta, nombre_categoria)			-> En función del path
+        
+                if not os.path.exists(ruta_nueva):
+                    Path.mkdir(ruta_nueva)						-> Creamos el directorio, la ruta_nueva
+                    print(f"Tu nueva categoria {nombre_categoria} ha sido creada")
+                    existe = True
+                else:
+                    print("Lo siento, esa categoria ya existe")
+        
+        
+        elif menu == 3:						-> la agregamos al esqueleto
+                crear_categoria(mi_ruta)
+                volver_inicio()
+        
+        
+        
+        --------------------------------------------------------
+        
+        def eliminar_receta(receta):					 
+            Path(receta).unlink()					-> unlink para borrar el archivo.
+            print(f"La receta {receta.name} ha sido eliminada")
+        
+        
+        
+        elif menu == 4:
+                mis_categorias = mostrar_categorias(mi_ruta)
+                mi_categoria = elegir_categoria(mis_categorias)
+                mis_recetas = mostrar_recetas(mi_categoria)
+                mi_receta = elegir_recetas(mis_recetas)
+                eliminar_receta(mi_receta)				-> Eliminamos la receta, mi_receta
+        
+        --------------------------------------------------------
+        
+        def eliminar_categoria(categoria):
+            Path(categoria).rmdir()						-> rmdir, borramos el directorio
+            print(F"La categoria {categoria.name} ha sido eliminada")
+        
+        
+        elif menu == 5:
+                mis_categorias = mostrar_categorias(mi_ruta)
+                mi_categoria = elegir_categoria(mis_categorias)
+                eliminar_categoria(mi_categoria)
+        
+        --------------------------------------------------------
+        
+        def volver_inicio():					
+            eleccion_regresar = 'x'			-> Creamos la variable que sirva de "testigo" 
+        
+            while eleccion_regresar.lower() != 'v':					
+                eleccion_regresar = input("\nPresione V para volver al menu: ")		-> v para volver al menú
+        
+        
+        
+        if menu == 1:
+                mis_categorias = mostrar_categorias(mi_ruta)
+                mi_categoria = elegir_categoria(mis_categorias)
+                mis_recetas = mostrar_recetas(mi_categoria)
+                mi_receta = elegir_recetas(mis_recetas)
+                leer_receta(mi_receta)
+                volver_inicio()					-> La agregamos donde se requiera.
+        elif menu == 2:
+                mis_categorias = mostrar_categorias(mi_ruta)
+                mi_categoria = elegir_categoria(mis_categorias)
+                crear_receta(mi_categoria)
+                volver_inicio()					-> La agregamos donde se requiera.
+        elif menu == 3:
+                crear_categoria(mi_ruta)
+                volver_inicio()					-> La agregamos donde se requiera.
+        elif menu == 4:
+                mis_categorias = mostrar_categorias(mi_ruta)
+                mi_categoria = elegir_categoria(mis_categorias)
+                mis_recetas = mostrar_recetas(mi_categoria)
+                mi_receta = elegir_recetas(mis_recetas)
+                eliminar_receta(mi_receta)
+                volver_inicio()					-> La agregamos donde se requiera.
+        elif menu == 5:
+                mis_categorias = mostrar_categorias(mi_ruta)
+                mi_categoria = elegir_categoria(mis_categorias)
+                eliminar_categoria(mi_categoria)
+                volver_inicio()					-> La agregamos donde se requiera.
+        
+        
+        elif menu == 6:
+                finalizar_programa = True			-> True
+        
+        --------------------------------------------------------
+        
+        finalizar_programa = False				-> Lo inicializamos en False, para siempre entrar al loop
+        
+        while not finalizar_programa:			-> not finalizar_programa, mientras que sea false, continua, si pasa a True, corta el loop.
+            menu = inicio()			-> menu comienza con inicio()
+        
+            if menu == 1:
+                mis_categorias = mostrar_categorias(mi_ruta)
+                mi_categoria = elegir_categoria(mis_categorias)
+                mis_recetas = mostrar_recetas(mi_categoria)
+                mi_receta = elegir_recetas(mis_recetas)
+                leer_receta(mi_receta)
+                volver_inicio()
+            elif menu == 2:
+                mis_categorias = mostrar_categorias(mi_ruta)
+                mi_categoria = elegir_categoria(mis_categorias)
+                crear_receta(mi_categoria)
+                volver_inicio()
+            elif menu == 3:
+                crear_categoria(mi_ruta)
+                volver_inicio()
+            elif menu == 4:
+                mis_categorias = mostrar_categorias(mi_ruta)
+                mi_categoria = elegir_categoria(mis_categorias)
+                mis_recetas = mostrar_recetas(mi_categoria)
+                mi_receta = elegir_recetas(mis_recetas)
+                eliminar_receta(mi_receta)
+                volver_inicio()
+            elif menu == 5:
+                mis_categorias = mostrar_categorias(mi_ruta)
+                mi_categoria = elegir_categoria(mis_categorias)
+                eliminar_categoria(mi_categoria)
+                volver_inicio()
+            elif menu == 6:
+                finalizar_programa = True
+        
+        --------------------------------------------------------        
+    </pre>
+    <p class="practica">Completo</p>
+    <pre>
+        --------------------------------------------------------
+        Completo
+        --------------------------------------------------------
+        import os
+        from pathlib import Path
+        from os import system
+        
+        mi_ruta = Path(Path.home(), "Recetas")
+        
+        
+        def contar_recetas(ruta):
+            contador = 0
+            for txt in Path(ruta).glob("**/*.txt"):
+                contador += 1
+        
+            return contador
+        
+        
+        def inicio():
+            system('cls')
+            print('*' * 50)
+            print('*' * 5 + " Bienvenido al administrador de recetas " + '*' * 5)
+            print('*' * 50)
+            print('\n')
+            print(f"Las recetas se encuentran en {mi_ruta}")
+            print(f"Total recetas: {contar_recetas(mi_ruta)}")
+        
+            eleccion_menu = 'x'
+            while not eleccion_menu.isnumeric() or int(eleccion_menu) not in range(1,7):
+                print("Elige una opcion:")
+                print('''
+                [1] - Leer receta
+                [2] - Crear receta nueva
+                [3] - Crear categoria nueva
+                [4] - Eliminar receta
+                [5] - Eliminar categoria
+                [6] - Salir del programa''')
+                eleccion_menu = input()
+        
+            return int(eleccion_menu)
+        
+        
+        def mostrar_categorias(ruta):
+            print("Categorias:")
+            ruta_categorias = Path(ruta)
+            lista_categorias = []
+            contador = 1
+        
+            for carpeta in ruta_categorias.iterdir():
+                carpeta_str = str(carpeta.name)
+                print(f"[{contador}] - {carpeta_str}")
+                lista_categorias.append(carpeta)
+                contador += 1
+        
+            return lista_categorias
+        
+        
+        def elegir_categoria(lista):
+            eleccion_correcta = 'x'
+        
+            while not eleccion_correcta.isnumeric() or int(eleccion_correcta) not in range(1, len(lista) + 1):
+                eleccion_correcta = input("\nElije una categoria: ")
+        
+            return lista[int(eleccion_correcta) - 1]
+        
+        
+        def mostrar_recetas(ruta):
+            print("Recetas:")
+            ruta_recetas = Path(ruta)
+            lista_recetas = []
+            contador = 1
+        
+            for receta in ruta_recetas.glob('*.txt'):
+                receta_str = str(receta.name)
+                print(f"[{contador}] - {receta_str}")
+                lista_recetas.append(receta)
+                contador += 1
+        
+            return lista_recetas
+        
+        
+        def elegir_recetas(lista):
+            eleccion_receta = 'x'
+        
+            while not eleccion_receta.isnumeric() or int(eleccion_receta) not in range(1, len(lista) + 1):
+                eleccion_receta = input("\nElije una receta: ")
+        
+            return lista[int(eleccion_receta) - 1]
+        
+        
+        def leer_receta(receta):
+            print(Path.read_text(receta))
+        
+        
+        def crear_receta(ruta):
+            existe = False
+        
+            while not existe:
+                print("Escribe el nombre de tu receta: ")
+                nombre_receta = input() + '.txt'
+                print("Escribe tu nueva receta: ")
+                contenido_receta = input()
+                ruta_nueva = Path(ruta, nombre_receta)
+        
+                if not os.path.exists(ruta_nueva):
+                    Path.write_text(ruta_nueva, contenido_receta)
+                    print(f"Tu receta {nombre_receta} ha sido creada")
+                    existe = True
+                else:
+                    print("Lo siento, esa receta ya existe")
+        
+        
+        def crear_categoria(ruta):
+            existe = False
+        
+            while not existe:
+                print("Escribe el nombre de la nueva categoria: ")
+                nombre_categoria = input()
+                ruta_nueva = Path(ruta, nombre_categoria)
+        
+                if not os.path.exists(ruta_nueva):
+                    Path.mkdir(ruta_nueva)
+                    print(f"Tu nueva categoria {nombre_categoria} ha sido creada")
+                    existe = True
+                else:
+                    print("Lo siento, esa categoria ya existe")
+        
+        
+        def eliminar_receta(receta):
+            Path(receta).unlink()
+            print(f"La receta {receta.name} ha sido eliminada")
+        
+        
+        def eliminar_categoria(categoria):
+            Path(categoria).rmdir()
+            print(F"La categoria {categoria.name} ha sido eliminada")
+        
+        
+        def volver_inicio():
+            eleccion_regresar = 'x'
+        
+            while eleccion_regresar.lower() != 'v':
+                eleccion_regresar = input("\nPresione V para volver al menu: ")
+        
+        
+        finalizar_programa = False
+        
+        while not finalizar_programa:
+            menu = inicio()
+        
+            if menu == 1:
+                mis_categorias = mostrar_categorias(mi_ruta)
+                mi_categoria = elegir_categoria(mis_categorias)
+                mis_recetas = mostrar_recetas(mi_categoria)
+                mi_receta = elegir_recetas(mis_recetas)
+                leer_receta(mi_receta)
+                volver_inicio()
+            elif menu == 2:
+                mis_categorias = mostrar_categorias(mi_ruta)
+                mi_categoria = elegir_categoria(mis_categorias)
+                crear_receta(mi_categoria)
+                volver_inicio()
+            elif menu == 3:
+                crear_categoria(mi_ruta)
+                volver_inicio()
+            elif menu == 4:
+                mis_categorias = mostrar_categorias(mi_ruta)
+                mi_categoria = elegir_categoria(mis_categorias)
+                mis_recetas = mostrar_recetas(mi_categoria)
+                mi_receta = elegir_recetas(mis_recetas)
+                eliminar_receta(mi_receta)
+                volver_inicio()
+            elif menu == 5:
+                mis_categorias = mostrar_categorias(mi_ruta)
+                mi_categoria = elegir_categoria(mis_categorias)
+                eliminar_categoria(mi_categoria)
+                volver_inicio()
+            elif menu == 6:
+                finalizar_programa = True
+        --------------------------------------------------------        
+    </pre>
+    <br> 
+    <br> 
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+    <p id="14">14. Probando el Proyecto</p>
+    <p class="practica">Práctica</p>
+    <pre>
+        Correciones
+        --------------------------------------------------------
+        
+            while not eleccion_menu.isnumeric() or int(eleccion_menu) not in range(1,7):
+                print("Elige una opcion:")
+                print('''
+                [1] - Leer receta
+                [2] - Crear receta nueva
+                [3] - Crear categoria nueva
+                [4] - Eliminar receta
+                [5] - Eliminar categoria
+                [6] - Salir del programa''')
+                eleccion_menu = input()
+        
+            return int(eleccion_menu)				-> Castear a int la elección_menu
+        
+        --------------------------------------------------------
+        Otra consideración.. AL momento de llamar las funciones
+        --------------------------------------------------------
+        
+        elif menu == 3:
+                crear_categoria(mi_ruta)			-> Correcto
+                volver_inicio()
+        
+        --------------------------------------------------------        
+    </pre>
+    <br> 
+    <br>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>    
+
     <br> 
     <br> 
     <div class="context">
