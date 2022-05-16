@@ -19,83 +19,673 @@
         <p>Python - Notas</p>
     </div>
 
-    <h1>3 - Programa un Analizador de Texto.</h1>
+    <h1>7 - Programa una Cuenta Bancaria.</h1>
     <ol>
-        <li><a href="#1">Metodo Index()</a></li>
-        <li><a href="#2">Extraer Sub-Strings</a></li>
-        <li><a href="#3">Métodos de String</a></li>
-        <li><a href="#4">Propiedades de Strings</a></li>
-        <li><a href="#5">Listas</a></li>
-        <li><a href="#6">Diccionarios</a></li>
-        <li><a href="#7">Tuples</a></li>
-        <li><a href="#8">Sets</a></li>
-        <li><a href="#9">Booleanos - Bools</a></li>
-        <li><a href="#10">Proyecto del Dìa</a></li>
+        <li><a href="#1">Méta del Día 7</a></li>  
+        <li><a href="#2">Programación Orientada a Objetos</a></li>
+        <li><a href="#3">Clases</a></li>
+        <li><a href="#4">Atributos</a></li>
+        <li><a href="#5">Metodos</a></li>
+        <li><a href="#6">Tipos de Métodos</a></li>
+        <li><a href="#7">Herencia</a></li>
+        <li><a href="#8">Herencia Extendida</a></li>
+        <li><a href="#9">Polimorfismo</a></li>
+        <li><a href="#10">Métodos Especiales</a></li>
+        <li><a href="#11">Proyecto del Día 7</a></li>
+        <li><a href="#12">Solución al Proyecto del Día 7</a></li>
     </ol>
 
-    <p id="1">1. Metodo Index()</p>
+    <p id="1">1. Meta del Día 7)</p>
     <pre>
+        Programar una Cuenta bancaria, capa de retener un balance de cuenta, recibir depósitos y permitir los retiros.	
 
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
-        
+        Aprender, POO.. Programación Orientada a Objetos.
+        -Razón por la cual escribir código en Python es tan fácil.
+        --------------------------------------------------------
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
-    <p id="2">2. Extraer Sub-Strings</p>
+    <p id="2">2. Programación Orientada a Objetos</p>
     <pre>
+        POO
+        O bien OOP	-> Object Oriented Programing.
         
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
-
+        Es un modo de programación que permite organizar el código, a una manera que se asemeja bastante a como pensamos en la vida real.
+        Diseñando objetos digitales, a los que podemos crear, manipular o destruir.
         
+        El código que define a un objeto, lo llamamos Clase.
+        - Las clases permiten agrupar un conjunto de variables y funciones para que nuestros objetos tengan vida.
+        - Todo lo que se pueda plasmar en código desde la vida cotidiana, puede representarse en una clase.
+        - Una silla, un edificio, un pájaro..
+        
+        Ej con el Pájaro.. Definiremos un conjunto de sus características.
+        - Color		----|
+        - Tipo		    |
+        - Hábitat	    |	-> ATRIBUTOS.
+        - Edad		    |
+        - Tamaño	----|
+        
+        
+        Además las clases tiene un conjunto de Funcionalidades, o cosas que pueden hacer.
+        Ejemplo del pájaro.
+        - Volar		----|
+        - Comer		    |	-> MÉTODOS
+        - Piar		----|
+        
+        Además podemos representar un conjunto de pájaros, cada uno de ellos, es uno distinto, que desde el programa pueden crearse, desde el objeto pájaro.
+        Ejemplo, diversos pájaros con diferentes nombres, Twitty, Pepe.
+        - Estos diversos pájaros serán los 	-> OBJETOS
+        Es decir, el concepto abstracto de pájaro, es la clase.
+        Pero cada pájaro en particular es un OBJETO, una instancia de esa clase, cada instancia por lo tanto, será un considerada como un OBJETO.	
+        
+        Ahora..
+        - Crear Clases.
+        - Definir Atributos.
+        - Definir Métodos.
+        - Crear Objetos.
+        
+        Considerar entonces que la POO es un modo de Programación y que no todos los Lenguajes de Programación, soportan la POO.
+        
+        La progrmación Orientada a Objetos, está basada en 6 Principios o Pilares Básicos.
+        - Herencia
+        - Polimorfismo
+        - Cohesión
+        - Abstracción
+        - Acoplamiento
+        - Encapsulamiento
+        
+        
+        --------------------------------------------------------
+        ¿Por qué POO?
+        Antes de que exista, para programamar eventos, se utilizaban Funciones.
+        Permiten agrupar bloque de código, bajo un determinado nombre, para que hagan un tarea específica.	
+        
+        Las funciones eran útiles, pero el problema es que éstas solo hacen unas funciones determinadas con datos de entradas para entregar una salida.
+        Pero no interesando tanto, el hecho de conservar esos datos, o mantener un tipo de estado.
+        
+        Esto lo soluciona el Objeto, conservando diferentes ATRIBUTOS de un Objeto en particular..
+        De lo contrario tendríamos muchisimas variables sueltas que usarían las funciones.
+        Y el problema serìa tener muchisimos objetos, con otros muchisimos atributos, por lo cual la CLASE lo resuelve, agrupando el conjunto de atributos..
+        Facilitando la Instancia en diversos OBJETOS, los que sean necesarios.
+        
+        Más sencillo, más organizado..
+        Agrupamos dentro una CLASE un conjunto de Variables, atributos y métodos.
+        Que pueden ser re utilizados, que son faciles de mantener y utilizar, y son flexibles para diversos usos.
+        --------------------------------------------------------        
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
-    <p id="3">3. Métodos de String</p>
+    <p id="3">3. Clases</p>
     <pre>
+        class Pajaro:				-> Por convención, el nombre de la clase se escribe comenzando con Mayúscula.
+
+        class ElementoPajaro:			-> Sin espacios, en mayúsculas cada palabra.
         
+        
+        class Pajaro:				
+            pass				-> Clase mínima (con pass, para evitar el error)
+        
+        
+        mi_pajaro = Pajaro()			-> Instanciamos un objeto de la clase pájaro, como si fuera una variable normal.
+                            -> En este caso () van vacíos, pero pueden requerir argumentos, para ser creada.
+        
+        --------------------------------------------------------
+        
+        class Pajaro:				-> Definición de un concepto de Abstracto.
+            pass
+        
+        
+        mi_pajaro = Pajaro()			-> Instancia de clase Pajaro
+                            -> El objeto, es un tipo de dato nuevo, como los es int, bool, pero en este caso, un pajaro.
+        
+        otro_pajaro = Pajaro()
+        
+        print(mi_pajaro)			-> < __main__.Pajaro object at 0x0000001213asdkl23>	-> Objeto distinto
+        print(otro_pajaro)			-> < __main__.Pajaro object at 0x0000001213asdsd1a>	-> Objeto distinto
+        
+        print(type(mi_pajaro))			-> < class '__main__.Pajaro'>		-> Es decir, ni string, ni diccionario, es un PAJARO
+                                                -> Es un tipo de dato.
+        
+        --------------------------------------------------------        
     </pre>
     <p class="practica">Practica</p>
     <pre>
+        Práctica Clases 1
+        Crea una clase llamada Personaje y a continuación, crea un objeto a partir de ella, por ejemplo: harry_potter
         
+        class Personaje:
+          pass
+        
+        harry_potter = Personaje()
+        
+        print(type(harry_potter))
+        print(harry_potter)
+                        -> < class '__main__.Personaje'>
+                        -> < __main__.Personaje object at 0x7f2bf42095b0>
+        
+        --------------------------------------------------------
+        Práctica Clases 2
+        Crea una clase llamada Dinosaurio, y tres instancias a partir de ella: velociraptor, tiranousaurio_rex y braquiosaurio .
+        
+        class Dinosaurio:
+          pass
+        
+        velociraptor = Dinosaurio()
+        tiranosaurio_rex = Dinosaurio()
+        braquiosaurio = Dinosaurio()
+        --------------------------------------------------------
+        Práctica Clases 3
+        Crea una clase llamada PlataformaStreaming y crea los siguientes objetos a partir de ella: netflix, hbo_max, amazon_prime_video
+        
+        class PlataformaStreaming:
+          pass
+        
+        netflix = PlataformaStreaming()
+        hbo_max = PlataformaStreaming()
+        amazon_prime_video = PlataformaStreaing()
+        
+        --------------------------------------------------------        
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
-    <p id="4">4. Propiedades de Strings</p>
+    <p id="4">4. Atributos</p>
     <pre>
-        
+        Existen dos tipos de Atributos.
+        -> De clase: Los que pertenecen a la Clase, serán los mismos para todos los objetos que vayan a ser creados desde esta clase. 
+                .Ejemplo.
+            alas = True		-> Todos los objetos pájaros tomarán el atributos de alas = True
+    
+        -> De instancia: Estos pertenecen a la instancia de la clase o al objeto, particulares, pudiendo ser distintos en cada instancia.
+                .Ejemplo.
+            color = 'negro'		-> Es decir, cada pajaro (objeto) instanciado particularmente tendrà su respectivo color.
+            color = 'marron'
+    
+    --------------------------------------------------------
+    
+    class Pajaro:					-> Creamos la clase
+    
+        def __init__(self, color):		-> Definimos el método constructor, que asignará atributos a la clase Pajaro
+            self.color = color		-> self, es obligatorio, refiere a "el mismo", más el atributo color.
+                            -> self es la instancia del objeto que se va a crear, asignandole el parámetro color.
+    
+    
+    mi_pajaro = Pajaro('negro')			-> Ahora le pasamos el argumento, estamos "obligados"
+    
+    
+    print(mi_pajaro.color)				-> negro
+                            -> mi_pajaro.color, es decir, creamos un método para el objeto..
+                            -> Como lo es con upper, lower, los métodos de strings, entre otros..
+    
+    --------------------------------------------------------
+    
+    class Pajaro:					
+                            -> __init__ es un método, serìa el constructor de la clase.. 
+        def __init__(self, color):		-> cada vez que creamos una clase, python llama a su constructor para ver los requisitos de la clase,
+            self.color = color		-> Que atributos necesita, para que el objeto se pueda construir adecuadamente.
+            
+                -> Self, representa la instancia del objeto que vaya a ser creado, (por CONVENCIÓN se usa self, se puede usar otra palabra)			
+    
+                
+    
+    
+    mi_pajaro = Pajaro('negro')			-> Por lo tanto, al crear la instancia de pájaro, debemos pasarle el valor, de la construcción anteirior..
+                            -> si o si, el sistema se fija a través de init, que es lo que se requiere.
+    
+    print(mi_pajaro.color)				
+    
+    --------------------------------------------------------
+    
+    class Pajaro:					
+                         
+        def __init__(self, mi_parametro):	
+            self.atributo = mi_parametro	
+                
+                -> Por lo tanto el atributo self debe llenarse con un parámetro, el parametro lo pasamo abajo.
+    
+    mi_pajaro = Pajaro('negro')			
+    
+    print(mi_pajaro.atributo)				
+    
+    --------------------------------------------------------
+    
+    class Pajaro:					
+                         
+        def __init__(self, color):	-> 1º Por lo tanto, pasamos un parametro color.
+            self.color = color	-> 3ª parametro color que le pasemos la instancia de nuestro objeto.
+                -> 2ª El atributo color, debe ser igual al..
+                
+                        *Por convención, el parámetro y el atributo deben llevar el mismo nombre.
+                        -Lógica y Uso, más sencillo.
+    mi_pajaro = Pajaro('negro')			
+    
+    print(mi_pajaro.atributo)				
+    
+    --------------------------------------------------------
+                -> Agregando màs atributos  
+                -> Por lo tanto tendremos un atributo de INSTANCIA, porque es un atributo donde cada objeto, puede tener un valor distinto.
+                -> Pajaro 1, puede ser negro, otros halcones, etc..
+                -> Mientras que los de CLASE son iguales para todos los objetos instanciados, desde pájaro.
+    class Pajaro:					
+                         
+        def __init__(self, color, especie):	
+            self.color = color	
+            self.especie = especie
+                
+                
+    mi_pajaro = Pajaro('negro', 'Pelicano')			
+    
+    print(mi_pajaro.color)			-> Negro
+    print(mi_pajaro.especie)		-> Pelicano
+    
+    print(f'Mi pajaro es un {mi_pajaro.especie} y es de color {mi_pajaro.color}')
+    
+    --------------------------------------------------------
+                    -> Atributos de clases por lo tanto.
+    class Pajaro:					
+                         
+        alas = true					-> 		
+    
+        def __init__(self, color, especie):	
+            self.color = color	
+            self.especie = especie
+                
+                
+    mi_pajaro = Pajaro('negro', 'Pelicano')			
+    
+    
+    print(Pajaro.alas)		-> True		-> Lo consultamos desde la clase, todos lo tendrán, todos los objetos comparten el atributo de clase.
+    print(mi_pajaro.alas)		-> True		-> Lo consultamos desde el objeto instanciado, que también lo tendrá
+    
+    --------------------------------------------------------        
     </pre>
     <p class="practica">Práctica</p>
     <pre>
+        --------------------------------------------------------
+        Práctica Atributos 1
+        Crea una clase llamada Casa, y asígnale atributos: color, cantidad_pisos.
         
+        Crea una instancia de Casa, llamada casa_blanca, de color "blanco" y cantidad de pisos igual a 4
+        
+        class Casa:
+            
+            def __init__(self, color, cantidad_pisos):
+                self.color = color
+                self.cantidad_pisos = cantidad_pisos
+        
+        casa_blanca = Casa('blanco', '4')
+        
+        print(casa_blanca.color)
+        
+        print(f'Mi Casa es de color {casa_blanca.color} y tiene un total de {casa_blanca.cantidad_pisos} pisos.')
+        
+                        -> blanco
+                        -> Mi casa es de color blanco y tiene un total de 4 pisos.
+        --------------------------------------------------------
+        
+        Práctica Atributos 2
+        Crea una clase llamada Cubo, y asígnale el atributo de clase:
+        
+        caras = 6
+        
+        y el atributo de instancia:
+        
+        color
+        
+        Crea una instancia cubo_rojo, de dicho color.
+        
+        class Cubo:
+        
+            caras = 6
+        
+            def __init__(self, color):
+                self.color = color
+        
+        cubo_rojo = Cubo('Rojo')
+        
+        print(cubo_rojo.color)
+        print(f'El cubo que cree es de color {cubo_rojo.color} y tiene un total de {Cubo.caras} caras.')
+        
+                    -> Rojo
+                    -> El cubo que cree es de color rojo y tiene un total de 6 caras.
+        
+        
+        --------------------------------------------------------
+        
+        Práctica Atributos 3
+        Crea una clase llamada Personaje, y asígnale el siguiente atributo de clase:
+        
+        real = False
+        
+        Crea una instancia llamada harry_potter con los siguientes atributos de instancia:
+        
+        especie = "Humano"
+        
+        magico = True
+        
+        edad = 17
+        
+        class Personaje:
+        
+            real = False
+        
+            def __init__(self, especie, magico, edad):
+                self.especie = especie
+                self.magico = magico
+                self.edad = edad
+        
+        harry_potter = Personaje ('Humano', 'True', '17')
+        
+        print(f'El personaje de Harry Potter es de especie {harry_potter.especie} con una edad de {harry_potter.edad}.')
+        
+            -> El personaje de Harry Potter es de especie Humano con una edad de 17.
+        --------------------------------------------------------        
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
-    <p id="5">5. Listas</p>
+    <p id="5">5. Metodos</p>
     <pre>
+        Técnicamente __init__ es un método, es uno especial, incorporado a todas las clases por defecto.
+
+        class Pajaro:
         
+            def __init__(self,color,especie):
+                self.color = color
+                self.especie = especie
+        
+            def piar(self):				-> Le pasamos obligatoriamente self, que hace referencia a cada instancia o bien objeto, de esa clase.
+                print("Pío")		-> Para que el pajaro pie
+        
+        
+            def volar(self, metros):
+                print(f"Volò {metros} mts")		-> Para ejecutarlo..
+        
+        --------------------------------------------------------
+        
+        class Pajaro:
+        
+            alas = True
+        
+            def __init__(self, color, especie):
+                self.color = color
+                self.especie = especie
+        
+            def piar(self):						-> self es obligatorio
+                print("Pío")
+        
+            def volar(self, metros):
+                print(f"El pajaro ha volado una cantidad de {metros} metros")
+        
+        piolin = Pajaro('amarillo', 'canario')
+        
+        piolin.piar()					-> pio
+        
+        piolin.volar(50)				-> El pajaro ha volado 50 metros
+        
+            
+        --------------------------------------------------------
+        
+        class Pajaro:
+        
+            alas = True
+        
+            def __init__(self, color, especie):
+                self.color = color
+                self.especie = especie
+        
+            def piar(self):						
+                print('Pío, mi color es {}'.format(self.color))				-> Recordar, self.color
+                                            -> Cada vez que se construya un metodo dentro de la clase que invoque un atributo
+                                            -> Necesitamos relacionar a quien pertence el atributo, self -> al objeto/instancia..
+                                            -> Que está invocando a esa instancia.
+            def volar(self, metros):
+                print(f"El pajaro ha volado una cantidad de {metros} metros")
+        
+        piolin = Pajaro('amarillo', 'canario')
+        
+        piolin.piar()					-> pio, mi color es amarillo
+        
+        --------------------------------------------------------        
     </pre>
     <p class="practica">Práctica</p>
     <pre>
+        --------------------------------------------------------
+        Práctica Métodos 1
+        Crea una clase Perro. Dicho perro debe poder ladrar.
         
+        Crea el método ladrar() y ejecútalo en una instancia de Perro. Cada vez que ladre, debe mostrarse en pantalla "Guau!".
+        
+        class Perro:
+        
+            def ladrar(self):
+                print('Guau')
+        
+        dogo = Perro()
+        
+        dogo.ladrar()			-> Guau
+        
+        --------------------------------------------------------
+        
+        Práctica Métodos 2
+        Crea una clase llamada Mago, y crea un método llamado lanzar_hechizo() (deberá imprimir "¡Abracadabra!").
+        
+        Crea una instancia de Mago en el objeto merlin, y haz que lance un hecizo.
+        
+        class Mago:
+            
+            def lanzar_hechizo(self):
+                print('¡Abracadabra!')
+        
+        merlin = Mago()
+        
+        merlin.lanzar_hechizo()			-> ¡Abracadabra!
+        
+        --------------------------------------------------------
+        
+        Práctica Métodos 3
+        Crea una instancia de la clase Alarma, que tenga un método llamado postergar(cantidad_minutos). El método debe imprimir en pantalla el mensaje
+        
+        "La alarma ha sido pospuesta {cantidad_minutos} minutos"
+        
+        
+        class Alarma:
+        
+            def postergar(self, cantidad_minutos):
+                print(f'La alarma ha sido propuesta {cantidad_minutos} minutos.')
+        
+        
+        alarma = Alarma()
+        
+        alarma.postergar(50)		-> La alarma ha sido propuesta 50 minutos.
+        
+        
+        --------------------------------------------------------        
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
-    <p id="6">6. Diccionarios</p>
+    <p id="6">6. Tipos de Métodos</p>
     <pre>
-        
+        Decoradores	-> Permiten crear diferentes tipos de métodos.
+
+        - métodos de instancia		-> Los que venimos haciendo
+    Una vez creados, pueden ser llamados, pueden además..
+    -Acceder y modificar atributos del objeto.
+    -Acceder a otros métodos
+    -Modificar el estado de la clase
+    
+    Ej.. 
+    def mi_metodo(self):
+        print("algo")
+    
+    mi_meotod()
+    
+    
+        - métodos de clase		-> @classmethod, metodo de clase
+    Este método no están asociados a las instancias de nuestra clase, sino a la clase en sí misma..
+    Por lo tanto pueden ser llamados desde una instancia de nuestra clase, sino también directamente desde la clase.	
+    -No pueden acceder a los atributos de instancia.
+    -Si pueden modificar los aributos de la clase.
+    
+    Ej..
+    @classmethod
+    def mi_metodo(cls):			-> cls de clase
+        print("algo")
+    
+        - métodos estáticos		-> @staticmethod, método estático
+    Por lo tanto..
+    -No pueden modificar el estado de la clase, ni de la instancia..
+    -Pero pueden aceptar parámetros de entrada.
+    -Util para indicar que un método no podrá modificar el estado de la instancia ni de la clase.
+    Funciones normales, que si van ligadas a una clase concreta.
+    
+    Ej..
+    @staticmethod
+    def mi_metodo():			-> No aceptan como parámetro, ni self ni cls
+        print("algo")
+    
+    --------------------------------------------------------
+                            -> Métodos de Instancia.
+    class Pajaro:
+    
+        alas = True
+    
+        def __init__(self, color, especie):		--> Métodos de instancia, afectan al self, ACCEDEN Y MODIFICAN los atributos del objeto
+            self.color = color
+            self.especie = especie
+    
+        def piar(self):
+            print('pio')
+    
+        def volar(self, metros):				
+            print(f"El pajaro vuela {metros} metros")	
+            self.piar()					-> Permiten acceder a otros métodos
+    
+        def pintar_negro(self):
+            self.color = 'negro'
+            print(f"Ahora el pájaro es {self.color}")
+    
+    
+    piolin = Pajar("amarillo", "canario")
+    
+    piolin.pintar_negro()				-> Ahora el pájaro es negro.
+    
+    piolin.volar(50)			-> El pajaro vuela 50 metros
+                        -> pio
+    
+    piolin.alas = False
+    print(piolin.alas)						->Permite MODIFICAR el estado de la clase.
+    
+    --------------------------------------------------------
+            -> Métodos de clase
+    
+                -> Ahora vamos con el @classmethod
+    
+    class Pajaro:
+    
+        alas = True
+    
+        def __init__(self, color, especie):
+            self.color = color
+            self.especie = especie
+    
+        def piar(self):
+            print('pio')
+    
+        def volar(self, metros):				
+            print(f"El pajaro vuela {metros} metros")	
+    
+        @classmethod
+        def poner_huevos(cls, cantidad):			-> No necesitan de una instancia para ejecutarse, son "independientes"
+            print(f"Puso {cantidad} huevos")		-> No pueden acceder a los atributos de instancia, color y especie
+            #print(f"Es de color {self.color}")	-> No se puede, no está el agumento self
+    
+            cls.alas = False		-> Podemos modificar la clase desde este método
+            print(Pajaros.alas)		-> False	
+    
+    Pajaro.poner_huevos(3)		-> Puso 3 huevos
+    
+    Pajaro.piar()			-> No lo permite, ya que es un método de instancia y necesitaba un argumento posicional self, que no lo tiene.
+    
+    --------------------------------------------------------
+                Metodos estaticos. 
+    
+    class Pajaro:
+    
+        alas = True
+    
+        def __init__(self, color, especie):
+            self.color = color
+            self.especie = especie
+    
+        def piar(self):
+            print('pio')
+    
+        def volar(self, metros):				
+            print(f"El pajaro vuela {metros} metros")	
+    
+        @classmethod
+        def poner_huevos(cls, cantidad):			
+            print(f"Puso {cantidad} huevos")	
+            cls.alas = False		
+            print(Pajaros.alas)		
+    
+                            -> Sirven para asegurarnos en ciertos métodos, que no modifique a ciertos objetos/instancias.
+        @staticmethod
+        def mirar():				-> () no lleva nada, ya que no se refieren ni a la clase ni a la instancia.
+            #self.color = 'rojo'		-> No se puede acceder a los atributos de la instancia
+            #cls.alas = 2			-> No se puede acceder a los atributos de la clase
+    
+            print("El pajaro mira")
+            
+    Pajaro.mirar()					-> EL pajaro mira			-> Se imprime ya que no requiere argumentos..
+                                                -> Ni de clase ni de instancia
+    
+    --------------------------------------------------------        
     </pre>
     <p class="practica">Práctica</p>
     <pre>
+        --------------------------------------------------------
+
+        Práctica Tipos de Métodos 1
+        Crea un método estático respirar() para la clase Mascota. Cuando se llame, debe imprimir en pantalla "Inhalar... Exhalar"
         
+        class Mascota:
+        
+            @staticmethod
+            def respirar():
+                print("Inhalar..Exhalar")
+        
+        Mascota.respirar()		-> Inhalar..Exhalar
+        
+        --------------------------------------------------------
+        
+        Práctica Tipos de Métodos 2
+        Crea un método de clase revivir() que actúa sobre el atributo de clase vivo de la clase Jugador, estableciéndolo en True cada vez que es invocado. El valor 
+        
+        predeterminado del atributo vivo, debe ser False.
+        
+        class Jugador:
+            vivo = False
+            
+            @classmethod
+            def revivir(cls):
+                cls.vivo = True
+        
+        --------------------------------------------------------
+        
+        class Personaje:
+            def __init__(self, cantidad_flechas):
+                self.cantidad_flechas = cantidad_flechas
+                
+            def lanzar_flecha(self):
+                self.cantidad_flechas = self.cantidad_flechas-1
+        
+        
+        --------------------------------------------------------        
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
