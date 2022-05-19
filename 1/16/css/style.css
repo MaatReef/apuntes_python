@@ -44,6 +44,13 @@ h1 {
     color: white;
     padding: 0;
 }
+h2{
+    font-size: 2rem;
+    text-decoration: underline;
+    font-family: 'Raleway', sans-serif;;
+    padding-left: 2.5rem;
+    color: white;
+}
 a {
     font-size: 1.4rem;
 }
