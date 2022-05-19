@@ -1587,6 +1587,71 @@
     <br>
     <p id="12">12. Solución al Proyecto del Día 7</p>
     <p class="practica">Práctica</p>
+
+    <pre>
+        Usamos la clase Persona, solo para practicar la herencia, se puede hacer directamente usando la clase Cliente.
+
+        ---------------------------------------------------------
+        class Persona:								-> Clase Madre -> Persona.
+        
+            def __init__(self, nombre, apellido):
+                self.nombre = nombre
+                self.apellido = apellido
+        
+        
+        class Cliente(Persona):							-> Clase cliente que hereda de persona.
+            def __init__(self, nombre, apellido, numero_cuenta, balance = 0):	-> Comienza en 0.
+                super().__init__(nombre, apellido)				-> Le extendemos.
+                self.numero_cuenta = numero_cuenta				-> Nuevos atributos.
+                self.balance = balance
+        
+            def __str__(self):							-> Método especial
+        
+                return f"Cliente: {self.nombre} {self.apellido}\nBalance de cuenta {self.numero_cuenta}: ${self.balance}"		-> No print, mejor Return.
+        
+            def depositar(self, monto_deposito):	-> Monto a depositar.
+                self.balance += monto_deposito		-> Se le suma al balance.
+                print("Deposito aceptado")		-> Imprimimos.
+        
+            def retirar(self, monto_retiro):		-> Monto a retirar.
+                if self.balance >= monto_retiro:	-> El balance debe ser mayor a lo que va a retirar.
+                    self.balance -= monto_retiro	- Le restamos al balance.
+                    print("Retiro realizado")		-> Imprimimos.
+                else:
+                    print("Fondos insuficientes")	- Fondos Insuficientes.
+        
+        
+        def crear_cliente():						-> Para crear el cliente.
+            nombre_cl = input("Ingrese su nombre: ")
+            apellido_cl = input("Ingrese su apellido: ")
+            numero_cuenta = input("Ingrese su numero de cuenta: ")		
+            cliente = Cliente(nombre_cl, apellido_cl, numero_cuenta)	-> Armamos una variable con las tres anteriors.
+            return cliente						-> Retornamos al código para operar con la data ingresada.
+        
+        
+        def inicio():								-> Ejecutar el código.
+            mi_cliente = crear_cliente()			- Al llamar a la funcion crear_cliente() retorna un valor que guardamos en una variable.
+            print(mi_cliente)					- Imprimimos.
+            opcion = 0						- Menu con opcion incorrecta igual a 0, para darle lugar al ciclo.
+        
+            while opcion != 'S':							-> Ciclo while.
+                print('Elije: Depositar (D), Retirar (R), o Salir (S)')
+                opcion = input()							- Guaradamos la información dentro de una variable.
+        
+                if opcion == 'D':							- Depositar.
+                    monto_dep = int(input("Monto a depositar: "))			- guardamos el deposito en una variable.
+                    mi_cliente.depositar(monto_dep)					Llamamos la funcion con la variable recien creada.
+                elif opcion == 'R':
+                    monto_ret = int(input("Monto a retirar: "))				- Retirar -> guardamos el retiro en una variable
+                    mi_cliente.retirar(monto_ret)					- Llamamos la funcion con la variable recien creada.
+                print(mi_cliente)							- Print.
+        
+            print("Gracias por operar en Banco Python")		-> del bucle while.
+        
+        
+        inicio()								-> Llamar la función para iniciar.
+        --------------------------------------------------------        
+    </pre>
     <pre>
         --------------------------------------------------------
         class Persona:
