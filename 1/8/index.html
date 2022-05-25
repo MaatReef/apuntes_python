@@ -55,115 +55,1045 @@
 
     <p id="1">1. Meta del Día 1</p>
     <pre>
-
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
+        Crear un programa para orgde un nos de una Tienda.
+        De acuerdo al area del negocio al que el cliente desea acceder, el programa emitirà turnos, recordando el último asignado.
         
+        En esta sección apuntaremos a la Eficiencia y Perfomance.
+        
+        - Instalar Paquetes.
+        - Crear Módulos y Paquetes.
+        - Manejo de Errores.
+        - Detectar Errores con Pylint.
+        - Probar el código con unittest.
+        - Decoradores.
+        - Generadores.
+
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
+
     <p id="2">2. Instalar Paquetes</p>
     <pre>
+        - Pypi
+        - Pip install
+        --------------------------------------------------------
         
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
-
+        Lo que viene por defecto al instalar Python son las Bibliotecas Estandar o Integradas.	 
+        Muchas Bibliotecas..
+        - Crear Gráficas
+        - Controlar Excel desde python
+        - Enviar Recibir Emails
+        - Código para controlar un Robot a distancia
+        - Código para hacer reconocimiento Facial.
         
+        Todo ya existe, y lo podemos implementar..
+        Para esto Usamos Pypi 
+        - Repositorio de Paquetes de Python de código abierto (de tercero)
+        - Para instalar usaremos pip install	-> De esta manera lo descargaremos directamente desde el repositorio de Pypi
+        
+        --------------------------------------------------------
+        Búsqueda desde Google apuntando con Pypi.
+        
+        python packages for console text color			-> Buscar en relación con Pypi.org y en ingles.
+        
+        En consola
+            ->pip install colored				-> 
+        
+            ->python					-> Entramos en python
+        
+            ->from colored import fg, bg, attr		-> 
+            ->color = fg(1) + bg(15)
+            print(color + "Hola MundO" + attr(0))		-> Imprimimos en Color.
+        
+        --------------------------------------------------------
+        
+        python packkages for excel
+            ->pip install openpyxl
+        
+            ->python
+            ->from openpyxl import *			-> Ahora podemos usar Excel con python.
+        
+        --------------------------------------------------------        
     </pre>
+    <br>
+    <img src="img/2.1 Instalar Paquetes.png" alt="">
+    <br>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
+
     <p id="3">3. Módulos y Paquetes</p>
     <pre>
-        
+        Modulo = archivo ".py"			-> Cualquier archivo guardado con esa extensión.
+                - Puede albergar un conjunto de funciones, variables, clases.
+                - También un módulo puede ser usado por otro módulo. import
+
+        Paquetes = grupos de módulos		-> Una carpeta que contiene varios mòdulos.	
+                - Una carpeta Matemática
+                    -> __init__.py		-> Este es obligatorio para todo paquete, para interpretar que es un paquete.
+                    -> aritmetica.py	
+                    -> gemotria.py
+
+                -> Matematica
+                    -> Operaciones	-> __init__py	-> Subcarpeta dentro de una carpeta, debe tener el __init__
+                            ->iconos.py
+                    ->__init__.py
+                    ->aritmetica.py
+                    ->geometria.py
+
+        --------------------------------------------------------
+        Creamos un Proyecto	-> Mis_modulos con 2 archivos
+
+        -> ModuloOcupado.py
+        -> ModuloVacio.py
+
+        -> ModuloOcupado.py
+        def saluda():
+        print("Hola, estoy en el modulo ocupado")	
+
+        -> ModuloVacio.py
+        from ModuloOcupado import saludar
+
+        saludar()
+
+        --------------------------------------------------------
+        Desde consola..
+        -> cd Desktop
+
+        -> cd Mis_Modulos
+
+        -> python ModuloVacio.py 
+        -> Hola, estoy en el modulo ocupado.
+
+        --------------------------------------------------------
+        Tambièn Serà necesario crear Paquetes para simplificar.
+        Creamos un Proyecto llamado..
+        ->Mi_Paquete
+
+        Con un archivo..
+        ->__init__.py		-> Constructor del paquete, como al crear una clase.
+            -> Estarà vacìo, pero siempre hay que crearlo.
+
+        ->suma_y_resta.py
+        def suma(num1, num2):
+        print(num1 + num2)
+
+        def resta(num1, num2):
+        print(num1 - num2)
+
+        *Dentro de Mi_Paquete..
+        Creamos otra carpeta llamada Paquete_Maat
+
+        -> Como Paquete_Maat ahora tendrà el __init__
+
+        Creamos un archivo por fuera.. Llamado ejercicio.py
+
+        -> from Paquete_Maat import suma_y_resta
+
+        suma_y_resta.suma(num1, num2)
+                -> Tendremos las dos opciones de funciones para elegir
+        suma_y_resta.resta(num1, num2)
+
+        --------------------------------------------------------
+
+        -> from Paquete_Maat import *		-> Para importar todos Los módulos.
+
+        --------------------------------------------------------
+
+        Podremos agregar una subcarpeta		-> Subpaquete
+                - Le agregamos un archivo __init__.py
+        Además creamos un archivo con 
+        -> saludo.py
+        def hola():
+        print("Hey")
+
+        -> ejercicio.py
+
+        from Paquete_Maat.Subpaquete import saludo		-> Importar desde un subpaquete.
+
+        saludo.hola()
+
+        --------------------------------------------------------        
     </pre>
-    <p class="practica">Practica</p>
-    <pre>
-        
-    </pre>
+    <br>
+    <img src="img/3.1 Módulos y Paquetes.png" alt="">
+    <br>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
+
     <p id="4">4. Manejo de Errores</p>
     <pre>
-        
+        Anticipando Errores.. Al manejar los erorres evitamos que el programa se Detenga.
+
+        intentar		-> Try		-> El programa intenta esto..
+
+        excepción 		-> Except	-> Si sale mal, haz esto..
+
+        finalmente		-> Finaly	-> Pase lo que pase, haz esto..
+
+        --------------------------------------------------------
+            Cometiendo errores..
+
+        def suma():
+            n1 = int(input("Número 1: "))
+            n2 = int(input("Número 2: "))
+            print(n1 + n2)
+            print("Gracias por sumar")
+
+
+
+        try:							-> Tanto el try como el except estarán al mommento de manejar errores
+            #Código que queremos probar
+            suma()
+        except:
+            #Código a ejecutar si hay un error
+            print("Algo no ha salido bien")
+        else:							-> Else y finally, más uso del Else.
+            #Código a ejecutar si no hay un error.
+            print("Hiciste todo bien")
+        finally:
+            #Código que se va a ejecutar de todos modos.
+            print("Eso fue todo")
+
+        --------------------------------------------------------
+        Existen diferentes tipos de Errores como.. Existen Muchos.
+        ValueError
+        TypeError
+                                
+
+            Cometiendo errores..
+
+        def suma():
+            n1 = int(input("Número 1: "))
+            n2 = int(input("Número 2: "))
+            print(n1 + n2)
+            print("Gracias por sumar" + n1)
+
+        try:							
+            suma()
+        except TypeError:							-> Se puede ordenar y Prevenir Distintos Tipos de Errores.
+            print("Estás intentando concatenar tipos distintos")
+        except ValueError:
+            print("Ese no es un número")
+        else:							
+            print("Hiciste todo bien")
+        finally:
+            #Código que se va a ejecutar de todos modos.
+            print("Eso fue todo")
+
+        --------------------------------------------------------
+
+        def pedir_numero():
+
+            while True:
+                try:
+                    numero = int(input("Dame un numero: " ))
+                except:
+                    print("Ese no es un numero")
+                else: 
+                    print(f"Ingresaste el numero {numero}")
+                    break
+
+            print("Gracias")
+
+        pedir_numero()				-> Nos aseguramos de que ingrese un Número
+
+        --------------------------------------------------------        
     </pre>
+    <br>
+    <img src="img/4.1 Manejo de Errores.png" alt="">
+    <br>
     <p class="practica">Práctica</p>
     <pre>
-        
+        --------------------------------------------------------
+        Práctica Manejo de Errores 1
+        Hemos visto en la lección de qué manera se implementa el manejo de errores habitualmente en Python. En el caso de este ejercicio, sin embargo, necesitaré 
+
+        que lo hagamos de una forma ligeramente distinta para que pueda ser evaluado: deberás implementarlo DENTRO de la función. En forma de comentario, verás un 
+
+        ejemplo de resolución. Ten presente, sin embargo, que la forma preferida es la que hemos visto en clase.
+
+        Implementa para la siguiente función suma(), un manejador de errores simple que ante cualquier error, imprima en pantalla el mensaje: "Error inesperado". En 
+
+        caso contrario, deberá limitarse a mostrar el resultado de la suma entre los dos números.
+
+        """
+        Ejemplo de resolución:
+
+        def nombre_funcion(argumento):
+            try:
+                {Lo que haría la función habitualmente}
+            except:
+                {Excepción}
+            else:
+                ... etc.
+        """
+
+
+        def suma(num1,num2):
+                
+            print(num1+num2)
+        --------------------------------------------------------
+
+        Práctica Manejo de Errores 2
+        Hemos visto en la lección de qué manera se implementa el manejo de errores habitualmente en Python. En el caso de este ejercicio, sin embargo, necesitaré 
+
+        que lo hagamos de una forma ligeramente distinta para que pueda ser evaluado: deberás implementarlo DENTRO de la función. En forma de comentario, verás un 
+
+        ejemplo de resolución. Ten presente, sin embargo, que la forma preferida es la que hemos visto en clase.
+
+        Implementa para la siguiente función cociente(), un manejador de errores:
+
+        Ante un error de tipo (TypeError), debe imprimir en pantalla el mensaje: "Los argumentos a ingresar deben ser números"
+
+        Si se generara una división por cero (error del tipo ZeroDivisionError), el mensaje mostrado debe ser: "El segundo argumento no debe ser cero"
+
+        En caso que no se produzca un error, deberá limitarse a imprimir el resultado del cociente (división) entre los dos números entregados como argumento.
+
+
+        """
+        Ejemplo de resolución:
+
+        def nombre_funcion(argumento):
+            try:
+                {Lo que haría la función habitualmente}
+            except:
+                {Excepción}
+            else:
+                ... etc.
+        """
+
+        def cociente(num1,num2):
+                
+            print(num1/num2)
+            
+        #MENSAJE EN PANTALLA
+        "Los argumentos a ingresar deben ser números"
+        "El segundo argumento no debe ser cero"
+
+        --------------------------------------------------------
+        Práctica Manejo de Errores 3
+        Hemos visto en la lección de qué manera se implementa el manejo de errores habitualmente en Python. En el caso de este ejercicio, sin embargo, necesitaré 
+
+        que lo hagamos de una forma ligeramente distinta para que pueda ser evaluado: deberás implementarlo DENTRO de la función. En forma de comentario, verás un 
+
+        ejemplo de resolución. Ten presente, sin embargo, que la forma preferida es la que hemos visto en clase.
+
+        Implementa un manejador de errores dentro de la siguiente función, abrir_archivo():
+
+        En caso de que el archivo que se intenta abrir no pueda ser hallado (FileNotFoundError), mostrar en pantalla el mensaje: "El archivo no fue encontrado"
+
+        En caso de que otro tipo de error ocurra, mostrar el mensaje: "Error desconocido"
+
+        Si no se produce ningún error, imprimir en pantalla: "Abriendo exitosamente"
+
+        En todos los casos, al finalizar, imprimir: "Finalizando ejecución"
+
+        """
+        Ejemplo de resolución:
+
+        def nombre_funcion(argumento):
+            try:
+                {Lo que haría la función habitualmente}
+            except:
+                {Excepción}
+            else:
+                ... etc.
+        """
+
+        def abrir_archivo(nombre_archivo):
+            archivo = open(nombre_archivo)
+
+
+        #MENSAJES EN PANTALLA:
+        "El archivo no fue encontrado"
+        "Error desconocido"
+        "Abriendo exitosamente"
+        "Finalizando ejecución"
+
+
+        --------------------------------------------------------
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
+
     <p id="5">5. Buscar Errores con Pylint</p>
     <pre>
+        -pylint		-> Bibliotecas para verificar errores, más usado en Equipos.
+        -unittest
         
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
+        estilo = PEP-8
+        --------------------------------------------------------
         
+        Consola..
+            -> pip install pylint
+            
+        Crear un archivo -- archivo1.py
+        
+        numero1 = 500
+        print(Numero1)				-> Error
+        
+        
+        Desde consola..
+            -> cd Desktop
+            -> cd Python
+            -> cd Dia 8
+            -> pylint archivo.py -r y 			-> -r reporte, y yes
+        
+            -> 
+        
+        *Código de 7 para Arriba*
+        --------------------------------------------------------
+        """
+        Este es un modulo que imprimie algo	
+        """
+        
+        
+        def una_funcion():
+            numero1 = 500
+            print(numero1)
+        
+        
+        una_funcion()
+        
+            
+        
+            -> pylint archivo.py -r y 
+        
+        *Obtenemos un 7.5 de 10.				
+        --------------------------------------------------------
+        
+        Realiza la siguiente Autoevaluación utilizando Pylint para aplicar PEP 8
+        
+        
+        Instala Pylint en tu ordenador siguiendo el procedimiento mostrado en clase.
+        
+        Descarga el módulo de Python llamado practica_pylint.py, almacénalo en una carpeta y evalúalo utilizando Pylint desde tu consola. Observarás que recibe un 
+        
+        puntaje muy bajo debido a que contiene varias infracciones a las recomendaciones de estilo PEP 8.
+        
+        Analiza el reporte obtenido, así como tus conocimientos de Python y las recomendaciones de tu IDE (PyCharm, o aquel que utilices) para implementar las 
+        
+        mejoras necesarias y llegar a un mejor puntaje. Fíjate como objetivo alcanzar una puntación mayor o igual a 7.00.
+        
+        Puedes comparar tu solución descargando un módulo con una alternativa resuelta de esta actividad, que también se encuentra adjunta como recurso de esta 
+        
+        lección, con el nombre posible_solucion_pylint.py. No te preocupes si tu solución no es exactamente igual, mientras estés satisfecho/a con los resultados 
+        
+        alcanzados (¡tu solución puede ser incluso mejor!).
+        
+        Atención: esta actividad es de autoevaluación, no necesitarás enviar tu respuesta por ningún medio. Si tienes dudas, puedes utilizar el espacio de Preguntas 
+        
+        y Respuestas.
+        
+        
+        def Sumar(número1, número2):
+            return número1+número2
+        
+        suma = Sumar(5,7)
+        print(suma)
+        
+        --------------------------------------------------------
+        
+        '''
+        Este módulo contiene una sencilla función de suma,
+        y ejecuta un ejemplo mostrando el resultado en pantalla
+        '''
+        
+        
+        def sumar(numero1, numero2):
+        
+            """
+            Esta función recibe dos argumentos numéricos
+            y devuelve su suma
+            """
+        
+            return numero1 + numero2
+        
+        
+        SUMA = sumar(5, 7)
+        
+        
+        print(f'El resultado de la suma fue: {SUMA}')
+        
+        --------------------------------------------------------        
     </pre>
+    <br>
+    <img src="img/5.1 Pylint.png" alt="">
+    <br>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
+
     <p id="6">6. Probar el Código con Unittest</p>
     <pre>
-        
+        Integrada, solo necesitamos importarla.
+
+        Creamos un archivo.. modulo_nuevo.py
+
+        import unittest
+        import mi_Archivo
+
+        class Prueba(unittest.TestCase)
+            -> Hacemoas las pruebas necesarias.
+
+        --------------------------------------------------------
+
+        cambia_texto.py
+
+        def todo_mayuscula(texto):
+            return texto.upper()			-> Va para upper
+
+
+        prueba.py
+
+        import unittest
+        import cambia_texto
+
+        class ProbarCambiaTexto(unittest.TestCase):
+            
+            def test_mayusculas(self):
+                palabra = 'Buen Dia'
+                resultado = cambia_texto.todo_mayuscula(palabra)
+                self.assertEqual(resultado, 'BUEN DIA')
+                
+        if __name__ == '__main__':
+            unittest.main()			-> Hacemos saber que es lo que debe ejecutar
+
+                        -> Corremos y Todo Ok
+
+        --------------------------------------------------------
+
+        prueba.py
+
+        import unittest
+        import cambia_texto
+
+        class ProbarCambiaTexto(unittest.TestCase):
+            
+            def test_mayusculas(self):
+                palabra = 'Buen Dia'
+                resultado = cambia_texto.todo_mayuscula(palabra)
+                self.assertEqual(resultado, 'Buen dia')
+                
+        if __name__ == '__main__':
+            unittest.main()			-> Error.
+
+        --------------------------------------------------------        
     </pre>
-    <p class="practica">Práctica</p>
-    <pre>
-        
-    </pre>
+    <br>
+    <img src="img/6.1 Unittest.png" alt="">
+    <br>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
+
     <p id="7">7. Decoradores</p>
     <pre>
-        
+        @classmethod
+        @staticmethod
+
+        Podemos crear nuestros propios decoradores..
+        Por lo tanto..
+        Son funciones que modifican el comportamiento de otras funciones.
+        Ayudando a que el código sea más corto.
+
+        Son como un Switch que se activ o desactiva de acuerdo a una funcionalidad específica que necesitemos.
+        --------------------------------------------------------
+
+        def mayuscula(texto):
+            print(texto.upper())
+
+        def minuscula(texto):
+            print(texto.lower())
+
+
+        mi_funcion = mayuscula		-> una función puede ser asignada a una variable, como contenido de una variable.
+
+        mi_funcion("python")		-> PYTHON
+
+        --------------------------------------------------------
+        *Recordar, todo en python es un Objeto
+        --------------------------------------------------------
+
+        def mayuscula(texto):
+            print(texto.upper())
+
+        def minuscula(texto):
+            print(texto.lower())
+
+
+        def una_funcion(funcion):
+            return funcion
+
+        una_funcion(mayuscula("probando")	-> La función es pasada como argumento de otra función.
+                        -> PROBANDO
+
+        --------------------------------------------------------
+
+        def cambiar_letras(tipo):
+
+            def mayuscula(texto):
+                print(texto.upper())
+
+            def minuscula(texto):
+                print(texto.lower())
+
+            if tipo == "may":
+                return mayuscula		-> La funciones tambièn pueden trabajar como objetos.
+            elif tipo == "min":			
+                return minuscula
+
+        operacion = cambiar_letras('may')		-> De acuerdo a la opción, tendremos una posibilidad determinada.
+
+        operacion('palabra')
+
+        --------------------------------------------------------
+
+        def decorar_saludo(funcion):
+
+            def otra_funcion(palabra):
+                print('hola')
+                funcion(palabra)
+                print('adios')
+            return otra_funcion
+
+
+        @decorar_saludo				
+        def mayusculas(texto):
+            print(text.upper())
+
+        def minusculas(texto):
+            print(text.lower())
+
+        minusculas("Python")			-> python
+
+                            -> hola
+        mayusculas("Python")			-> PYTHON
+                            -> adios
+
+        --------------------------------------------------------
+
+        def decorar_saludo(funcion):
+
+            def otra_funcion(palabra):
+                print('hola')
+                funcion(palabra)
+                print('adios')
+            return otra_funcion
+
+
+        @decorar_saludo				
+        def mayusculas(texto):
+            print(text.upper())
+
+        @decorar_saludo				-> Envolvemos una función dentro de otra, por medio del decorador.
+        def minusculas(texto):
+            print(text.lower())
+
+                            -> hola
+        minusculas("Python")			-> python
+                            -> adios
+
+                            -> hola
+        mayusculas("Python")			-> PYTHON
+                            -> adios
+
+        *Aunque es útil aún así, no podremos ejecutar la función sin el decorador.. Por lo tanto.
+        --------------------------------------------------------
+        def decorar_saludo(funcion):
+
+            def otra_funcion(palabra):
+                print('hola')
+                funcion(palabra)
+                print('adios')
+            return otra_funcion
+
+
+
+        def mayusculas(texto):
+            print(text.upper())
+
+
+        def minusculas(texto):
+            print(text.lower())
+
+
+        mayuscula_decorada = decorar_saludo(mayusculas)
+
+        mayusculas('fede')		-> FEDE
+                                -> Por lo tanto, puedo activar o no el decorado, a mi antojo.
+                                -> La función simple o con el decorador, util desde lo abstracto.	
+                        -> hola	
+        mayusculas_decoradas('fede')	-> FEDE
+                        -> adios
+
+        *Permite complementar el código de una función con el código de otra, y hacerlas trabajar juntas si lo deseamos*
+        --------------------------------------------------------        
     </pre>
-    <p class="practica">Práctica</p>
-    <pre>
-        
-    </pre>
+    <br>
+    <img src="img/7.1 Decoradores.png" alt="">
+    <br>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
+
     <p id="8">8. Generadores</p>
     <pre>
+        Es un tipo de función que en vez de devolver un resultado concreto, lo va generando a medida que lo vayamos necesitando.
+
+            Ejemplo..
+        def mi_funcion():
+            yield algo		-> En vez de Return usamos yield (producir)
+
+        --------------------------------------------------------
+
+        def mi_funcion():
+            return 4		-> Return produce el 4 y lo devuelve
+
+        def mi_generador():
+            yield 4			-> Lo produce pero lo aguarda a la orden del pedido.
+
+        print(mi_funcion())		-> 4
+        print(mi_generador())		-> <generator object mi_generador at l908301923>	-> Marca que existe.
+
+        g = mi_generador()
+
+        print(next(g))			-> 4	-> Con next accedemos al próximo valor de la serie.
+                            -> Recuerda donde queda y si hay màs valores de la serie espera.
         
+        --------------------------------------------------------
+
+        def mi_funcion():
+            lista = []
+            for x in range(1, 5):
+                lista.append( x * 10 )
+            return lista
+
+        def mi_generador():
+            for x in range(1, 5):
+                yield x * 10			-> Más económico y en memoria, no produce todos, a medida que lo pedimos lo devuelve.			
+
+
+        print(mi_funcion())		-> [10, 20, 30, 40]
+
+        print(mi_generador())		-> <generator object mi_generador at l908301923>	-> Marca que existe.
+
+        g = mi_generador()
+
+        print(next(g))			-> 10	
+        print(next(g))			-> 20			-> El 30 y el 40, lo guarda.
+        print(next(g))			-> 30
+        print(next(g))			-> 40
+        print(next(g))			-> StopIteration.. No hay màs números
+
+        --------------------------------------------------------
+
+        def mi_generador():
+            x = 1
+            yield x
+
+            x += 1
+            yield x
+
+            x += 1
+            yield x
+
+        g = mi_generador()
+
+        print(next(g))		-> 1
+        print(next(g))		-> 2	-> Producto nuevo, es decir recuerda el valor anterior.
+
+
+        print("Hola Mundo")	-> Hola Mundo			-> No se interrumpe
+
+
+        print(next(g))		-> 3	-> Producto nuevo	-> COntinua produciendo.
+        --------------------------------------------------------
     </pre>
+    <br>
+    <img src="img/8.1 Generadores.png" alt="">
+    <br>
     <p class="practica">Práctica</p>
     <pre>
+        --------------------------------------------------------
+        Práctica Generadores 1
+        Crea un generador (almacenado en la variable generador) que sea capaz de devolver una secuencia infinita de números, iniciando desde el 1, y entregando un 
         
+        número consecutivo superior cada vez que sea llamada mediante next.
+        
+        Práctica Generadores 1
+        
+        def secuencia_infinita():
+            num = 0
+            while True:
+                num += 1
+                yield num
+        
+        generador = secuencia_infinita()
+        
+        --------------------------------------------------------
+        Práctica Generadores 2
+        Crea un generador (almacenado en la variable generador) que sea capaz de devolver de manera indefinida múltiplos de 7, iniciando desde el mismo 7, y que 
+        
+        cada vez que sea llamado devuelva el siguiente múltiplo (7, 14, 21, 28...).
+        
+        
+        Práctica Generadores 2
+        
+        def multiplos_siete():
+            num = 1
+            while True:
+                yield 7*num
+                num += 1
+        
+        generador = multiplos_siete()
+        
+        --------------------------------------------------------
+        Práctica Generadores 3
+        Crea un generador que reste una a una las vidas de un personaje de videojuego, y devuelva un mensaje cada vez que sea llamado:
+        
+        "Te quedan 3 vidas"
+        
+        "Te quedan 2 vidas"
+        
+        "Te queda 1 vida"
+        
+        "Game Over"
+        
+        Almacena el generador en la variable perder_vida
+        
+        
+        Práctica Generadores 3
+        
+        def mensaje():
+            x = "Te quedan 3 vidas"
+            yield x
+            
+            x = "Te quedan 2 vidas"
+            yield x
+        
+            x = "Te queda 1 vida"
+            yield x
+            
+            x = "Game Over"
+            yield x
+        
+        perder_vida = mensaje()
+        --------------------------------------------------------        
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
     <p id="9">9. Proyecto del Día 8</p>
     <pre>
+        Crear un programa de turnos para una Farmacia.
+        Tiene tres áreas de Atención..
+        - Perfumeria
+        - Farmacia 
+        - Cosméticos
         
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
+        El programa consulta al cliente, a que sección desea dirigirse y le da un número de turno..
+        De acuerdo al área.
+        Cosmetica 	-> C - 01
+        Perfumeria	-> P - 03
+        Farmacia	-> F - 05
+        Luego preguntarà
+        ¿Otro turno?
         
+        Y repetirà todo el proceso..
+        
+            -Tener en cuenta.
+        Los Diferentes clientes sacaràn turnos para las 3 diferentes áreas
+        En diferentes ordenes, por lo que el programa debe llevar la constancia del orden de las áreas.
+        Repasar los generadores.
+        Los decoradores.
+            -Su turno es:
+            - C-54
+            -Aguarde y serà atendido
+        Creamos el decorador una sola vez y luego envolvemos las funciones, seguón lo deseemos.
+        
+        Usar Módulos
+            numeros.py
+                -generadores
+                -decorador
+        
+            principal.py
+                import numeros			-> Importar el archivo.
+                -funciones	-> Instrucciones para elegir un área.
+                        -> Decidir si tomara un nuevo turno.	
+                        -> Finalizar.
+        
+        
+        --------------------------------------------------------        
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
+
     <p id="10">10. Solución al Proyecto del Día 8</p>
     <pre>
-        
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
-        
+        Creamos un archivos numeros.py por un lado..
+        --------------------------------------------------------
+        def numeros_perfumeria():
+            for n in range(1, 10000):			-> a 10000 turnos.
+                yield f"P - {n}"			-> Construimos con yield
+
+
+        def numeros_farmacia():
+            for n in range(1, 10000):
+                yield f"F - {n}"
+
+
+        def numeros_cosmetica():
+            for n in range(1, 10000):
+                yield f"C - {n}"
+
+
+        p = numeros_perfumeria()			-> Guardamos las funciones en variables
+        f = numeros_farmacia()
+        c = numeros_cosmetica()
+
+
+        def decorador(rubro):				-> Armamos el formato del ticket con el decorador.
+                                -> De acuerdo a la opción, armamos el ticket.
+            print("\n" + "*" * 23)
+            print("Su número es:")
+            if rubro == "P":
+                print(next(p))				-> Con next adelantamos el yield, de manera consecutiva.
+            elif rubro == "F":
+                print(next(f))
+            else:
+                print(next(c))
+            print("Aguarde y será atendido")
+            print("*" * 23 + "\n")
+
+        --------------------------------------------------------
+        Armamos el segundo archivo.. 
+        Un nuevo modulo.
+        principal.py
+        --------------------------------------------------------
+
+        import numeros				-> Importamos el módulo numeros
+
+        def preguntar():
+
+            print("Bienvenido a Farmacia Python")
+
+            while True:
+                print("[P] - Perfumería\n[F] - Farmacia\n[C] - Cosmútica")		
+                try:									-> Manejamos las opciones.
+                    mi_rubro = input("Elija su rubro: ").upper()
+                    ["P", "F", "C"].index(mi_rubro)					-> Con la lista [] verificamos si introdujo el dato correcto.
+                except ValueError:
+                    print("Esa no es una opción válida")				
+                else:
+                    break
+
+            numeros.decorador(mi_rubro)		-> Le pasamos el rubro ingresado.
+
+
+        def inicio():				
+
+            while True:
+                preguntar()		-> función anterior
+                try:
+                    otro_turno = input("Quieres sacar otro turno? [S] [N]: ").upper()		
+                    ["S", "N"].index(otro_turno)
+                except ValueError:							-> Ante la opción correcta.
+                    print("Esa noes una opción válida")
+                else:									-> Ingreso lo correcto
+                    if otro_turno == "N":						-> Si toca N, saca del ciclo.
+                        print("Gracias por su visita")
+                        break
+
+        inicio()
+        --------------------------------------------------------
+        Así con el generador, el sistema recordará el último turno emitido y en funcion de este, imprimirá el consecutivo.
+        --------------------------------------------------------
+
+        Código Limpio..
+
+        --------------------------------------------------------
+        def numeros_perfumeria():
+            for n in range(1, 10000):
+                yield f"P - {n}"
+
+
+        def numeros_farmacia():
+            for n in range(1, 10000):
+                yield f"F - {n}"
+
+
+        def numeros_cosmetica():
+            for n in range(1, 10000):
+                yield f"C - {n}"
+
+
+        p = numeros_perfumeria()
+        f = numeros_farmacia()
+        c = numeros_cosmetica()
+
+
+        def decorador(rubro):
+
+            print("\n" + "*" * 23)
+            print("Su número es:")
+            if rubro == "P":
+                print(next(p))
+            elif rubro == "F":
+                print(next(f))
+            else:
+                print(next(c))
+            print("Aguarde y será atendido")
+            print("*" * 23 + "\n")
+
+        --------------------------------------------------------
+
+        import numeros
+
+        def preguntar():
+
+            print("Bienvenido a Farmacia Python")
+
+            while True:
+                print("[P] - Perfumería\n[F] - Farmacia\n[C] - Cosmútica")
+                try:
+                    mi_rubro = input("Elija su rubro: ").upper()
+                    ["P", "F", "C"].index(mi_rubro)
+                except ValueError:
+                    print("Esa no es una opción válida")
+                else:
+                    break
+
+            numeros.decorador(mi_rubro)
+
+
+        def inicio():
+
+            while True:
+                preguntar()
+                try:
+                    otro_turno = input("Quieres sacar otro turno? [S] [N]: ").upper()
+                    ["S", "N"].index(otro_turno)
+                except ValueError:
+                    print("Esa noes una opción válida")
+                else:
+                    if otro_turno == "N":
+                        print("Gracias por su visita")
+                        break
+
+        inicio()
+
+        --------------------------------------------------------        
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
+
     <br>
     <br>
 
