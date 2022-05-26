@@ -55,109 +55,1216 @@
 
     <p id="1">1. Proyecto del Día 9</p>
     <pre>
-
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
+        Repasamos algunas Bibliotecas o módulos Externos.
+        - Collections
+        - Os
+        - Shutil
+        - Datetime
+        - Math
+        - Timeit
+        - Regular Expresions
+        - zipfile
         
+        Como resultado del módulo crearemos un buscador de números de series.
+        El cual será capaz de recorrer una serie de carpetas y archivos, y encontrar dentro de cada archivo, una fracción de texto que cumpla con una determinada condición o patrón.
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
+
     <p id="2">2. Modulo Collections</p>
     <pre>
+        Hace parte a las biblioteca integrada de Python..
+
+        from collections import [elemento]
+
+        Ayuda a completar y manejar las estructuras de datos de una forma más eficiente.
+        Conoceremos algunas de sus herramientas más importantes.
+
+        - counter
+        - defaultdict
+        - namedtuple
         
+
+        --------------------------------------------------------
+            Counter..
+        from collections import Counter
+
+        numeros = [8,6,9,5,4,5,5,5,8,7,4,5,4,4]
+
+        print(Counter(numeros))			-> Nos arma una subclase de un diccionario
+                            -> Counter({5: 5, 4: 4, 8: 2, 6: 1, 9: 1, 7: 1})
+
+        print(Counter('mississippi'))		-> Counter({'i': 4, 's': 4, 'p': 2, 'm': 1})
+
+        --------------------------------------------------------
+
+        from collections import Counter
+
+        frase = 'al pan pan y al vino vino'
+        print(Counter(frase.spli()))			-> Counter({'al': 2, 'pan': 2, 'vino': 2, 'y': 1})
+
+        --------------------------------------------------------
+
+        from collections import Counter
+
+        serie = Counter([1,1,1,1,1,1,2,2,2,2,3,3,3,3,3,3,3,4])
+        print(serie.most_common())
+                                -> [(3, 7), (1, 6), (2, 4), (4, 1)]
+                                -> Nos ordena en una tupla los elementos más frecuentes.
+
+        print(serie.most_common(1))			-> [(3, 7)]
+                                -> Nos indica el primero con mayor repeticiones
+
+        print(serie.most_common(2))			-> [(3, 7), (1, 6)]
+                                -> Nos indica los dos números que mas se repiten.
+
+        print(list(serie))				-> [1, 2, 3, 4]	
+                                -> Lo ordenamos en una lista a través del count
+
+        *Hay más métodos por descubrir.
+        --------------------------------------------------------
+
+        from collections import defaultdict		-> Diccionario por defecto.
+
+        mi_dic = {'uno': 'verde', 'dos': 'azul', {'tres': 'rojo'}
+
+        print(mi_dic['dos'])				-> azul
+
+        print(mi_dic['cuatro'])				-> Error.
+            
+        --------------------------------------------------------
+
+        from collections import defaultdict		
+
+        mi_dic = defaultdict(lambda: 'nada')		-> En caso de que no haya una clave al pedirla, se le asigna nada (el valor elegido).
+
+        mi_dic['uno'] = 'verde'
+        print(mi_dic['dos'])				-> nada
+
+        print(mi_dic)					-> defaultdict(< function < lambda> at 0x7f5afc9a6280>, {'uno': 'verde', 'dos': 'nada'})
+                                - El diccionario por default
+
+        --------------------------------------------------------
+
+        from collections import namedtuple
+
+        mi_tupla = (500, 18, 65)
+
+        print(mi_tupla[1])			-> 18
+
+        --------------------------------------
+                            -> Es decir le damos nombres a los elementos de la tupla.
+        from collections import namedtuple
+
+        Persona = namedtuple('Persona', ['nombre', 'altura', 'peso'])
+
+        ariel = Persona('Ariel', 1.76, 79)
+
+        print(ariel.altura)			-> 1.76
+
+        print(ariel.peso)			-> 79
+
+        print(ariel[2])				-> 79        
     </pre>
+    <br>
+    <img src="img/2.1 Módulo Collections.png" alt="">
+    <br>
+    <p class="practica">Práctica</p>
+    <pre>
+        --------------------------------------------------------
+        Práctica Módulo Collections 1
+        Aplica un Counter (contador) sobre la lista de números entregada a continuación, y almacénalo en una variable llamada contador
+
+        from collections import Counter
+
+        lista = [1, 2, 3, 6, 7, 1, 2, 4, 5, 5, 5, 5, 3, 2, 6, 7]
+        contador = Counter(lista)
+
+        print(contador)						-> Counter({5: 4, 2: 3, 1: 2, 3: 2, 6: 2, 7: 2, 4: 1})
+
+        --------------------------------------------------------
+        Práctica Módulo Collections 2
+        Crea un diccionario llamado mi_diccionario, para el cual, cuando no se halle una palabra clave buscada, se cargue con el string "Valor no hallado".
+
+        Carga el diccionario, al menos, con el siguiente par de datos:
+
+        palabra clave = edad
+
+        valor = 44
+
+        Utiliza el método defaultdict del módulo Collections.
+
+
+        from collections import defaultdict		
+
+        mi_diccionario = defaultdict(lambda: 'Valor no hallado')
+
+        mi_diccionario['edad'] = 44
+        print(mi_diccionario['altura'])		-> Valor no hallado		
+
+        print(mi_diccionario)			-> defaultdict( < function < lambda> at 0x7f8a9d29a280>, {'edad': 44, 'altura': 'Valor no hallado'})
+
+        --------------------------------------------------------
+
+        Práctica Módulo Collections 3
+        Una cola doblemente terminada o deque (del inglés double ended queue) es una estructura de datos lineal que permite insertar y eliminar elementos por ambos extremos.
+
+        Investiga más al respecto en cualquier sitio de documentación, y a continuación implementa una deque a partir del módulo collections. Los elementos iniciales de la lista se brindan a continuación.
+
+        ["Londres", "Berlin", "París", "Madrid", "Roma", "Moscú"]
+
+        La lista debe tener la capacidad de incorporar elementos por la izquierda, y recibir el nombre lista_ciudades
+
+
+        import collections
+
+        lista_ciudades = collections.deque(["Londres", "Berlin", "París", "Madrid", "Roma", "Moscú"])
+
+        print('Deque:', lista_ciudades)			-> Deque: deque(['Londres', 'Berlin', 'París', 'Madrid', 'Roma', 'Moscú'])
+        print('Length:', len(lista_ciudades))		-> Length: 6
+        print('Left end:', lista_ciudades[0])		-> Left end: Londres
+        print('Right end:', lista_ciudades[-1])		-> Right end: Moscú
+
+        lista_ciudades.remove('Londres')
+        print('remove(c):', lista_ciudades)		-> remove(c): deque(['Berlin', 'París', 'Madrid', 'Roma', 'Moscú'])
+
+        lista_ciudades.appendleft("Buenos Aires")
+        print('Agregamos:', lista_ciudades)		-> Agregamos: deque(['Buenos Aires', 
+                                'Berlin', 'París', 'Madrid', 'Roma', 'Moscú'])
+
+        lista_ciudades.extendleft("Portugal")
+        print('Agregamos dado vuelta:', lista_ciudades)	
+                        -> Agregamos dado vuelta: deque(['l', 'a', 'g', 'u', 't', 'r', 'o', 'P', 
+                        'Buenos Aires', 'Berlin', 'París', 'Madrid', 'Roma', 'Moscú'])
+
+        -------------------------------------------------------- 
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+
+    <p id="3">3. Módulos OS y Shutil</p>
+    <pre>
+        --------------------------------------------------------
+        import os
+        print(os.getcwd())			-> C:\Users\Win10\Desktop\Python\Dia 9
+
+        archivo = open('curso.txt, 'w')		-> Si el archivo no existe al intentar abrirlo, no lo crea, w de writeable
+
+        archivo.write('texto de prueba')	-> Con contenido.
+
+        archivo.close()
+
+        print(os.listdir()			-> Listamos los archivos creados
+
+
+        --------------------------------------------------------
+                -> Para manipular archivos usamos shutil (en este caso mover)
+        import os
+        import shutil
+
+        shutil.move('curso.txt', "C:\\Users\\Win10\\Desktop")	-> Movemos el archivo.
+
+        os.unlink	-> Borrar una ruta especifica
+
+        os.rmdir	-> borrar una carpeta vacia de una ruta especifica	
+
+        shutil.rmtree	-> Borramos la carpeta completa, con la ruta especificada, sin preguntar. Irreversible.
+
+
+        --------------------------------------------------------
+            Por seguridad, instalamos un paquete para enviar data a la papelera sendtotrash
+            Desde consola.
+
+            -> pip install send2trash
+
+        Desde el editor..
+
+        import os
+        import shutil
+        import send2trashj
+
+        send2trash.send2trash('curso.txt')		-> Enviamos a la papelera.
+
+        --------------------------------------------------------
+
+        import os
+        import shutil
+        import send2trashj
+
+
+        print(os.walk('C:\\laruta\\'))			-> walk recorre la carpeta superior y todo lo que tiene por debajo.
+
+        ruta = 'C:\\laruta\\'
+
+        for carpeta, subcarpeta, archivo in os.walk(ruta):
+            print(f'En la carpeta: {carpeta}')
+            print(f'Las subcarpetas son:')
+            for sub in subcarpeta:
+                print(f'\t{sub}')
+            print(f'Los archivos son:')
+            for arch in archivo:
+                print(f'\t{arch}')
+            print()
+
+        #walk almacena.. Una tupla con 3 tipo de información.
+        #1º La ruta donde se encuentra
+        #2º La subcarpetas
+        #3º Archivos de la ruta
+        #Por lo tanto recorremos la ruta y armamos un "árbol" gráfico de la ruta en cuestión.
+        Además se pueden agregar condicionales..
+
+        --------------------------------------------------------
+                        Agregando la condicional.
+        import os
+        import shutil
+        import send2trashj
+
+
+        print(os.walk('C:\\laruta\\'))			
+
+        ruta = 'C:\\laruta\\'
+
+        for carpeta, subcarpeta, archivo in os.walk(ruta):
+            print(f'En la carpeta: {carpeta}')
+            print(f'Las subcarpetas son:')
+            for sub in subcarpeta:
+                print(f'\t{sub}')
+            print(f'Los archivos son:')
+            for arch in archivo:
+                if arch.startswith('2019'):		-> Condicional si el archivo comienza con '2019' lo imprimimos.
+                    print(f'\t{arch}')
+            print()
+
+        --------------------------------------------------------
+    </pre>
+    <br>
+    <img src="img/3.1 Módulo Shutil y OS.png" alt="">
+    <br>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+
+    <p id="4">4. Módulo Datetime</p>
+    <pre>
+        Manipular el tiempo:
+        -Almacenar hora y efecha en variables.
+        -Calculos de tiempo.
+        -Mostrar en diferentes formatos.
+        --------------------------------------------------------
+
+        import datetime
+
+        mi_hora = datetime.time(17, 35)
+        print(type(mi_hora))		-> < class 'datetime.time'>
+
+        print(mi_hora)			-> 17:35:00
+
+        print(mi_hora.minute)		-> 35
+
+        print(mi_hora.hour)		-> 17
+
+        --------------------------------------------------------
+
+        import datetime
+
+        mi_hora = datetime.time(17, 35, 50, 1500)
+
+        print(mi_hora)					-> 17:35:50.001500
+
+        --------------------------------------------------------
+
+        import datetime
+
+        mi_dia = datetime.date(2025, 10, 17)
+
+        print(mi_dia)					-> 2025-10-17 
+
+        --------------------------------------------------------
+
+        import datetime
+
+        mi_dia = datetime.date(2025, 10, 17)
+
+        print(mi_dia.year)				-> 2025
+
+        print(mi_dia.ctime())				-> Fri Oct 17 00:00:00 2025	
+
+        print(mi_dia.today())				-> 2022-05-26
+
+        --------------------------------------------------------
+
+        from datetime import datetime
+
+        mi_fecha = datetime(2025, 5, 15, 22, 10, 15, 2500)
+
+        mi_fecha = mi_fecha.replace(month = 11)
+
+        print(mi_fecha)				-> 2025-11-15 22:10:15.002500
+                    
+        --------------------------------------------------------
+
+        from datetime import date
+
+        nacimiento = date(1995, 3, 5)
+        defuncion = date(2095, 6, 19)
+
+        vida = defuncion - nacimiento
+
+        print(vida)			-> 36631 days, 0:00:00
+
+        print(vida.days)		-> 36631
+
+        --------------------------------------------------------
+
+        from datetime import datetime
+
+        despierta = datetime(2022, 10, 5, 7, 30)
+        duerme = datetime(2022, 10, 5, 23, 45)
+
+        vigilia = duerme - despierta
+
+        print(vigilia)						-> 16:15:00
+                                    - horas minutos
+                                    
+        print(vigilia.seconds)					-> 58500
+                                    - segundos
+
+        --------------------------------------------------------
+    </pre>
+    <br>
+    <img src="img/4.1 Módulo Datetime.png" alt="">
+    <br>
+    <p class="practica">Práctica</p>
+    <pre>
+        Práctica Módulo Datetime 1
+        Crea un objeto fecha llamado mi_fecha que almacene el día 3 de febrero de 1999
+
+        import datetime
+
+        mi_dia = datetime.date(1999, 2, 3)
+
+        print(mi_dia)					-> 1999-02-03
+
+        --------------------------------------------------------
+
+        Práctica Módulo Datetime 2
+        Crea un objeto en la variable hoy que siempre almacene la fecha actual cuando sea invocada.	
+
+        import datetime
+
+        mi_dia = datetime.date(19, 2, 3)
+        actual = mi_dia.today()
+
+        print(actual)	
+
+        --------------------------------------------------------
+
+        Práctica Módulo Datetime 3
+        En una variable llamada minutos, almacena únicamente los minutos de la hora actual.
+
+        Por ejemplo, si se ejecutara a las 20:43:17 de la noche, la variable minutos debe almacenar el valor 43
+
+        import datetime
+
+        mi_hora = datetime.time(20, 43, 17, 1500)
+
+        print(mi_hora.minute)					-> 43
+
+        --------------------------------------------------------
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+
+    <p id="5">5. Módulos para Medir el tiempo</p>
+    <pre>
+        Las siguientes funciones a pesar de ser distintas devuelven el mismo resultado.
+
+        def prueba_1(numero):
+            lista = []
+            for num in range(1,numero +1):
+                lista.append(num)
+            return lista
+
+        def prueba_2(numero):
+            lista = []
+            contador = 1
+            while contador <= numero:
+                lista.append(contador)
+                contador += 1
+            return lista
+
+        *Siempre habrán diferentes maneras de hacer lo mismo.
+        Pero, podemos diferenciar entre eficiencia.. Es decir, el tiempo que transcurre al ejecutarse el tiempo.
+
+        --------------------------------------------------------
+
+        -time		
+        -timeit		-> Más especifico
+
+        Son útiles para medir la eficiencia del código creado de manera general y la ejecución de las funciones de manera particular.
+        --------------------------------------------------------
+
+        def prueba_for(numero):
+            lista = []
+            for num in range(1,numero + 1):
+                lista.append(num)
+            return lista
+
+        def prueba_while(numero):
+            lista = []
+            contador = 1
+            while contador <= numero:
+                lista.append(contador)
+                contador += 1
+            return lista
+
+        print(prueba_for(15))		-> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+        print(prueba_while(15))		-> Hacen lo mismo.
+
+        --------------------------------------------------------
+                    -> Podemos hacer marcas de tiempo para luego compararlas
+        import time
+
+        def prueba_for(numero):
+            lista = []
+            for num in range(1,numero + 1):
+                lista.append(num)
+            return lista
+
+        def prueba_while(numero):
+            lista = []
+            contador = 1
+            while contador <= numero:
+                lista.append(contador)
+                contador += 1
+            return lista
+
+        inicio = time.time()
+        prueba_for(1000000)			-> 0.21600055694580078	-> más eficiente, aunque el tiempo puede variar, de acuerdo al ordenador y demás
+        final = time.time()
+
+        print(final - inicio)
+
+        inicio = time.time()
+        prueba_while(1000000)			-> 0.37041234970092773 	-> menos eficiente
+        final = time.time()
+        print(final - inicio)
+
+        --------------------------------------------------------
+                -> Para mayor precisión en procesos más breves, timeit
+
+        import timeit
+
+
+
+        def prueba_while(numero):
+            lista = []
+            contador = 1
+            while contador <= numero:
+                lista.append(contador)
+                contador += 1
+            return lista
+
+        declaracion = '''
+        prueba_for(10)
+        '''
+
+        mi_setup='''
+        def prueba_for(numero):
+            lista = []
+            for num in range(1,numero + 1):
+                lista.append(num)
+            return lista
+
+        '''
+                                            -> ejecutar 100000 mi_setup, es lo que demora.
+        declaracion = timeit.timeit(declaracion, mi_Setup, number = 100000)
+        print(declaracion)								-> 0.7982061759976204
+
+        --------------------------------------------------------
+        Ahora hacemos lo mismo con el While
+        --------------------------------------------------------
+
+        import timeit
+
+
+        declaracion = '''
+        prueba_for(10)
+        '''
+
+        mi_setup='''
+        def prueba_for(numero):
+            lista = []
+            for num in range(1,numero + 1):
+                lista.append(num)
+            return lista
+
+        '''
+                                            
+        declaracion = timeit.timeit(declaracion, mi_Setup, number = 100000)
+        print(declaracion)							-> 0.937531506002415
+
+        declaracion2 = '''
+        prueba_while()
+        '''
+
+        mi_setup2 = '''
+        def prueba_while(numero):
+            lista = []
+            contador = 1
+            while contador <= numero:
+                lista.append(contador)
+                contador += 1
+            return lista
+        '''
+
+        declaracion = timeit.timeit(declaracion2, mi_Setup2, number = 100000)
+        print(declaracion)							-> 0.9252037379992544
+
+                            
+
+        #El ciclo for es más eficiente que el While. Como conclusión.	
+        --------------------------------------------------------
+    </pre>
+    <br>
+    <img src="img/5.1 Módulos para medir el tiempo.png" alt="">
+    <br>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+
+    <p id="6">6. Módulo Math</p>
+    <pre>
+        Otro módulo, para laborar con múmeros de manera completa.
+
+        --------------------------------------------------------
+        
+        import math
+        
+        resultado = math.floor(89.665)		-> Redondear al piso
+        
+        print(resultado)			-> 89
+        
+        --------------------------------------------------------
+        
+        import math
+        
+        resultado = math.ceil(89.665)		-> Redondear al techo
+        
+        print(resultado)			-> 90
+        
+        --------------------------------------------------------
+        
+        import math
+        
+        resultado = math.pi			
+        
+        print(resultado)			-> 3.141592653589793
+        
+        --------------------------------------------------------
+        
+        import math
+        
+        resultado = math.log(25, 5)		-> logaritmo de 25 
+            
+        print(resultado)			-> 2.0 	-> 5*5 es igual a 25
+        
+        --------------------------------------------------------
+        
+        import math
+        
+        resultado = math.tan(2567)			-> tangente
+            
+        print(resultado)				-> 0.3300603881401783
+        
+        --------------------------------------------------------
+        
+        import math
+        
+        resultado = math.cos(2567)			-> coseno 
+            
+        print(resultado)				-> -0.9496115821869244
+        
+        
+        
+        #Math para uso cotidiano.		-> Se puede ampliar.
+        #NumPy para uso más profesional.
+        --------------------------------------------------------        
+    </pre>
+    <br>
+    <img src="img/6.1 Módulo Math.png" alt="">
+    <br>
     <p class="practica">Práctica</p>
     <pre>
 
+        Práctica Módulo Math 1
+        Obtén el logaritmo base 10 del número 25, y almacena el resultado en la variable resultado.
         
+        Puedes utilizar el método math.log10()
+        
+        import math
+        
+        resultado = math.log10(25)		
+            
+        print(resultado)			-> 1.3979400086720377
+        
+        
+        # <a href="https://es.wikipedia.org/wiki/Logaritmo_decimal"> Ver Logaritmo Decimal</a>
+        --------------------------------------------------------
+        
+        Práctica Módulo Math 2
+        Obten la raíz cuadrada de pi con la constante math.pi y el método math.sqrt() . Almacena el resultado obtenido en la variable resultado.
+        
+        import math
+        
+        resultado = math.sqrt(math.pi)		
+            
+        print(resultado)			-> 1.7724538509055159	
+        
+        --------------------------------------------------------
+        
+        Práctica Módulo Math 3
+        Encuentra el factorial de 7 y almacena el resultado en la variable resultado.
+        
+        El método a utilizar es factorial()
+        
+        
+        import math
+        
+        resultado = math.factorial(7)		
+            
+        print(resultado)				-> 5040
+        
+        --------------------------------------------------------        
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
-    <p id="3">3. Módulos OS y Shutil</p>
-    <pre>
-        
-    </pre>
-    <p class="practica">Practica</p>
-    <pre>
-        
-    </pre>
-    <div class="context">
-        <a href="#arriba">Arriba</a>
-    </div>
-    <p id="4">4. Módulo Datetime</p>
-    <pre>
-        
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
-        
-    </pre>
-    <div class="context">
-        <a href="#arriba">Arriba</a>
-    </div>
-    <p id="5">5. Módulos para Medir el tiempo</p>
-    <pre>
-        
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
-        
-    </pre>
-    <div class="context">
-        <a href="#arriba">Arriba</a>
-    </div>
-    <p id="6">6. Módulo Math</p>
-    <pre>
-        
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
-        
-    </pre>
-    <div class="context">
-        <a href="#arriba">Arriba</a>
-    </div>
+
     <p id="7">7. Módulo RE</p>
     <pre>
-        
+        Expresiones regulares	-> Para realizar búsquedas con un mayor grado de abstracción.	
+        Por ejemplo, para validar emails, buscarlos.
+            - [string] + '@' + [string] + '.com'
+
+        Así construimos patrones que comprobamos si existe en otr texto.
+            
+        re = regular expresiones
+
+
+        ###-###-####
+
+        patron = r'\d\d\d\-\d\d\d\-\d\d\d\d\'		-> Con r indicamos la expresión regular 
+                                -> con \d indicamos el dígito
+            -> Ese será el patrón a ubicar, como patrón válido.
+
+        patron = r'\d{3}-\d{3}-\d{4}'			-> Otra forma de expresar lo mismo.
+
+
+            - Caracteres especiales.
+        car	descripcion		ejemplo
+        /d	digito numerico		v\d.\d\d	-> (Ejemplo v1.29)
+        /w	caracter alfanumerico	\w\w\w-\w\w	-> (Ejemplo sol-do)
+        /s 	espacio en blanco	número\s\d\d	-> (Ejemplo número 25)
+        /D 	NO númerico		\D\D\D\D	-> (Ejemplo abcd)
+        /W	No alfanumerico		\W\W\W		-> (Ejemplo +=-  ??? ### ¿*!)
+        /S	No espacio blanco     	\S\S\S		-> (Ejemplo 123 abc ¿si?)
+
+
+            -Caracteres cunatificadores, para evitar repetir caracteres especiales muchas veces.	\d{3}-\d{3}\d{4}
+        car	descripcion			ejemplo
+        +	1 o más veces			código_\d-\d+	-> (Ejemplo código_5-5 código_5-555 código_1-02 código_9-95656)
+        {n}	Se repite n veces		\d-\d{4}	-> (Ejemplo 1-0000 1-2687 5-6789 4-9876)
+        {n, m}	Se repite de n a m veces	\w{3,5}		-> (Ejemplo hola sol mundo yo526)
+        {n,}	desde n hacia arriba		-\d{4,}-	-> (Ejemplo -111111- -5234- -14141231231- 0000-)
+        *	0 o más veces			\w\s*\w		-> (Ejemplo a 2		a   b		fm   s4) El espacio puede ser 0 o muchas veces
+        ?	1 ò 0				casas=		-> (Ejemplo casa casas)	Para palabras en singular o plural.
+            
+        --------------------------------------------------------
+
+        texto = "Si necesita ayuda llama al (658)-598-9977 las 24 horas al servicio de ayuda online"
+
+        palabra = 'ayuda' in texto
+        print(palabra)			-> True
+
+        --------------------------------------------------------
+
+        import re
+
+        texto = "Si necesita ayuda llama al (658)-598-9977 las 24 horas al servicio de ayuda online"
+
+        patron = 'nada'
+
+        busqueda = re.search(patron, texto)
+        print(busqueda)					-> None
+
+        --------------------------------------------------------
+        import re
+
+        texto = "Si necesita ayuda llama al (658)-598-9977 las 24 horas al servicio de ayuda online"
+
+        patron = 'ayuda'
+
+        busqueda = re.search(patron, texto)
+        print(busqueda)					-> < re.Match object; span=(13,18), match='ayuda'>
+
+        --------------------------------------------------------
+
+        import re
+
+        texto = "Si necesita ayuda llama al (658)-598-9977 las 24 horas al servicio de ayuda online"
+
+        patron = 'ayuda'
+
+        busqueda = re.search(patron, texto)
+        print(busqueda.span)				-> (13,18)	
+
+        print(busqueda.start())				-> 13
+
+        print(busqueda.end())				-> 18
+
+        --------------------------------------------------------
+
+        import re
+
+        texto = "Si necesita ayuda llama al (658)-598-9977 las 24 horas al servicio de ayuda online"
+
+        patron = 'ayuda'
+
+        busqueda = re.findall(patron, texto)
+        print(busqueda)					-> ['ayuda','ayuda']	-> lista con las 2 apariciones.
+
+        print(len(busqueda))				-> 2 
+
+        for 
+
+
+        --------------------------------------------------------
+
+        import re
+
+        texto = "Si necesita ayuda llama al (658)-598-9977 las 24 horas al servicio de ayuda online"
+
+        patron = 'ayuda'
+
+        busqueda = re.findall(patron, texto)
+
+        for hallazgo in re.finditer(patron, texto):
+            print(hallazgo.span())				-> (13, 18)
+                                    -> (71, 76)
+
+        --------------------------------------------------------
+
+        import re
+
+        texto = "llama al 564-535-6588 ya mismo"
+
+        patron = r'\d\d\d-\d\d\d-\d\d\d\d'
+
+        resultado = re.search(patron, texto)
+
+        print(resultado)			-> < re.Match object; span=(9, 21), match='564-535-6588'>		-> Encontramos según el formato.
+
+        print(resultado.group())		-> 564-535-6588 
+
+        --------------------------------------------------------
+
+        import re
+
+        texto = "llama al 564-535-6588 ya mismo"
+
+        patron = re.compile(r'(\d{3})-(\d{3})-(\d{4})')		-> Construimos grupos a través de una expresión regular, compilada.	
+                                    - Los índices de busqueda comienzan por el 1 no por el 0
+        resultado = re.search(patron, texto)
+
+        print(resultado.group())			-> 564-535-6588
+
+        print(resultado.group(2))			-> 535
+
+        print(resultado.group(3))			-> 6586
+
+        --------------------------------------------------------
+
+        import re
+
+        clave = input("Clave: ")
+
+        patron = r'\D{1}\w{7}'			-> Es decir el primero no sera un numero se repetira 1 vez y el segundo 7 y sera alfanumerico
+
+        chequear = re.search(patron, clave)
+
+        print(chequear)				-> Controlamos lo que el usuario ingresa, de acuerdo a la expresión regular.
+
+        --------------------------------------------------------
+
+        import re
+
+        texto = "No atendemos los lunes por la tarde"
+
+        buscar = re.search(r'lunes|martes', texto)		-> | o, para buscar plurales utiles.
+
+        print(buscar)						-> Si lo encontramos
+
+        --------------------------------------------------------
+
+        import re
+
+        texto = "No atendemos los lunes por la tarde"
+
+        buscar = re.search(r'demos', texto)		-> si, lo encuentra de aten'demos'
+
+        print(buscar)	
+
+        --------------------------------------------------------
+
+        import re
+
+        texto = "No atendemos los lunes por la tarde"
+
+        buscar = re.search(r'.demos', texto)			-> Letras comodines que se manifiestan con un punto
+
+        buscar = re.search(r'.demos', texto)			-> ndemos
+
+        buscar = re.search(r'....demos', texto)			-> atendemos
+
+        buscar = re.search(r'....demos...', texto)		-> atedenmos lo
+
+
+        buscar = re.search(r'^\D', texto)			-> N encuentra la N que no es un digito del No atendemos
+
+        print(buscar)	
+
+        --------------------------------------------------------
+
+        import re
+
+        texto = "4No atendemos los lunes por la tarde"
+
+        buscar = re.search(r'^\D', texto)			-> None, empieza con 4, no encuentra un Nodigito al comienzo del string
+
+        buscar = re.search(r'\D$', texto)			-> Va al final y entrega la e, es un nodigito
+
+
+        buscar = re.findall(r'[^\s]', texto)			-> Encontramos todos los excluyentes, que no sean espacios vacios.
+
+        buscar = re.findall(r'[^\s]+', texto)			-> Construye una lista de palabras, con un espacio vacio corta la frase.
+
+        print(buscar)	
+
+        --------------------------------------------------------
+
+        import re
+
+        texto = "No atendemos los lunes por la tarde"
+
+        buscar = re.findall(r'[^\s]+', texto)		
+
+        print(''.join(buscar))				-> Noatendemosloslunesporlatarde	
+                                - Con join juntamos nuevamente pero excluimos los espacios vacíos.
+
+        --------------------------------------------------------        
     </pre>
+    <br>
+    <img src="img/7.1 Expresiones Regulares.png" alt="">
+    <br>
     <p class="practica">Práctica</p>
     <pre>
+        --------------------------------------------------------
+
+        Práctica Módulo RE 1
+        Crea una función llamada verificar_email para comprobar si una dirección de email es correcta, que verifique si el email dado como argumento contiene "@" y finaliza en ".com".
         
+        Si se encuentra el patrón, la función debe finalizar sin mostrando el mensaje "Ok", pero si detecta que la frase no contiene los elementos indicados, debe informarle al usuario "La dirección de email es incorrecta" imprimiendo el mensaje en pantalla.
+        
+        
+        import re
+        
+        import re
+        
+        def verificar_email(email):
+            patron = r'@\w+\.com'
+            verificar = re.search(patron,email)
+            if verificar:
+                print("Ok")
+            else:
+                print("La dirección de email es incorrecta")
+        
+        --------------------------------------------------------
+        
+        Práctica Módulo RE 2
+        Crea una función llamada verificar_saludo para verificar si una frase entregada como argumento inicia con la palabra "Hola". Si se encuentra el patrón, la función debe finalizar mostrando el mensaje "Ok", pero si detecta que la frase no contiene "Hola", debe informarle al usuario "No has saludado" imprimiendo el mensaje en pantalla.
+        
+        
+        import re
+        
+        def verificar_saludo(frase):
+            patron = r'^Hola'
+            verificar = re.search(patron,frase)
+            if verificar:
+                print("Ok")
+            else:
+                print("No has saludado")
+        
+        
+        --------------------------------------------------------
+        
+        Práctica Módulo RE 3
+        El código postal de una región determinada se forma a partir de dos caracteres alfanuméricos y cuatro numéricos a continuación (ejemplo: XX1234). Crea una función, llamada verificar_cp para comprobar si el código postal pasado como argumento sigue este patrón. Si el patrón es correcto, mostrar al usuario el mensaje "Ok", de lo contrario: "El código postal ingresado no es correcto".
+        
+        import re
+        
+        def verificar_cp(cp):
+            patron = r'\w{2}\d{4}'
+            verificar = re.search(patron,cp)
+            if verificar:
+                print("Ok")
+            else:
+                print("El código postal ingresado no es correcto")
+        
+        --------------------------------------------------------        
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
+
     <p id="8">8. Comprimir y Descomprimir Archivos desde Python</p>
     <pre>
-        
+        - zipfile
+        - shutil
+
+        --------------------------------------------------------
+
+        import zipfile
+
+        mi_zip = zipfile.ZipFile('archivo_comprimido.zip', 'w')		-> Creamos un archivo comprimido, una "cáscara vacía"
+
+        mi_zip.write('mi_texto_A.txt')					-> Archivos a comprimir.
+        mi_zip.write('mi_texto_B.txt')
+
+        mi_zip.close()							-> Creamos el archivo comprimido con los archivos.
+
+        --------------------------------------------------------
+
+        import zipfile
+
+        zip_abierto = zifile.ZipFile('archivo_comprimido.zip', 'r')	
+
+        zip_abierto.extractall()					-> Extraemos los archivos comprimidos.
+
+        --------------------------------------------------------
+                        -> más práctico
+        import shutil	
+
+        carpeta_origen = 'C:\\Users\\Win10\\Desktop\\Carpeta_Superior'		-> Carpeta deseada, con la ruta especifica
+
+        archivo_destino = 'Todo_Comprimido'
+
+        shutil.make_archive(archivo_destino, 'zip', carpeta_origen)		-> Creamos el archivo comprimido, con la estructura deseada.
+
+        --------------------------------------------------------
+
+        import shutil	
+
+        shutil.unpack_archivo('Todo_Comprimido.zip', 'Extraccion Terminada', 'zip')
+                                -> la ruta con la carpeta, extraemos de manera directa al lugar indicado.
+                                            
+        --------------------------------------------------------        
     </pre>
-    <p class="practica">Práctica</p>
-    <pre>
-        
-    </pre>
+    <br>
+    <img src="img/8.1 Comprimir y Descomprimir Archivos.png" alt="">
+    <br>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
+
     <p id="9">9. Proyecto del Día 9</p>
     <pre>
-        
+        Instrucciones
+        --------------------------------------------------------   
+        Junto a esta nota se ha descomprimido 1 carpeta, y está repletas de subcarpetas y de archivos .txt.
+
+        No te preocupes por revisarlos, solo tienen texto aleatorio... excepto algunos.
+
+        Tu trabajo es crear un Buscador de Números de Serie. ¿Qué es eso? Es un programa que se encargue de buscar números de serie que cumplan un determinado formato, dentro de un arbol de carpetas.
+
+        Tu programa va a recorrer todos los archivos y subcarpetas de un directorio raiz (en este caso, la carpeta que acabas de descomprimir), y va a buscar cualquier string que coincida con la descripción de una dirección de correo electrónico. Sabemos que no puede haber más de un número de serie por archivo.
+
+        Para lograrlo vas a usar el módulo os para abrir e iterear por el directorio, y las expresiones regulares para encontrar el formato de número de serie correcto.
+
+        A los fines de este ejercicio, estas son las condiciones de formato que deben cumplir los hallazgos:
+        - [N] + [tres carateres de texto] + [-] + [5 números]
+
+        Por ejemplo: Nryu-112365
+
+        La presentación en pantalla de los hallazgos debe ser un listado en formato de tabla, que respete el siguiente formato de ejemplo:
+
+        ----------------------------------------------------
+        Fecha de búsqueda: [fecha de hoy]
+
+        ARCHIVO		NRO. SERIE
+        -------		----------
+        texto1.txt	Nter-15496
+        texto25.txt	Ngba-85235
+
+        Números encontrados: 2
+        Duración de la búsqueda: 1 segundos
+        ----------------------------------------------------
+
+        IMPORTANTE
+
+        La 'Duración de búsqueda' debe estar redondeada hacia arriba
+
+        No olvides que la mejor forma de recorrer un arbol de carpetas, probablemente sea con el método walk() de os.
+
+        Observa que la fecha de búsqueda debe ser la fecha del día en que ejecutes el código, por lo que necesitas echar mano del módulo datetime.
+
+        Animate a encontrar una manera de mostrar la fecha de hoy con el formato dd/mm/aa.
+
+        Para informar la duración de la búsqueda al final de tu presentación, vas a necesitar del módulo time.
+
+        Recuerda que para poder imprimir todo en formato de tabla puedes usar los caracteres especiales \t para tabular.
+
+        --------------------------------------------------------
     </pre>
-    <p class="practica">Práctica</p>
-    <pre>
-        
-    </pre>
+    <br>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+
     <p id="10">10. Solución al Proyecto del Día 9</p>
     <pre>
+        --------------------------------------------------------
+        1º Descomprimir el archivo..
         
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
+        import shutil
         
+        shutil.unpack_archive('Proyecto Día 9.zip', 'C:\\Ruta\\', 'zip')
+        
+        --------------------------------------------------------
+        Ahora para el ejercicio
+        
+        import re
+        import os
+        import time
+        import datetime
+        from pathlib import Path
+        import math
+        
+        inicio = time.time()
+        
+        
+        ruta = 'C:\\Users\\Win10\\Desktop\\Mi_Gran_Directorio'
+        
+        mi_patron = r'N\D{3}-\d{5}'
+        hoy = datetime.date.today()
+        
+        nros_encontrados = []
+        archivos_encontrados = []
+        
+        
+        
+        def buscar_numero(archivo, patron):
+            este_archivo = open(archivo, 'r')
+            texto = este_archivo.read()
+            if re.search(patron, texto):
+                return re.search(patron, texto)
+            else:
+                return ''
+        
+        def clear_lista():
+            for carpeta, subcarpeta, archivo in os.walk(ruta):
+                for a in archivo:
+                    resultado = buscar_numero(Path(carpeta, a), mi_patron)	
+                    if resultado != '':
+                        nros_encontrados.append((resultado.group()))
+                        archivos_encontrados.append(a.tittle())
+        
+        
+        def mostrar_todo():
+            indice = 0
+            print('-' * 50)
+            print(f'Fecha de Búsqueda: {hoy.day}/{hoy.month}/{hoy.year}')
+            print('\n')
+            print('ARCHIVO\t\t\tNRO. SERIE')
+            print('-------\t\t\t----------')
+            for a in archivos_encontrados:
+                print(f'{a}\t{nros_encontrados[indice]}')
+                indice += 1
+            print('\n')
+            print(f'Números encontrados: {len(nros_encontrados)}')
+            fin = time.time()
+            duracion = fin - inicio
+            print(f'Duración de la Búsqueda: {math.ceil(duracion)} segundos')
+            print('-' * 50)
+        
+        crear_listas()
+        mostrar_todo()	
+        
+        --------------------------------------------------------
+        import re
+        import os
+        import time
+        import datetime
+        from pathlib import Path
+        import math
+        
+        inicio = time.time()
+        
+        
+        ruta = 'C:\\Users\\Win10\\Desktop\\Mi_Gran_Directorio'
+        
+        mi_patron = r'N\D{3}-\d{5}'
+        hoy = datetime.date.today()
+        
+        nros_encontrados = []
+        archivos_encontrados = []
+        
+        
+        
+        def buscar_numero(archivo, patron):
+            este_archivo = open(archivo, 'r')
+            texto = este_archivo.read()
+            if re.search(patron, texto):
+                return re.search(patron, texto)
+            else:
+                return ''
+        
+        def clear_lista():
+            for carpeta, subcarpeta, archivo in os.walk(ruta):
+                for a in archivo:
+                    resultado = buscar_numero(Path(carpeta, a), mi_patron)	
+                    if resultado != '':
+                        nros_encontrados.append((resultado.group()))
+                        archivos_encontrados.append(a.tittle())
+        
+        
+        def mostrar_todo():
+            indice = 0
+            print('-' * 50)
+            print(f'Fecha de Búsqueda: {hoy.day}/{hoy.month}/{hoy.year}')
+            print('\n')
+            print('ARCHIVO\t\t\tNRO. SERIE')
+            print('-------\t\t\t----------')
+            for a in archivos_encontrados:
+                print(f'{a}\t{nros_encontrados[indice]}')
+                indice += 1
+            print('\n')
+            print(f'Números encontrados: {len(nros_encontrados)}')
+            fin = time.time()
+            duracion = fin - inicio
+            print(f'Duración de la Búsqueda: {math.ceil(duracion)} segundos')
+            print('-' * 50)
+        
+        crear_listas()
+        mostrar_todo()	
+        --------------------------------------------------------        
     </pre>
+    <br>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
