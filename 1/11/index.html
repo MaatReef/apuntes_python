@@ -58,123 +58,361 @@
 
     <p id="1">1. Meta del Día 11</p>
     <pre>
-
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
+        Web Scraping = Raspar Internet		-> Repasar un código y obtener información desde ahí
+        Información, imágenes, etc..
+        De esta manera obtenemos información que luego podemos re utilizar.	
+        En la meta del día crearemos una aplicación para obtener de una página con libros, aquellos que tengan 4 o 5 estrellas.
         
+        --------------------------------------------------------
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
+
     <p id="2">2. Principios del Web Scraping</p>
     <pre>
-        
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
+        Reglas del web Scraping.. Obtener los permisos. De lo contrario se podría bloquear la ip con esa página en particular.
+        Ver además si es posible extraer contenido web desde el país donde se reside.
 
-        
+        Limitaciones del web scraping.	-> Cada código de web scraping es para una página en particular, se debe ajustar a cada una en particular.
+
+        --------------------------------------------------------
+
+        Usamos HTMl por lo general y nos podemos ayudar con Css.
+        El código se organiza en etiquetas
+        Para buscar apuntamos a una etiqueta en particular.
+
+        Usaremos:
+
+        pip install beatifulsoup4
+        pip install lxml
+        pip install requests        
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
+
     <p id="3">3. Cómo Ver el Código Fuente</p>
     <pre>
-        
-    </pre>
-    <p class="practica">Practica</p>
-    <pre>
-        
+        -> Control + u para acceder al codigo de fuente.
+        -> O bien inspeccionar sobre el elemento en particular
+
+        Creamos un archivo web_scraping.py
+        --------------------------------------------------------
+        import bs4
+        import requests
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
+
     <p id="4">4. Extraer el Titulo de la Página</p>
     <pre>
-        
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
-        
+        Desarrollamos en el archivo web_scraping.py
+        --------------------------------------------------------
+
+        import bs4				-> "hermosa sopa", obtener los "ingredientes"
+        import requests				-> busqueda o "requisitorias" de manera más literal
+
+        resultado = requests.get('https://www.escueladirecta.com/blog/260007/encapsulamiento')
+
+        print(resultado.text)					-> Obtenemos el html como string
+
+        sopa = bs4.BeautifulSoup(resultado.text, 'lxml')
+
+        print(sopa)						-> El mismo bloque pero más organizado, en lista
+
+        print(sopa.select('title'))				-> Vamos al nombre de la etiqueta en cuestión, dentro de una lista.
+
+        print(sopa.select('p'))					-> Todos los parrafos.
+
+        print(len(sopa.select('p')))				-> El largo de los parrafos.
+
+        print(sopa.select('h1'))
+
+        print(sopa.select('title')[0])				-> Lo sacamos de la lista y vemos el elemento solo accediendo a la posicion de la lista.
+
+        print(sopa.select('title')[0].getText())		-> Obtenemos el texto de la etiqueta en cuestión
+
+        parrafo_especial = sopa.select('p')[3].getText()	
+        print(parrafo_especial)					-> Obetenemos el texto de la etiqueta en cuestión.
+
+        --------------------------------------------------------        
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
+
     <p id="5">5. Extraer Elementos de una Clase</p>
     <pre>
-        
+        --------------------------------------------------------
+
+        import bs4				
+        import requests				
+
+        resultado = requests.get('https://www.escueladirecta.com/blog/260007/encapsulamiento')
+
+
+        sopa = bs4.BeautifulSoup(resultado.text, 'lxml')
+
+        columna_lateral = sopa.select('.content')			-> EL contenedor con la clase armado en una lista
+        print(columna_lateral)
+
+        columna_lateral = sopa.select('.content p')			-> Una lista con todos los parrafos del contenedor
+        print(columna_lateral)
+
+        columna_lateral = sopa.select('.content p')[0]			-> Obtenemos el parrafo con la posicion 0 de la lista
+        print(columna_lateral)
+
+
+        columna_lateral = sopa.select('.content p')
+
+        for p in columna_lateral:
+            print(p.getText())					-> Con un bucle recorremos todos los textos de los parrafos, el contenido de los p
+
+        --------------------------------------------------------        
     </pre>
-    <p class="practica">Práctica</p>
-    <pre>
-        
-    </pre>
+    <br>
+    <img src="img/5.1 Extraer Elementos de una Clase.PNG" alt="">
+    <br>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
+
     <p id="6">6. Extraer Imágenes</p>
     <pre>
+        Ejemplo para obtener las imagenes de una página web.. https://www.escueladirecta.com/courses
+        Para extraer información de una página recordar que las imágenes deben tener derechos para usarlas.
         
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
+        --------------------------------------------------------
         
+        
+        import bs4				
+        import requests				
+        
+        resultado = requests.get('https://www.escueladirecta.com/courses')	-> Nueva página web
+        
+        
+        sopa = bs4.BeautifulSoup(resultado.text, 'lxml')
+        
+        imagenes = sopa.select('img')
+        
+        for i in images('.couse-box-image'):
+            print(i)			-> Recorremos las imagenes que tengan la clase indicada, una lista
+        
+        
+        --------------------------------------------------------
+        
+        import bs4				
+        import requests				
+        
+        resultado = requests.get('https://www.escueladirecta.com/courses')	
+        
+        
+        sopa = bs4.BeautifulSoup(resultado.text, 'lxml')
+        
+        imagenes = sopa.select('.course-box-image')[0]['src']	-> De acuerdo a la clase, posicion 0 y su fuente
+        print(imagenes)						-> Apuntamos a la fuente, el source para luego descargar.
+        
+        imagen_courso_1 = requests.get(imagenes)
+        print(imagen_curso_1.content)				-> La imagen en binario, debemos "traducirlo"
+        
+            
+                -> apuntamos al lugar de descarga
+        f = open('mi_imagen.jpg', 'wb')				-> wb para escribir binario 
+        f.write(imagen_curso_1.content)
+        f.close()						-> Descargamos la imagen 
+        
+        --------------------------------------------------------
+        Con un loop se podría descargar todas las imagenes de un solo saque.
+        --------------------------------------------------------        
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
+
     <p id="7">7. toscrape.com</p>
     <pre>
-        
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
-        
+        Extraer muchos elementos de distintas páginas webs. 
+        Usamos toscrape.com como prueba..			-> En la sección de books
+
+        --------------------------------------------------------        
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
+
     <p id="8">8. Explorar Múltiples Páginas</p>
     <pre>
-        
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
-        
+        --------------------------------------------------------
+
+        import bs4
+        import requests
+
+
+        url_base = 'https://books.toscrape.com/catalogue/page-{}.html'		-> {} para simular la página a la que se acceda.
+
+        for n in range(1, 11):
+            print(url_base.format(n))				-> Exploramos varias urls
+
+        --------------------------------------------------------        
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
+
     <p id="9">9. Identificar Condiciones de Extracción</p>
     <pre>
+        --------------------------------------------------------
+
+        import bs4
+        import requests
         
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
         
+        url_base = 'https://books.toscrape.com/catalogue/page-{}.html'		
+        
+        resultado = requests.get(url_base.format('1'))
+        sopa = bs4.BeautifulSoup(resultado.text, 'lxml')
+        
+        print(sopa.select('.product_pod'))					-> Todas las secciones donde están los libros.
+        
+        print(len(sopa.select('.product_pod')))					-> con len corroboramos todos los libros que se ven en la vista.
+        
+        --------------------------------------------------------        
     </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+
     <p id="10">10. Extraer el Título del Libro</p>
     <pre>
+        --------------------------------------------------------
+
+        import bs4
+        import requests
         
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
         
+        url_base = 'https://books.toscrape.com/catalogue/page-{}.html'		
+        
+        resultado = requests.get(url_base.format('1'))
+        sopa = bs4.BeautifulSoup(resultado.text, 'lxml')
+        
+        
+        libros = print(sopa.select('.product_pod'))	
+        
+        ejemplo = libros[0].select('.star-rating.Three')	
+        print(ejemplo)						-> probamos traer el libro con tres estrellas como lista
+            
+        
+        --------------------------------------------------------
+        
+        import bs4
+        import requests
+        
+        
+        url_base = 'https://books.toscrape.com/catalogue/page-{}.html'		
+        
+        resultado = requests.get(url_base.format('1'))
+        sopa = bs4.BeautifulSoup(resultado.text, 'lxml')
+        
+        
+        libros = print(sopa.select('.product_pod'))	
+        
+        ejemplo = libros[0].select('a')[1]['title']			-> Llegamos al titulo
+        print(ejemplo)
+        
+        --------------------------------------------------------        
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
+
     <p id="11">11. Combinar Items Buscados</p>
     <pre>
-        
-    </pre>
-    <p class="practica">Práctica</p>
-    <pre>
-        
+        --------------------------------------------------------
+
+        import bs4
+        import requests
+
+        # crear url sin numero de pagina
+        url_base = 'https://books.toscrape.com/catalogue/page-{}.html'
+
+        # lista de titulos con 4 o 5 estrellas
+        titulos_rating_alto = []				-> Lo arrancamos vacio y lo vamos llenando
+
+        # iterar paginas
+        for pagina in range(1, 51):				-> Por cada página, de 1, a 51
+
+            # crear sopa en cada pagina
+            url_pagina = url_base.format(pagina)			-> le damos formato a la url_base con el numero del ciclo
+            resultado = requests.get(url_pagina)			-> Armamos el request
+            sopa = bs4.BeautifulSoup(resultado.text, 'lxml')
+
+            # seleccionar datos de los libros				-> Captamos la información de los libros.
+            libros = sopa.select('.product_pod')
+
+            # iterar libros						
+            for libro in libros:
+
+                # chequear que tengan 4 o 5 estrellas
+                if len(libro.select('.star-rating.Four')) != 0 or len(libro.select('.star-rating.Five')) != 0:
+
+                    # guardar titulo en variable
+                    titulo_libro = libro.select('a')[1]['title']
+
+                    # agregar libro a la lista
+                    titulos_rating_alto.append(titulo_libro)			-> Le agregamos a la lista, titulos_rating_aslto
+
+        # ver libros 4 u 5 estrellas en consola
+        for t in titulos_rating_alto:
+            print(t)
+
+        --------------------------------------------------------
+        Completo.. Las fórmulas son distintas, respetar los derechos del sitios.
+        --------------------------------------------------------
+
+        import bs4
+        import requests
+
+        # crear url sin numero de pagina
+        url_base = 'https://books.toscrape.com/catalogue/page-{}.html'
+
+        # lista de titulos con 4 o 5 estrellas
+        titulos_rating_alto = []
+
+        # iterar paginas
+        for pagina in range(1, 51):
+
+            # crear sopa en cada pagina
+            url_pagina = url_base.format(pagina)
+            resultado = requests.get(url_pagina)
+            sopa = bs4.BeautifulSoup(resultado.text, 'lxml')
+
+            # seleccionar datos de los libros
+            libros = sopa.select('.product_pod')
+
+            # iterar libros
+            for libro in libros:
+
+                # chequear que tengan 4 o 5 estrellas
+                if len(libro.select('.star-rating.Four')) != 0 or len(libro.select('.star-rating.Five')) != 0:
+
+                    # guardar titulo en variable
+                    titulo_libro = libro.select('a')[1]['title']
+
+                    # agregar libro a la lista
+                    titulos_rating_alto.append(titulo_libro)
+
+        # ver libros 4 u 5 estrellas en consola
+        for t in titulos_rating_alto:
+            print(t)
+
+        --------------------------------------------------------        
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
+    
     <br>
     <br>
 
