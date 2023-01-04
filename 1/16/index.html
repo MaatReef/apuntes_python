@@ -6,891 +6,1807 @@
     <title>Introducción Python</title>
     <link rel="shortcut icon" type=image/jpg href="../../img/logo/favicon.ico"/>
     <link href="https://fonts.googleapis.com/css2?family=Carrois+Gothic+SC&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../../css/stylesRed.css">
 
 </head>
 <body>
     <div class="context">
         <a href="../15/index.html">Volver</a>
         <a href="../../index.html">Inicio</a>
+        <a href="../17/index.html">Siguiente</a>
     </div>
     <div class="contenido" id="arriba">
-        <p>Python - Notas</p>
+        <p>Python Django - Notas</p>
     </div>
 
-    <h2>Extras:</h2>
-    <h1>1 - Fundamentos de Web Scraping con Python y Xpath</h1>
+    <h1>16 - Programa una Aplicación Web de Tareas Pendientes</h1>
     <ol>
         <li>
-            <a href="#1">1-Qué es el web scraping</a>
+            <a href="#1">1. Meta del Día 16</a>
         </li>
         <li>
-            <a href="#2">2-Por qué aprender web scraping hoy</a>
+            <a href="#2">2. Entornos Virtuales</a>
         </li>
         <li>
-            <a href="#3">3-Python- el lenguaje más poderoso para extraer datos</a>
+            <a href="#3">3. Instalar Django</a>
         </li>
         <li>
-            <a href="#4">4-Entender HTTP</a>
+            <a href="#4">4. Configurar las Urls</a>
         </li>
         <li>
-            <a href="#5">5-Qué es HTML</a>
+            <a href="#5">5. Crear la Tabla de Tareas</a>
         </li>
         <li>
-            <a href="#6">6-Robots.txt- permisos y consideraciones al hacer web scraping</a>
+            <a href="#6">6. Configurar la Vista</a>
         </li>
         <li>
-            <a href="#7">7-XML Path Language</a>
+            <a href="#7">7. Configurar la Vista de Detalle</a>
         </li>
         <li>
-            <a href="#8">8-Tipos de nodos en XPath</a>
+            <a href="#8">8. Crear Links a Detalle</a>
         </li>
         <li>
-            <a href="#9">9-Expresiones en XPath</a>
+            <a href="#9">9. Agregar Nueva Tarea</a>
         </li>
         <li>
-            <a href="#10">10-Predicados en Xpath</a>
+            <a href="#10">10. Formulario para Nueva Tarea</a>
         </li>
         <li>
-            <a href="#11">11-Operadores en Xpath</a>
+            <a href="#11">11. Editar Tarea</a>
         </li>
         <li>
-            <a href="#12">12-Wildcards en Xpath</a>
+            <a href="#12">12. Eliminar Tarea</a>
         </li>
         <li>
-            <a href="#13">13-In-text search en Xpath</a>
+            <a href="#13">13. Crear la Lógica de Logueo Deslogueo</a>
         </li>
         <li>
-            <a href="#14">14-XPath Axes</a>
+            <a href="#14">14. Formulario de Logueo Deslogueo</a>
         </li>
         <li>
-            <a href="#15">15-Resumen de XPath-Cheatsheet</a>
+            <a href="#15">15. Restringuir Acceso</a>
         </li>
         <li>
-            <a href="#16">16-Aplicando lo aprendido</a>
+            <a href="#16">16. Información Específica de Usuario</a>
         </li>
         <li>
-            <a href="#17">17-Un proyecto para tu portafolio- scraper de noticias</a>
+            <a href="#17">17. Registrar Nuevo Usuario</a>
         </li>
         <li>
-            <a href="#18">18-Construcción de las expresiones de XPath</a>
+            <a href="#18">18. Barra de Búsquedas</a>
         </li>
         <li>
-            <a href="#19">19-Obteniendo los links de los artículos con Python</a>
+            <a href="#19">19. Un Estilo para todas las Vistas</a>
         </li>
         <li>
-            <a href="#20">20-Guardando las noticias en archivos de texto</a>
+            <a href="#20">20. Estilo General</a>
         </li>
         <li>
-            <a href="#21">21-Cómo continuar tu ruta de aprendizaje</a>
+            <a href="#21">21. Estilo de Barra SUperior</a>
+        </li>
+        <li>
+            <a href="#22">22. Estilo de la Lista</a>
+        </li>
+        <li>
+            <a href="#23">23. Estilo de la Barra de Búsqueda</a>
+        </li>
+        <li>
+            <a href="#24">24. Terminar el Sitio</a>
+        </li>
+        <li>
+            <a href="#25">25. Resumen</a>
         </li>
     </ol>
 
-    <p id="1">1-Qué es el web scraping</p>
+    <p id="1">1. Meta del Día 16</p>
     <pre>
-        Una Manera de extraer información útil de una página web.
-
-        Xpath Para extraer la información de manera efectiva.
-        
-        El objetivo es realizar nuestros propios scripts para extraer información.
-        Realizar un ánalisis de datos con la información extraída. O bien, nutir otra web con la data extraída.
+        Desarrollo web con Python, django..
+        Framework para manejo del Front-End y el Backend.
+        Entornos virtuales.. Aplicación web, lista de tareas de pendientes.
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
-    <p id="2">2-Por qué aprender web scraping hoys</p>
+
+    <p id="2">2. Entornos Virtuales</p>
     <pre>
-        Está presente en todos lados.
-        Las aplicaciones que obtienen diferentes precios para realizar comparaciones como Trivago.
-        
-        También aplicaciones como ebay para para saber los precios de la competencia.
-        --------------------------------------------------------
+        Espacio, o una "carpeta".. Con sus propias carpetas y librerías.
 
-        Los reclutadores, para ver los perfiles adecuados, para contratar.
+        Necesitamos virtualenv
+            pip install virtualenv 
+            pip freeze                  -> Para ver todos los paquetes con sus versiones.
 
-        --------------------------------------------------------
+            virtualenv p1
+            .\p1\Scripts\activate       -> Para activar el entorno virtaul
 
-        En email marketing, tweets con palabras claves..
+        Espacio separado, donde se instalan los módulos.
 
-        --------------------------------------------------------
 
-        Como Backend o científico de Datos.
-        Ya que cuando no hay una API pública para extraer datos, siendo un backend se utiliza el web scrapping.
-        Obtener datos.
-    </pre>
-    <div class="context">
-        <a href="#arriba">Arriba</a>
-    </div>
-    <p id="3">3-Python- el lenguaje más poderoso para extraer datos</p>
-    <pre>
-        Lenguaje con mayor soporte, tiene módulos para realizar web scrapping.
-        Màs especializado para hacer cienciad de Datos.
+        Para instalar una versión en concreto de un paquete con pip
+            pip install pyjokes==0.4.0
 
-        Como backend se puede usar Django y añadir esta técnica.
-
-        --------------------------------------------------------
-        Módulos:
-        El más básico es
-        Request HTTP		-> Es una librerìa que permite controlar HTTP, conjunto de reglas en el cual se comunican dos computadoras en internet.
-                    -> Fundamental
-
-        BeautifulSoup HTML	-> Extraer información a partir de HTML.
-
-        --------------------------------------------------------
-        Frameworks Avanzados:
-        Selenium.
-
-        Con el cual podemos crear navegadores fantasmas, y controlar sitios web de manera automática.
-        De aquí previenen los bots.
-
-        Frameworks más avanzados:
-        Scrapy.
-
-        Usado por el Reino unido para obtener los datos de su población.
-        Se puede profundizar.
-
-        --------------------------------------------------------
-    </pre>
-    <div class="context">
-        <a href="#arriba">Arriba</a>
-    </div>
-    <p id="4">4-Entender HTTP</p>
-    <pre>
-        4-Entender HTTP
-
-        Hypertext Transfer Protocol.
-        Es un protocolo, un conjunto de reglas con el cual dos computadoras se comunican entre sí.
-        --------------------------------------------------------
-        
-        Por un lado el Cliente, y por otro el Servidor.		Cliente -> Servidor.   Servidor -> Cliente
-        
-        El cliente realiza la petición y el Servidor Responde.. Esa petición.
-        
-        --------------------------------------------------------
-        #Request	-> Petición Http
-        
-        GET / HTTPS/1.1					- Método, GET (Traer), versiòn del Protocolo 1.1	
-        Host: developer.mozilla.org			- El sitio web en particular.
-        Accept-Language: fr				- fr francés, en english
-        
-        #Responde	-> Respuesta Http
-        
-        HTTP/1.1 200 OK					- status code, 200 ok			Son las Cabeceras
-        Date: Sat, 09 Oct 2010 14:28:02 GMT		- Fecha de la respuesta
-        Server: Apache					- respuesta del servidor
-        Last-Modified: Tue, 01 Dec 2099 20:18:22 GMT	- 
-        ETag: "51142bc1-7449-479b075b2891b"		- cache	
-        Accept-Ranges: bytes				- aceptamos los bytes
-        Content-Length: 29769				- cantidad de bytes
-        Content-Type: text/html				- el cuerpo text/html
-        
-        < !DOCTYPE html..(here comes the 29769 bytes of the requested web page)
-        --------------------------------------------------------
-        
-        Imagen.. Donde se ubica HTTP de acuerdo a la Web en su completitud.
-        Fundamentos de Ingeniería de Software.
-        
-                        HTTP
-        Protocolos debajo..
-        IP 	-> Internet Protocol, donde salen la identificación única que referncia a nuestra pc., (IPV4, IPV6)
-        TCP	-> Transmision control protocol, protocolo que establece como se transfiera la información a bajo nivel.
-        UDP 	-> Parecido al anterior, User Data Protocol
-        TLP	-> Transfer Language Security, que tiene que ver con el encriptado de la información, para que un ataque no pueda ver la información enviada.
-        DNS	-> Domain Name System, es lo que resuelve un nombre de dominio a una IP.
-            -> Al buscar, google.com, el dns se encarga de transformar lo que se busca en una dirección IP, que al final es del servidor.
-        
-        HTTP, por encima permite transportar..
-        HTML	
-        CSS	
-        JAVASCRIPT	-> Para tratar la interacción entre diferentes partes de una página
-        WEB APIS
-        
-        --------------------------------------------------------        
-    </pre>
-
-    <div class="context">
-        <a href="#arriba">Arriba</a>
-    </div>
-    <p id="5">5-Qué es HTML</p>
-    <pre>
-
-        Hypertext Markup Language
-        Lenguaje para definir estructura de una página web.
-        --------------------------------------------------------
-        
-        Apuntamos a HTML para obtener la data de la estructura.
-        Etiquetas con atributos.. Los vemos con el inspector del navegador.
-        
-        --------------------------------------------------------        
-    </pre>
-    <div class="context">
-        <a href="#arriba">Arriba</a>
-    </div>
-    <p id="6">6-Robots.txt- permisos y consideraciones al hacer web scraping</p>
-    <pre>
-        Se coloca en la raíz de un sitio.. 
-        Ejemplo
-        platzy.com/robots.txt	
-        
-        
-        User-Agent: *					-> Pequeña claúsula, cuando se identifica una pc al hacer una petición. * Todos, un script 
-        Allow: /					-> Permite visitar el directorio completo.
-        Allow: /conf/*
-        Allow: /conf-og/*		
-        Disallow: /*/*/concepto/*/*/material/		-> No permite entrar a rutas en particular.
-        Disallow: /login/facebook/			-> No permitido para el resto.
-        Disallow: /login/twitter/
-        Disallow: /*/*/live/
-        Disallow: /*/*/%7B%7Burl%20absolute=/
-        Disallow: /*/*/add_contribution/
-        Disallow: /mi-suscripcion/
-        Disallow: /r/
-        Disallow: /clases/*/nuevos_materiales/
-        Disallow: /kit-ui/
-        Disallow: /ui/
-        Disallow: /sfotipy/
-        Disallow: /streaming/*
-        Disallow: /payments/*
-        Disallow: /*/add_review/
-        Disallow: /*/save/
-        Disallow: /adquirir/*
-        Disallow: /comentario/
-        Disallow: /comment/
-        Disallow: /comprar/
-        Disallow: /precios/*/
-        Disallow: /yearly-stats-share/
-        Disallow: /courses/
-        Disallow: /historias/
-        Disallow: /becas-fb/
-        Disallow: /testimonios/
-        
-        Sitemap: https://platzi.com/sitemap.xml
-        --------------------------------------------------------
-        
-        También lo usan los motores de bùsqueda para indexar (algunas veces), ciertas páginas de nuestro sitio, y no indexar algunas.
-        Google hace constantemente un web scrapping de todas las páginas para mostrar algunas y otras no en el buscador..
-        En base al archivo que cada página tiene pre configurada.
-        
-        --------------------------------------------------------
-        
-        Al definir este archivo, evitamos que otros clientes, toque información sensible de nuestra pagina web.
-        Información que no se acceda, de buenas prácticas.
-        Evitar ademàs problemas legales.
-        
-        --------------------------------------------------------        
-    </pre>
-
-    <div class="context">
-        <a href="#arriba">Arriba</a>
-    </div>
-    <p id="7">7-XML Path Language</p>
-    <pre>
-        XPath
-        XML Path Language
-        
-        Similar a Html es XML
-        Lenguaje formado por Nodos.
-        
-        Expresiones Regulares, para encontrar patrones que apunten a coincidencias en un texto.
-        
-        --------------------------------------------------------
-        Xpath es para Html
-        Como lo que son..
-        Las expresiones regulares, para un texto.
-        --------------------------------------------------------
-        
-        Xpath
-        
-        //div/span//h1[@class="tittle"][1]		-> Extraer un tìtulo de un span, que está dentro de un div.
-                        -> EL primer titulo
-        
-        --------------------------------------------------------        
-    </pre>
-
-    <div class="context">
-        <a href="#arriba">Arriba</a>
-    </div>
-    <p id="8">8-Tipos de nodos en XPath</p>
-    <pre>
-        Un nodo es lo mismo que una etiqueta y su contenido.
-
-        --------------------------------------------------------
-        
-        toscrape.com		-> Sandbox para realizar prácticas, sin problemas ni preocupaciones.
-        
-        
-        F2, inspector de Elementos.
-        Apuntar los Nodos.
-        
-        Html	-> Head
-            -> Body	-> Footer
-                -> Div class="container"	-> div class="row"
-                                -> div class="row header-box"	-> div class="col-md-8"	-> h1
-        
-        * Dato a extraer por ejemplo, h1
-        * Queremos extraer las citas.
-        --------------------------------------------------------
-        
-        Por lo tanto Xpath, es un lenguaje que permite navegar por los nodos, para extraer información.
-        Para usarla en nuestros sitio web o ponerla en nuestro software de analisis de datos.	
-        
-        --------------------------------------------------------        
-    </pre>
-
-    <div class="context">
-        <a href="#arriba">Arriba</a>
-    </div>
-    <p id="9">9-Expresiones en XPath</p>
-    <pre>
-        Primeras expresiones con xPath
-
-        Entramos a console.. Desde el inspector.
-        A travès de ciertas instrucciones.
-        
-        --------------------------------------------------------
-        
-        $x('/')			-> [documen]		->/ marca el route, apuntamos a todo el documento.
-                            -> Tambien puede indicar un salto de nodo, de un nivel a otro / dentro de la expresión.
-        
-        $x('/html')		-> [html]
-        
-        $x('//')					-> 			-> Para hacer un salto de nodo, evitando colocar el camino completo /html/body/etc.
-        $x('//h1')					-> [h1]			-> Apunta al unico h1
-        
-        $x('//h1/a/text()').map(x => x.wholeText)	-> [text, text]		-> Obtenemos el texto del titulo, map() es de Javascript
-        
-        $x('//span/..')					-> Selecciona los div, que estàn por encima del span
-        
-        $x('//span/.')					-> Seleccion del nodo actual, es igual a $x('//span')		
-        
-        $x('//span/@class')				-> Trae todas las clases del span que hay en el documento.	
-        
-        
-        --------------------------------------------------------        
-    </pre>
-    <p id="10">10-Predicados en Xpath</p>
-    <pre>
-        De esta manera filtraremos la información de una manera màs especìfica, al extraer infromaciòn.	 
-
-        --------------------------------------------------------
-        
-        $x('/html/body/div/div[1]')				-> Obtenemos el 1ª div de la lista.
-        
-        $x('/html/body/div/div[last]')				-> Obtenemos el ultimo div de la lista.
             
-        $x('//span[@class]')					-> Traemos todos los span que tengan como atributo una clase.
-        
-        $x('//span[@class="text"]')				-> y con texto..
-        
-        $x('//span[@class="text"]/text()').map(x => x.wholeText)-> Trae los textos, de todos los nodos span de clase texto.
-        
-        --------------------------------------------------------        
-    </pre>
+        Para desactivar el entorno
+            deactivate
 
+        creamos la carpeta app para el proyecto..
+            virtualenv app  
+            .\app\Scripts\activate            
+
+    </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
-    <p id="11">11-Operadores en Xpath.</p>
-
+    
+    <p id="3">3. Instalar Django</p>
     <pre>
-        Filtrar de Manera más específica.	
+        pip install django
 
-        --------------------------------------------------------
-        
-        $x('//span[@class!="text"]/text()').map(x => x.wholeText)	-> != distintos de texto.
-        
-        
-        $x('//span[@class!="text"]')					-> Vemos los nodos, con su clase distinta a texto
-        
-        $x('/html/body/div/div[psoition()=1]')		-> Div en posicion igual a 1, el primero
-        
-        $x('/html/body/div/div[psoition()>1]')		-> Todos los Div por encima de ese primer elemento, si es uno, solo uno.
-        
-        $x('//span[@class="text" and @class="tag-item"]')	-> and, las dos a la vez.
-        
-        $x('//span[@class="text" or @class="tag-item"]')	-> or, una o la otra.
-        
-        $x('//span[not(@class)]')				-> not, todos los span que no tengan de atributo el class
-        
-        --------------------------------------------------------        
+        creamos una subcarpeta como fuente.. Donde agreagamos el codigo fuente.
+        Dentro de la carpeta src, en la raíz..
+            django-admin startproject proyecto
+
+        El archivo manage.py.. Es el archivo con el cual administramos, todo lo que sucede en el proyecto.
+            python manage.py runserver
+
+        Para hacer las migraciones, luego podremos ingresar a la sección admin.python manage.py migratepython manage.py migrate
+            python manage.py migrate
+
+        Para crear el usuario.. Con ese usuario podremos ingresar al admin.           
+            python manage.py createsuperuser
+
     </pre>
-
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
-    <p id="12">12-Wildcards en Xpath.</p>
-
+    <p id="4">4. Configurar las Urls</p>
     <pre>
-        Comodines, usados al no saber el nodo especifico, pero si una aproximación.
+    Para iniciar el proyecto.. Lo nombramos como base.
+        python manage.py startapp base
 
-        --------------------------------------------------------
-        Para traer nodos que no sabemos como se llaman pero si sabemos donde están.
-        
-        $x('/*')				-> Traemos el html
-        
-        $x('/html/*')				-> Traemos todos los nodos que están a continuación de Html, head y body, por ejemplo.
-        
-        $x('//*')				-> Saltamos todos los niveles en todas las direcciones, obtenemos TODO, los nodos y también sus atributos..
-                            -> útil para traer todo el documento.
-        
-        $x('//span[@class="text"]/@*')		-> Traemos todos los atributos, de todos los nodos, de tipo span que tienen como clase a text.
-                            -> Podemos traer atributos desconocidos.	
-        
-        $x('/html/body//div/@*')		-> Traemos todos los atributos de todos los div que están después de body.	
-        
-        $x('//span[class="text" and @itemprop="text"]/node()')		-> Todos los span que cumplen con las condiciones.
-                                        -> node() es parecido a *, pero node trae lo que va más alla de los nodos, el contenido (text)
-                                        - con node todo lo que no sea los nodos, pero también los nodos, trae TODO.
-        
-        --------------------------------------------------------        
+    Ahora conectamos el proyecto con la base..
+    Dentro de settings de la carpeta proyecto, linkeamos a la carpeta "base"
+        INSTALLED_APPS = [
+            'django.contrib.admin',
+            'django.contrib.auth',
+            'django.contrib.contenttypes',
+            'django.contrib.sessions',
+            'django.contrib.messages',
+            'django.contrib.staticfiles',
+            'base.apps.BaseConfig',             -> Linkeada
+        ]
+
+        Ahora creamos un archivo urls.py dentro de la base
+
+        Ahora dentro de la carpeta proyecto, en el archivo urls lo configuramos..
+
+            from django.contrib import admin
+            from django.urls import path, include           #El include es necesario para rastrear la url
+
+            urlpatterns = [
+                path('admin/', admin.site.urls),
+                path('', include('base.urls')),           # Traemos las urls del proyecto base.
+            ]
+
+        Ahora en la urls del proyecto base..
+            from django.urls import path            # Nos traemos el path
+            from . import views                     # E importamos la views, y asi debajo armamos el path para llamar a la funcion en views.
+            
+            urlpatterns = [path('', views.lista_pendientes, name='pendientes')]
+
+
+        Ahora en views.. Armamos la función de lista_pendientes.
+            from django.shortcuts import render
+            from django.http import HttpResponse
+            
+            def lista_pendientes(pedido):
+                return HttpResponse('Lista de Pendientes')            
     </pre>
-
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
-    <p id="13">13-In-text search en Xpath</p>
 
+    <p id="5">5. Crear la Tabla de Tareas</p>
     <pre>
-        Siendo aún más específico podemos buscar dentro del texto.
+        Los modelos son como construimos tablas de bases de datos.. En Django.
+        Para cada tabla debemos crear una clase.. Que represente a una tabla.
+        Mientras que sus atributos vendrías a ser como sus columnas o campos.        
 
-        --------------------------------------------------------
-                Traemos todos los autores que comienzan con la letra a.
-        $x('//small[@class="author" and starts-with(., "A")]')		-> con (. el punto nos referimos al nodo actual 
-        
-        $x('//small[@class="author" and starts-with(., "A")]/text()').map(x => x.wholeText)		-> Nos trae los autores.
-        
-        $x('//small[@class="author" and contains(., "Ro")]/text()').map(x => x.wholeText)		-> Vemos los nombres que tengan Ro
-        
-        $x('//small[@class="author" and end-with(., "t")]/text()').map(x => x.wholeText)		-> Que terminen
-        
-        $x('//small[@class="author" and matches(., "A.*n")]/text()').map(x => x.wholeText)		-> Matches con expresiones regulares
-                                                        -> Que empiezan con A y terminan con n.
-        
-        $x('//small[@class="author" and starts-with(., "E")]/text()').map(x => x.wholeText)		
-        
-        --------------------------------------------------------        
+        <code>
+            from django.db import models
+            from django.contrib.auth.models import User
+
+            class Tarea(models.Model):
+                usuario = models.ForeignKey(User, 
+                                on_delete=models.CASCADE,
+                                null=True,
+                                blank=True)
+                titulo = models.CharField(max_length=200)
+                descripcion = models.TextField(null=True,
+                                                blank=True)
+                completo = models.BooleanField(default=False)
+                creado = models.DateTimeField(auto_now_add=True)
+
+                def __str__(self):
+                    return self.titulo
+
+                class Meta:
+                    ordering = ['completo']
+        </code>
+
+        Ahora debemos enviar está informacion a la base de Datos, HACER EL MIGRATE.
+            python manage.py makemigrations
+
+        De esta manera ya migramos y existe dentro de nuestro archivo 0001_initial.py
+            python manage.py migrate
+
+        También debemos registrar desde admin.py.. Que se encuentra dentro del proyecto base.
+        <code>
+            from django.contrib import admin
+            from .models import Tarea
+
+            # Register your models here.
+            admin.site.register(Tarea)
+        </code>
+
+        Ahora migramos al sitio.. Lo podemos ver al correr el servidor y observarlo desde el admin.
+            python manage.py runserver
     </pre>
-
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
-    <p id="14">14-XPath Axes.</p>
 
+    <p id="6">6. Configurar la Vista</p>
     <pre>
-        Para traer el nodo padre de un Nodo, y todos los ancestros.. Xpath Axes.
-        Indicamos relaciones màs directas.
-        
-        --------------------------------------------------------
-        
-        $x('/html/body/div/self::div')			->self::div es igual /., Azúcar sintáctico para representar algo largo de manera màs concreta.
-        
-        $x('/html/body/div/child::div')			-> Los hijos
-        
-        $x('/html/body/div/descendant::div')		-> Los hijos como los "Nietos", todos.
-        
-        $x('/html/body/div/descendant-or-self::div')	-> La union entre los descendentes de ese nodo y el nodo en si mismo.				
-        
-        --------------------------------------------------------        
-    </pre>
+        Ahora dentro de la views.py de de app..
+        <code>
+            from django.shortcuts import render
+            from django.views.generic.list import ListView
+            from .models import Tarea
 
+            class ListaPendientes(ListView):
+                model = Tarea  
+        </code>        
+
+        Ahora en el urls.py de app
+        <code>
+            from django.urls import path
+            from .views import ListaPendientes
+
+            urlpatterns = [path('', ListaPendientes.as_view(), name='pendientes')]
+        </code>
+
+        En el archivo de settings de proyecto.. Configuramos la ruta de los templates..
+        <code>
+        TEMPLATES = [
+                {
+                    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+                    'DIRS': ["C:\\Users\\maatr\\Desktop\\Python - Django\\Python Django\\src\\proyecto\\base\\template"],       -> Esta sera la ruta donde alojaremos los templates
+                    'APP_DIRS': True,
+                    'OPTIONS': {
+                        'context_processors': [
+                            'django.template.context_processors.debug',
+                            'django.template.context_processors.request',
+                            'django.contrib.auth.context_processors.auth',
+                            'django.contrib.messages.context_processors.messages',
+                            
+                        ],
+                    },
+                },
+            ]
+        </code>
+
+        Y ahora debemos configurar o armar la plantilla.. tarea_list.html
+        Dentro de la carepta src -> proyecto -> base -> template -> base
+        <code>
+            < h1>Lista de Pendientes< /h1>
+
+            < table>
+                < tr>
+                    < th>Elementos< /th>
+                < /tr>
+                
+                {% for tarea in object_list %}
+                
+                < tr>
+                    < td>{{tarea.titulo}}< /td>
+                < /tr>
+                
+                {% empty %}
+                < h3> No hay elementos en esta Lista < /h3>
+                
+                {% endfor %}
+            < /table>
+        </code>
+        
+        Ahora además modificamos el objeto para que sea más legible con un contexto adecuado..
+        
+        <code>
+            from django.shortcuts import render
+            from django.views.generic.list import ListView
+            from .models import Tarea
+            
+            class ListaPendientes(ListView):
+            model = Tarea  
+            context_object_name = 'tareas'            
+        </code>
+        <code>
+            < h1>Lista de Pendientes< /h1>
+    
+            < table>
+                < tr>
+                    < th>Elementos< /th>
+                < /tr>
+                
+                {% for tarea in tareas %}
+                
+                < tr>
+                    < td>{{tarea.titulo}}< /td>
+                < /tr>
+                
+                {% empty %}
+                < h3> No hay elementos en esta Lista < /h3>
+                
+                {% endfor %}
+            < /table>
+        </code>
+
+    </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
-    </div>
-    <p id="15">15-Resumen de XPath-Cheatsheet</p>
-    <br>
-    <img src="img/1 - Xpath  - Expresiones Predicados.PNG" alt="">
-    <br>
-    <img src="img/2 - Xpath  - Operadores Wildcards.PNG" alt="">
-    <br>
-    <img src="img/3 - Xpath  - In-text search.PNG" alt="">
-    <br>
-    <img src="img/4 - Xpath  - Axes.PNG" alt="">
-    <br>
-    <div class="context">
-        <a href="#arriba">Arriba</a>
-    </div>
-    <p id="16">16-Aplicando lo aprendido.</p>
+    </div>  
+
+    <p id="7">7. Configurar la Vista de Detalle</p>
     <pre>
-        Practicando..
-        --------------------------------------------------------
-        
-        En el Sandbox de WebScrapping.
-        En la sección de Books...
-        
-        
-        Extraer los títulos de los libros.
-        
-        $x('//article[@class="product_pod]/h3/a/"title').map(x => x.value)				-> Traemos todos los títulos de los Libros.
-        
-        $x('//article[@class="product_pod]/div[@class="product_price"]/p[@class="price_color]/text()').map(x => x.wholeText)
-                                                        -> Para extraer el precio de todos los libros.
-        
-        $x('//div[@class="side_categories"]/ul[@class="nav nav-list"]/li/ul/li/a/text()').map(=> x.wholeText)
-                                                        -> Extraemos las categorías.				
-        --------------------------------------------------------        
+        La Vista de detalle es la página que veremos al seleccionar nuestro elemento de la lista.       
+
+        De esta manera en el views.py de la carpeta base.. 
+
+        <code>
+            from django.shortcuts import render
+            from django.views.generic.list import ListView
+            from django.views.generic.detail import DetailView
+            from .models import Tarea
+            
+            class ListaPendientes(ListView):
+                model = Tarea  
+                context_object_name = 'tareas'
+            
+            class DetalleTarea(DetailView):
+                model = Tarea
+                context_object_name = 'tarea'               # El objeto tendra un nombre más amigable
+                template_name = 'base/tarea.html'           # De esta manera ubicamos el archivo con el nombre deseado         
+        </code>
+
+        Y en la urls.py de base.. Agregamos la url patterns
+        <code>
+            from django.urls import path
+            from .views import ListaPendientes, DetalleTarea
+            
+            urlpatterns = [ path('', ListaPendientes.as_view(), name='pendientes'),
+                            path('tarea/<int:pk>', DetalleTarea.as_view(), name='tarea')]
+        </code>
+
+        Y creamos la plantilla tarea.html.. Con el objeto correspondiente a la primary key
+
+        <code>
+            < h1>Tarea: {{tarea}} </ h1>
+        </code>
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
-    <p id="17">17-Un proyecto para tu portafolio- scraper de noticias</p>
+    
+    <p id="8">8. Crear Link a Detalles</p>
     <pre>
-        Script como un sistema de Archivado.
-        Iremos a una página de Noticias, para extraer tanto el título como el cuerpo.
-        
-        www.larepublica.co/robots.txt
-        
-        User-agent: Googlebot
-        Allow: /
-        User-agent: Googlebot
-        Disallow: /vista-previa/
-        User-agent: Googlebot-News
-        Allow: /
-        User-agent: Googlebot-News
-        Disallow: /vista-previa/
-        User-agent: *
-        Allow: /
-        User-agent: *
-        Disallow: /vista-previa/				-> Lugar donde no se puede entrar.
-        Disallow: /pagos/
-        Sitemap: https://www.larepublica.co/sitemapindex
-        Sitemap: https://www.larepublica.co/sitemapnews
-        
-        --------------------------------------------------------
-        La idea es obtener los títulos como también el cuerpo.
-        Cmder		-> Emulador de Bash, podemos ejecutar comandos que son compatibles con sistemas Linux.
-        
-            C:\Users\ThunderXforce\Desktop\fundamentos-scraping-code
-        
-            -> mkdir larepublica_scraper		-> Creamos una carpeta
-            -> ls					-> Listamos el contenido de la carpeta
-            -> cd larepublica_scraper\		-> Entramos.
-        
-            -> git init
-            -> py -m venv venv			-> Entorno virtual de python, venn (virtual envolment), para tener las dependencias de manera aislada.
-        
-        Abrimos la carpeta en Vscode.
-        creamos el archivo .gitignore en la raìz	-> Así evitamos llevarnos la carpeta venv
-        
-        venv/						-> Dentro del archivo, para ignorarlo.
-        
-            Desde consola
-            -> venv\Scripts\activate		-> Activamos el entorno virtual.
-        
-        --------------------------------------------------------
-        Ahora creamos un espacio de trabajo, ordenado..
-        save workspace as				-> larepublica_scraper, lo nombramos como la carpeta.
-        
-            -> Cuando en la consola aparece (venv)	-> El entorno se encuentra activo.
-        
-            Ahora instalamos las librerìas, request, Lxml (xpath), autopep8 (para formatear el codigo de manera oficial) 	
-            (venv) -> pip install request lxml autopep8
-        
-            -> py -m pip intstall pip --upgrade	-> Actualizamos pip.
-        
-        --------------------------------------------------------
-        Ya tenemos el entorno creado.
-        --------------------------------------------------------        
+        Ahora agregamos el link para redirigir a la página de detalle..
+        <code>
+            < h1>Lista de Pendientes< /h1>
+
+            < table>
+                < tr>
+                    < th>Elementos< /th>
+                    < th>< /th>
+                < /tr>
+                
+                {% for tarea in object_list %}
+                
+                < tr>
+                    < td>{{tarea.titulo}}< /td>
+                    < td>< a href="{% url 'tarea' tarea.id %}">Ver< /a>< /td>   -> Link para redirección
+                < /tr>
+                
+                {% empty %}
+                < h3> No hay elementos en esta Lista </ h3>
+                
+                {% endfor %}
+            </table>            
+        </code>
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
-    <p id="18">18-Construcción de las expresiones de XPath.</p>
-
+    
+    <p id="9">9. Agregar Nueva Tarea</p>
     <pre>
 
-        Inspeccionar la página a scrappear..
-        Las expresiones van variando de acuerdo al formato de la página web.
-        
-        --------------------------------------------------------
-        
-        Primero extraeremos los links que nos llevan a la noticia en particular.
-        Inspector de Elementos..
-        
-        $x('//h2[@class="headline"]/a/@href').map(x => x.value)		-> Traemos los links de todas las noticias del sitio.
-        
-        Esa expresión la guardaremos en un nuevo archivo.. xpath.txt
-        Este archivo serà como referencia para crear luego nuestros scripts.
-        
-        Links = //h2[@class="headline"]/a/@href
-        
-        --------------------------------------------------------
-        
-        Ahora entramos a la noticia en particular para observar como está maquetada.
-        Necesitamos..
-        -Titulo
-        $x('//h1[@class="headline"]/a/text()').map(x => x.wholeText)	-> Obtenemos el título
-        
-        Titulo = //h1[@class="headline"]/a/text()			-> En el archivo.
-        
-        -Resumen
-        $x('//div[@class="lead"]/p/text()').map(x => x.wholeText)	-> Obtenemos el Resumen.
-        
-        Resumen = //div[@class="lead"]/p/text()
-        
-        -Cuerpo
-        $x('//div[@class="articlesWrapper  "]/p[not(@class)]/text()').map(x => x.wholeText)	-> not(@class) todos los p que no tenga una clase.
-                                                    -> Respetar textualmente los nombres de las clases.
-        Cuerpo =  //div[@class="articlesWrapper  "]/p[not(@class)]/text()					-> Obtenemos todos los párrafos.
-        
-        --------------------------------------------------------        
-    </pre>
+        Desde la el archivo views.py creamos el método que renderiza nuestro vista..
+        <code>
+            from django.shortcuts import render
+            from django.views.generic.list import ListView
+            from django.views.generic.detail import DetailView
+            from django.views.generic.edit import CreateView    # Clases que proporciona Django
+            from django.urls import reverse_lazy
+            from .models import Tarea
+            
+            class ListaPendientes(ListView):
+                model = Tarea  
+                context_object_name = 'tareas'
+            
+            class DetalleTarea(DetailView):
+                model = Tarea
+                context_object_name = 'tarea'
+                template_name = 'base/tarea.html'
+            
+            class CrearTarea(CreateView):               -> Esta sera la nueva vista
+                model = Tarea
+                fields = '__all__'                      # Agregamos todos los campos
+                success_url = reverse_lazy('tareas')    # Vamos al index
+        </code>
 
-    <div class="context">
-        <a href="#arriba">Arriba</a>
-    </div>
-    <p id="19">19-Obteniendo los links de los artículos con Pythonp>
-    <pre>
-        Primero comenzamos por buscar todos los links..
+        Ahora debemos agregar la url dentro del archivo urls.py
+        <code>
+            from django.urls import path
+            from .views import ListaPendientes, DetalleTarea, CrearTarea        -> La importamos
+            
+            urlpatterns = [ path('', ListaPendientes.as_view(), name='pendientes'),
+                            path('tarea/< int:pk>', DetalleTarea.as_view(), name='tarea'),
+                            path('crear-tarea/', CrearTarea.as_view(), name='crear-tarea')]  #  Registramos la ruta.         
+        </code>
 
-        --------------------------------------------------------
-            -> Entrar al entorno virtual desde consola.
-            venv\Scripts\activate				-> Activamos el entorno
-        
-        Creamos un nuevo archivo de python en la carpeta, en la raíz.. larepublica_scraper\
-        
-            -scraper.py
-        
-        import requests			-> 
-        import lxml.html as html	-> de lxml obtenemos con el alias el html		-> Entrar al entorno virtual desde consola.
-        
-        HOME_URL = 'https://www.larepublica.co/'						-> Definimos la ruta de la página.
-        
-                                                    -> Creamos las constantes con xpath
-        XPATH_LINK_TO_ARTICLE = '//h2[@class="headline"]/a/@href'				- Article
-        XPATH_TITLE = '//h1[@class="headline"]/a/text()'					- Title
-        XPATH_SUMMARY = '//div[@class="lead"]/p/text()'						- Resumen
-        XPATH_BODY = '//div[@class="articleWrapper  "]/p[not(@class)]/text()'			- Cuerpo
-        
-        
-        def parse_home():								-> Extraer los links de las noticias.
-        
-            try:									-> Lo envolvemos dentro de un try except a todo el codigo													- En caso de obtener una respuesta negativa desde el servidor.
-                response = requests.get(HOME_URL)					-> Response, traemos el archivo url de la pagina, home_url
-                                                -> La respuesta sera el documento html y todo lo que involucra http (cabeceras)
-                if response.status_code == 200:						-> Si la respuesta es ok
-        
-                    home = response.content.decode('utf-8')				-> response.content.. Devuelve el documento html de la respuesta/ decode, 'ñ@
-        
-                    parsed = html.fromstring(home)					-> Tomamos el contenido de html que ya tenemos en home de manera de texto
-                                                - y lo transformamos en un documento especial al que le haremos xpath
-                    links_to_notices = parsed.xpath(XPATH_LINK_TO_ARTICLE)		-> Obtenemos una lista sobre la constante que creamos.	
-        
-                    # print(links_to_notices)						-> Corroboramos.
-        
-                else:
-                    raise ValueError(f'Error: {response.status_code}')			-> Sino, tenemos un error en la respuesta,
-                                                status_code, atributo del response, la respuesta.
-            except ValueError as ve:							-> Except en caso de Error, value error.
-                print(ve)
-        
-        
-        def run():								-> Funcion principal que corre el programa.
-            parse_home()
-        
-        
-        if __name__ == '__main__':						-> Definimos el entry point de nuestro archivo de python.
-            run()
-        --------------------------------------------------------
-        
-        Corremos el programa desde consola como..
-            -> py scraper.py						-> py por como llamamos python en el sistema.
-        
-            -> Obtenemos los links
-        
-        
-        --------------------------------------------------------        
+        Desde tarea_list.html creamos el enlace que nos llevará al formulario..
+        <code>
+            < h1>Lista de Pendientes< /h1>
+            < a href="{% url 'crear-tarea' %}">Crear Nueva Tarea< /a>           -> Enlace que nos llevará al formulario.
+            
+            < table>
+                < tr>
+                    < th>Elementos< /th>
+                    < th>< /th>
+                < /tr>
+                
+                {% for tarea in object_list %}
+                
+                < tr>
+                    < td>{{tarea.titulo}}< /td>
+                    < td>< a href="{% url 'tarea' tarea.id %}">Ver< /a>< /td>
+                < /tr>
+                
+                {% empty %}
+                < h3> No hay elementos en esta Lista < /h3>
+                
+                {% endfor %}
+            </table>            
+        </code>
+
+        Ahora creamos el archivo tarea_form.html, que luego podremos renombrar como deseemos..
+
+        <code>
+            < h1>Formulario de Tareas< /h1>            
+        </code>
+
+    
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
-    <p id="20">20-Guardando las noticias en archivos de texto</p>
 
+    <p id="10">10. Introducción a Machine Learning</p>
     <pre>
-        Armamos ahora la lógica para ordenar la información..
-        Links..
-        Titulo..
-        Resumen..	
-        Cuerpo..
-        --------------------------------------------------------
-        
-        import requests
-        import lxml.html as html
-        import os						1º-> Importamos dos nuevas librerìas propias de Python	
-        import datetime						2º-> La fecha de Hoy.
-        
-        HOME_URL = 'https://www.larepublica.co/'
-        
-        XPATH_LINK_TO_ARTICLE = '//h2[@class="headline"]/a/@href'
-        XPATH_TITLE = '//h1[@class="headline"]/a/text()'
-        XPATH_SUMMARY = '//div[@class="lead"]/p/text()'
-        XPATH_BODY = '//div[@class="articleWrapper  "]/p[not(@class)]/text()'
-        
-        
-        def parse_notice(link, today):						6º -> Creamos la función.. 
-            try:								7º -> Envolvemos en try except.
-                response = requests.get(link)
-                if response.status_code == 200:					9º -> Con el estatus correcto..
-                    notice = response.content.decode('utf-8')			11º -> Traemos la respuesta como el punto anterior, como html
-                    parsed = html.fromstring(notice)				12ª -> Le pasamos el html
-        
-                    try:							-> Armamos el formato.
-                        title = parsed.xpath(XPATH_TITLE)[0]			13º-> [0], nos devuelve una lista.. Accedemos al title, el 1ª elemento.
-                        title = title.replace('\"', '')				15º-> Reemplazamos las comillas dobles por nada..
-                                                -Escapamos la comilla doble \"
-                        summary = parsed.xpath(XPATH_SUMMARY)[0]		14º-> [0], igual
-                        body = parsed.xpath(XPATH_BODY)				-> Como es una lista de párrafos la traemos todo completo.
-                    except IndexError:
-                        return							-> Puede que algunas noticias no tengan resumenes, por lo cual.. Salimos de la funcion.
-        
-                        -> with es un manejador contextual, si el archivo se cierra de manera inesperada, mantiene todo de manera segura.
-        
-                    with open(f'{today}/{title}.txt', 'w', encoding='utf-8') as f:		-> 16º Abrimos el archivo, fecha/titulo.txt
-                                                    - w modo escritura, el alias es f
-                        f.write(title)					-> alias. titulo.. Es decir en el archivo escribimos la data.
-                        f.write('\n\n')					-> El salto de linea \n\n
-                        f.write(summary)				- Resumen.
-                        f.write('\n\n')
-                        for p in body:					-> Cuerpo, con un ciclo, ya que es una lista de parrafos.
-                            f.write(p)					P y salto de línea.
-                            f.write('\n')
-                else:
-                    raise ValueError(f'Error: {response.status_code}')			10º -> error, mostramos el status_code, lo muestra con el print.
-            except ValueError as ve:							8º-> Error.
-                print(ve)
-        
-        
-        def parse_home():
-            try:
-                response = requests.get(HOME_URL)
-                if response.status_code == 200:
-                    home = response.content.decode('utf-8')
-                    parsed = html.fromstring(home)
-                    links_to_notices = parsed.xpath(XPATH_LINK_TO_ARTICLE)
-                    # print(links_to_notices)
-        
-                    today = datetime.date.today().strftime('%d-%m-%Y')			3º-> Configuramos la fecha, la creareamos con el modulo datetime
-                                            - Guardamos dentro de today un objeto de tipo fecha, con el formato strftime.
-                    if not os.path.isdir(today):				4º -> Creamos la carpeta con el nombre definido.. 
-                        os.mkdir(today)						-Si no existe, la creamos.
-        
-                    for link in links_to_notices:				5º -> Hacemos un ciclo en funcion del link y las fechas.
-                        parse_notice(link, today)
-                else:
-                    raise ValueError(f'Error: {response.status_code}')
-            except ValueError as ve:
-                print(ve)
-        
-        
-        def run():
-            parse_home()
-        
-        
-        if __name__ == '__main__':
-            run()
-        
-        --------------------------------------------------------
-        Código COmpleto
-        --------------------------------------------------------
-        import requests
-        import lxml.html as html
-        import os
-        import datetime
-        
-        HOME_URL = 'https://www.larepublica.co/'
-        
-        XPATH_LINK_TO_ARTICLE = '//h2[@class="headline"]/a/@href'
-        XPATH_TITLE = '//h1[@class="headline"]/a/text()'
-        XPATH_SUMMARY = '//div[@class="lead"]/p/text()'
-        XPATH_BODY = '//div[@class="articleWrapper  "]/p[not(@class)]/text()'
-        
-        
-        def parse_notice(link, today):
-            try:
-                response = requests.get(link)
-                if response.status_code == 200:
-                    notice = response.content.decode('utf-8')
-                    parsed = html.fromstring(notice)
-        
-                    try:
-                        title = parsed.xpath(XPATH_TITLE)[0]
-                        title = title.replace('\"', '')
-                        summary = parsed.xpath(XPATH_SUMMARY)[0]
-                        body = parsed.xpath(XPATH_BODY)
-                    except IndexError:
-                        return
-        
-                    with open(f'{today}/{title}.txt', 'w', encoding='utf-8') as f:
-                        f.write(title)
-                        f.write('\n\n')
-                        f.write(summary)
-                        f.write('\n\n')
-                        for p in body:
-                            f.write(p)
-                            f.write('\n')
-                else:
-                    raise ValueError(f'Error: {response.status_code}')
-            except ValueError as ve:
-                print(ve)
-        
-        
-        def parse_home():
-            try:
-                response = requests.get(HOME_URL)
-                if response.status_code == 200:
-                    home = response.content.decode('utf-8')
-                    parsed = html.fromstring(home)
-                    links_to_notices = parsed.xpath(XPATH_LINK_TO_ARTICLE)
-                    # print(links_to_notices)
-        
-                    today = datetime.date.today().strftime('%d-%m-%Y')
-                    if not os.path.isdir(today):
-                        os.mkdir(today)
-        
-                    for link in links_to_notices:
-                        parse_notice(link, today)
-                else:
-                    raise ValueError(f'Error: {response.status_code}')
-            except ValueError as ve:
-                print(ve)
-        
-        
-        def run():
-            parse_home()
-        
-        
-        if __name__ == '__main__':
-            run()
-        --------------------------------------------------------        
+        Modificamos primero las urls..
+        <code>
+            from django.urls import path
+            from .views import ListaPendientes, DetalleTarea, CrearTarea
+            
+            urlpatterns = [ path('', ListaPendientes.as_view(), name='tareas'),
+                            path('tarea/<int:pk>', DetalleTarea.as_view(), name='tarea'),
+                            path('crear-tarea/', CrearTarea.as_view(), name='crear-tarea')]            
+        </code>        
+
+        Y creamos nuestro formulario correspondiente..
+
+        <code>
+            < h1>Formulario de Tareas< /h1>
+            < a href="{% url 'tareas' %}">Volver< /a>
+
+            < form action="" method="POST">
+                {% csrf_token %}                    # Seguridad
+                {{ form.as_p }}                     # Formato del formualario como "parrafo"
+            
+                < input type="submit" value="Enviar">
+            < /form>            
+        < /code>
     </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
-    <p id="21">21-Cómo continuar tu ruta de aprendizaje</p>
+    
+    <p id="11">11. Editar Tarea</p>
     <pre>
-        Recomendaciones éticas..
-        Revisar el archivo Robots.txt
-        Del sitio al que le hacemos scrapping.
-        --------------------------------------------------------
-        
-        Considerar la ley de datos en el país en el cual estamos.
-        
-        --------------------------------------------------------
-        
-        Si hay que pagar y extraemos datos, no hacerlo.
-        
-        --------------------------------------------------------        
-    </pre>
 
+        Creamos los enlaces que nos llevaran desde las lista principal de tareas a su edición.
+        <code>
+            < h1>Lista de Pendientes< /h1>
+            < a href="{% url 'crear-tarea' %}">Crear Nueva Tarea< /a>
+            
+            < table>
+                < tr>
+                    < th>Elementos< /th>
+                    < th>< /th>
+                    < th>< /th>
+                < /tr>
+                
+                {% for tarea in object_list %}
+                
+                < tr>
+                    < td>{{tarea.titulo}}< /td>
+                    < td>< a href="{% url 'tarea' tarea.id %}">Ver< /a>< /td>
+                    < td>< a href="{% url 'editar-tarea' tarea.id %}">Editar< /a>< /td>         #Agregamos el botón para editar
+                < /tr>
+                
+                {% empty %}
+                < h3> No hay elementos en esta Lista < /h3>
+                
+                {% endfor %}
+            < /table>            
+        </code>
+        
+        Creamos la vista en el archivo views.py de nuestro proyecto..
+        <code>
+            from django.shortcuts import render
+            from django.views.generic.list import ListView
+            from django.views.generic.detail import DetailView
+            from django.views.generic.edit import CreateView, UpdateView    # Clases que proporciona Django  
+            
+            from django.urls import reverse_lazy
+            from .models import Tarea
+            
+            class ListaPendientes(ListView):
+                model = Tarea  
+                context_object_name = 'tareas'
+            
+            class DetalleTarea(DetailView):
+                model = Tarea
+                context_object_name = 'tarea'
+                template_name = 'base/tarea.html'
+            
+            class CrearTarea(CreateView):
+                model = Tarea
+                fields = '__all__'                      
+                success_url = reverse_lazy('tareas')    
+            
+            class EditarTarea(UpdateView):              # Vista creada que ofrece Django
+                model = Tarea
+                fields = '__all__'                      
+                success_url = reverse_lazy('tareas')                
+        </code>
+
+        Agregamos en urls.py la ruta para editar 
+
+        <code>
+            from django.urls import path
+            from .views import ListaPendientes, DetalleTarea, CrearTarea, EditarTarea                       #Importamos 
+            
+            urlpatterns = [ path('', ListaPendientes.as_view(), name='tareas'),
+                            path('tarea/< int:pk>', DetalleTarea.as_view(), name='tarea'),
+                            path('crear-tarea/', CrearTarea.as_view(), name='crear-tarea'),
+                            path('editar-tarea/< int:pk>', EditarTarea.as_view(), name='editar-tarea')]      #Agregamos la ruta
+        </code>
+
+    </pre>
     <div class="context">
         <a href="#arriba">Arriba</a>
     </div>
     <br>
     <br>
+    
+    <p id="12">12. Eliminar Tarea</p>
+    <pre>
+        Ahora para elimiinar creamos la vista en views.py
+
+        <code>
+            from django.shortcuts import render
+            from django.views.generic.list import ListView
+            from django.views.generic.detail import DetailView
+            from django.views.generic.edit import CreateView, UpdateView, DeleteView    # Clases que proporciona Django  
+            
+            from django.urls import reverse_lazy
+            from .models import Tarea
+            
+            class ListaPendientes(ListView):
+                model = Tarea  
+                context_object_name = 'tareas'
+            
+            class DetalleTarea(DetailView):
+                model = Tarea
+                context_object_name = 'tarea'
+                template_name = 'base/tarea.html'
+            
+            class CrearTarea(CreateView):
+                model = Tarea
+                fields = '__all__'                      
+                success_url = reverse_lazy('tareas')    
+            
+            class EditarTarea(UpdateView):
+                model = Tarea
+                fields = '__all__'                      
+                success_url = reverse_lazy('tareas')    
+            
+            class EliminarTarea(DeleteView):                # Agregamos el DeleteView, que trae django
+                model = Tarea                               
+                context_object_name = 'tarea'               # Renombramos el objeto
+                success_url = reverse_lazy('tareas')        # Redireccionamos
+        </code>
+
+        Configuramos la url en urls.py..
+        <code>
+            from django.urls import path
+            from .views import ListaPendientes, DetalleTarea, CrearTarea, EditarTarea, EliminarTarea
+            
+            urlpatterns = [ path('', ListaPendientes.as_view(), name='tareas'),
+                            path('tarea/< int:pk>', DetalleTarea.as_view(), name='tarea'),
+                            path('crear-tarea/', CrearTarea.as_view(), name='crear-tarea'),
+                            path('editar-tarea/< int:pk>', EditarTarea.as_view(), name='editar-tarea'),
+                            path('eliminar-tarea/< int:pk>', EliminarTarea.as_view(), name='eliminar-tarea')]            # Ruta configurada.
+        </code>
+
+        Agregamos el botón para eliminar desde la lista de tareas..
+
+        <code>
+            < h1>Lista de Pendientes< /h1>
+            < a href="{% url 'crear-tarea' %}">Crear Nueva Tarea< /a>
+            
+            < table>
+                < tr>
+                    < th>Elementos< /th>
+                    < th>< /th>
+                    < th>< /th>
+                < /tr>
+                
+                {% for tarea in object_list %}
+                
+                < tr>
+                    < td>{{tarea.titulo}}< /td>
+                    < td>< a href="{% url 'tarea' tarea.id %}">Ver< /a>< /td>
+                    < td>< a href="{% url 'editar-tarea' tarea.id %}">Editar< /a>< /td>
+                    < td>< a href="{% url 'eliminar-tarea' tarea.id %}">Eliminar< /a>< /td>  # Link para eliminar
+                < /tr>
+                
+                {% empty %}
+                < h3> No hay elementos en esta Lista < /h3>
+                
+                {% endfor %}
+            < /table>            
+        </code>
+
+        Agregamos un archivo que confirme la eliminación de la tarea.. Con esto confirmamos o no, al momento de eliminar.
+        
+        <code>
+            < a href="{% url 'tareas' %}">Volver< /a>
+
+            < form method="POST" >
+                {% csrf_token %}
+            
+                < p>Vas a eliminar esta tarea: "{{tarea}}"< /p>
+                < input type="submit" value="Eliminar">
+            < /form>            
+        </code>
+
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+
+    <p id="13">13. Crear Lógica de Logueo/Deslogueo</p>
+    <pre>
+        En el archivo tarea_list..
+        <code>
+        {% if request.user.is_authenticated %}              # Lógica del Loing y del Deslogueo
+            < p>{{request.user}}< /p> 
+            < a href="">Salir< /a>
+        {% else %}
+            < a href="">Ingresar< /a>
+        {% endif %}
+        < hr>
+        
+        < h1>Lista de Pendientes< /h1>
+        < a href="{% url 'crear-tarea' %}">Crear Nueva Tarea< /a>
+        
+        < table>
+            < tr>
+                < th>Elementos< /th>
+                < th>< /th>
+                < th>< /th>
+            < /tr>
+            
+            {% for tarea in object_list %}
+            
+            < tr>
+                < td>{{tarea.titulo}}< /td>
+                < td>< a href="{% url 'tarea' tarea.id %}">Ver< /a>< /td>
+                < td>< a href="{% url 'editar-tarea' tarea.id %}">Editar< /a>< /td>
+                < td>< a href="{% url 'eliminar-tarea' tarea.id %}">Eliminar< /a>< /td>
+            < /tr>
+            
+            {% empty %}
+            < h3> No hay elementos en esta Lista < /h3>
+            
+            {% endfor %}
+        < /table>
+        </code>
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+
+    <p id="14">14. Formulario de Logueo Deslogueo</p>
+    <pre>
+        Armamos el la vista en views.py para armar el login
+        <code>
+            from django.shortcuts import render
+            from django.views.generic.list import ListView
+            from django.views.generic.detail import DetailView
+            from django.views.generic.edit import CreateView, UpdateView, DeleteView    
+            from django.contrib.auth.views import LoginView                             # Usamos lo que django nos proporciona
+            
+            from django.urls import reverse_lazy
+            from .models import Tarea
+            
+            class Logueo(LoginView):                        # Nos armamos el loginview, creando el archivo..
+                template_name = "base/login.html"
+                field = '__all__'
+                redirect_authenticated_users = True
+            
+                def get_success_url(self):
+                    return reverse_lazy('tareas')           # Este es el redireccionamiento.
+            
+            class ListaPendientes(ListView):
+                model = Tarea  
+                context_object_name = 'tareas'
+            
+            class DetalleTarea(DetailView):
+                model = Tarea
+                context_object_name = 'tarea'
+                template_name = 'base/tarea.html'
+            
+            class CrearTarea(CreateView):
+                model = Tarea
+                fields = '__all__'                      
+                success_url = reverse_lazy('tareas')    
+            
+            class EditarTarea(UpdateView):
+                model = Tarea
+                fields = '__all__'                      
+                success_url = reverse_lazy('tareas')    
+            
+            class EliminarTarea(DeleteView):
+                model = Tarea
+                context_object_name = 'tarea'
+                success_url = reverse_lazy('tareas')            
+        </code>
+
+        Creamos las urls.py para el login y el logout..
+
+        <code>
+            from django.urls import path
+            from .views import ListaPendientes, DetalleTarea, CrearTarea, EditarTarea, EliminarTarea, Logueo
+            from django.contrib.auth.views import LogoutView                                                    # Usamos lo que django nos proporciona
+            
+            urlpatterns = [ path('', ListaPendientes.as_view(), name='tareas'),
+                            path('login/', Logueo.as_view(), name='login'),                                     # Agregamos el login y debajo el logout
+                            path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
+                            path('tarea/< int:pk>', DetalleTarea.as_view(), name='tarea'),
+                            path('crear-tarea/', CrearTarea.as_view(), name='crear-tarea'),
+                            path('editar-tarea/< int:pk>', EditarTarea.as_view(), name='editar-tarea'),
+                            path('eliminar-tarea/< int:pk>', EliminarTarea.as_view(), name='eliminar-tarea')]             
+        </code>
+
+        Creamos el formulario para el login.. logint.html
+
+        <code>
+            < h1>Ingresar< /h1>
+
+            < form method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                < input type="submit" value="Ingresar">
+            
+            < /form>            
+        </code>
+
+        Agregamos los botones con sus respectivas rutas para realizar el logout y login desde tarea_list
+        
+        <code>
+        {% if request.user.is_authenticated %}
+            < p>{{request.user}}< /p> 
+            < a href="{% url 'logout' %}">Salir< /a>
+        {% else %}
+            < a href="{% url 'login' %}">Ingresar< /a>
+        {% endif %}
+        < hr>
+        
+        < h1>Lista de Pendientes< /h1>
+        < a href="{% url 'crear-tarea' %}">Crear Nueva Tarea< /a>
+        
+        < table>
+            < tr>
+                < th>Elementos< /th>
+                < th>< /th>
+                < th>< /th>
+            < /tr>
+            
+            {% for tarea in object_list %}
+            
+            < tr>
+                < td>{{tarea.titulo}}< /td>
+                < td>< a href="{% url 'tarea' tarea.id %}">Ver< /a>< /td>
+                < td>< a href="{% url 'editar-tarea' tarea.id %}">Editar< /a>< /td>
+                < td>< a href="{% url 'eliminar-tarea' tarea.id %}">Eliminar< /a>< /td>
+            < /tr>
+            
+            {% empty %}
+            < h3> No hay elementos en esta Lista < /h3>
+            
+            {% endfor %}
+        < /table>
+        </code>            
+        
+
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+
+    <p id="15">15. Restringir Acceso</p>
+    <pre>
+        Ahora usamos el LoginRequiredMixin que provee Django..
+        <code>
+            from django.shortcuts import render
+            from django.views.generic.list import ListView
+            from django.views.generic.detail import DetailView
+            from django.views.generic.edit import CreateView, UpdateView, DeleteView    
+            from django.contrib.auth.views import LoginView
+            from django.contrib.auth.mixins import LoginRequiredMixin       #Importamos el mixin que provee Django para autenticar.
+            
+            
+            from django.urls import reverse_lazy
+            from .models import Tarea
+            
+            class Logueo(LoginView):
+                template_name = "base/login.html"
+                field = '__all__'
+                redirect_authenticated_users = True
+            
+                def get_success_url(self):
+                    return reverse_lazy('tareas')
+            
+            
+            class ListaPendientes(LoginRequiredMixin, ListView):        #Agregamos la restrincción donde deseemos.
+                model = Tarea  
+                context_object_name = 'tareas'
+            
+            class DetalleTarea(LoginRequiredMixin, DetailView):         #Agregamos la restrincción donde deseemos.
+                model = Tarea
+                context_object_name = 'tarea'
+                template_name = 'base/tarea.html'
+            
+            class CrearTarea(LoginRequiredMixin, CreateView):           #Agregamos la restrincción donde deseemos.
+                model = Tarea
+                fields = '__all__'                      
+                success_url = reverse_lazy('tareas')    
+            
+            class EditarTarea(LoginRequiredMixin, UpdateView):          #Agregamos la restrincción donde deseemos.
+                model = Tarea
+                fields = '__all__'                      
+                success_url = reverse_lazy('tareas')    
+            
+            class EliminarTarea(LoginRequiredMixin, DeleteView):        #Agregamos la restrincción donde deseemos.
+                model = Tarea
+                context_object_name = 'tarea'
+                success_url = reverse_lazy('tareas')            
+        </code>
+
+        Y en el archivo settings.py de nuestro proyecto.. Seteamos el LOGIN_URL
+
+        <code>
+            LOGIN_URL = 'login'                             # El cual al momento de querer ingresar a una página restringida nos llevará en este caso al login.
+
+
+            # Static files (CSS, JavaScript, Images)
+            # https://docs.djangoproject.com/en/4.1/howto/static-files/
+            
+            STATIC_URL = 'static/'              
+            
+            # Default primary key field type
+            # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
+            
+            DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'            
+        </code>
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+
+    <p id="16">16. Información Específica del Usuario</p>
+    <pre>
+        Ahora procedemos a mostrar y a registrar las tareas de acuerdo al usuario logueado..
+        <code>
+            from django.shortcuts import render
+            from django.views.generic.list import ListView
+            from django.views.generic.detail import DetailView
+            from django.views.generic.edit import CreateView, UpdateView, DeleteView    
+            from django.contrib.auth.views import LoginView
+            from django.contrib.auth.mixins import LoginRequiredMixin
+            
+            
+            from django.urls import reverse_lazy
+            from .models import Tarea
+            
+            class Logueo(LoginView):
+                template_name = "base/login.html"
+                field = '__all__'
+                redirect_authenticated_users = True
+            
+                def get_success_url(self):
+                    return reverse_lazy('tareas')
+            
+            
+            class ListaPendientes(LoginRequiredMixin, ListView):
+                model = Tarea  
+                context_object_name = 'tareas'
+            
+                def get_context_data(self, **kwargs):                               #Mostramos las tareas de acuerdo al usuario logueado
+                    context = super().get_context_data(**kwargs)
+                    context['tareas'] = context['tareas'].filter(usuario=self.request.user)     
+                    context['count'] = context['tareas'].filter(completo=False).count()
+                    return context
+            
+            class DetalleTarea(LoginRequiredMixin, DetailView):
+                model = Tarea
+                context_object_name = 'tarea'
+                template_name = 'base/tarea.html'
+            
+            class CrearTarea(LoginRequiredMixin, CreateView):
+                model = Tarea
+                fields = ['titulo', 'descripcion', 'completo']                      
+                success_url = reverse_lazy('tareas')    
+            
+                def form_valid(self, form):                             #Creamos la tarea de acuerdo al usuario logueado
+                    form.instance.usuario = self.request.user
+                    return super(CrearTarea, self).form_valid(form)
+            
+            class EditarTarea(LoginRequiredMixin, UpdateView):
+                model = Tarea
+                fields = ['titulo', 'descripcion', 'completo']
+                success_url = reverse_lazy('tareas')    
+            
+            class EliminarTarea(LoginRequiredMixin, DeleteView):
+                model = Tarea
+                context_object_name = 'tarea'
+                success_url = reverse_lazy('tareas')            
+        </code>
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+
+    <p id="17">17. Registrar Nuevo Usuario</p>
+    <pre>
+        Pasos que se hace en cada una de las vistas.:
+        - Creamos el enlace
+        - Luego el formulario
+        - Luego la vista
+        - Luego la url
+
+        Por lo tanto, creamos el enlace.. Para registrar desde el login
+        <code>
+            < h1>Ingresar< /h1>
+
+            < form method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                < input type="submit" value="Ingresar">
+            
+            < /form>
+            
+            < p>No tienes una cuena? < a href="{% url 'registro' %}">Regístrate< /a>< /p>            
+        </code>
+        
+        Creamos el template de registro, para registrarme como usuario
+
+        <code>
+            < h1>Registrarse< /h1>
+
+            < form method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                < input type="submit" value="Registrar">
+            
+            < /form>
+            
+            < p>Ya tienes una cuenta? < a href="{% url 'login' %}">Ingresa< /a>< /p>            
+        </code>
+
+        Creamos la vista en el archivo views.py
+
+        <code>
+            from django.shortcuts import render, redirect
+            from django.views.generic.list import ListView
+            from django.views.generic.detail import DetailView
+            from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView      # Y usamos el FormView, genérico
+            from django.contrib.auth.forms import UserCreationForm                                  # Usamos el form que provee Django
+            from django.contrib.auth import login                                                   
+            from django.contrib.auth.views import LoginView
+            from django.contrib.auth.mixins import LoginRequiredMixin
+            
+            
+            from django.urls import reverse_lazy
+            from .models import Tarea
+            
+            class Logueo(LoginView):
+                template_name = "base/login.html"
+                field = '__all__'
+                redirect_authenticated_users = True
+            
+                def get_success_url(self):
+                    return reverse_lazy('tareas')
+            
+            class PaginaRegistro(FormView):                         # Creamos la vista para el registro, con su respectivo template.
+                template_name = 'base/registro.html'
+                form_class = UserCreationForm
+                redirect_authenticated_user = True
+                success_url = reverse_lazy('tareas')     
+            
+                def form_valid(self, form):
+                    usuario = form.save()
+                    if usuario is not None:
+                        login(self.request, usuario)
+                    return super(PaginaRegistro, self).form_valid(form)
+                
+                def get(self, *args, **kwargs):                                 # Si el usuario está logueado, no podrá volver al registro.
+                    if self.request.user.is_authenticated:
+                        return redirect('tareas')
+                    return super(PaginaRegistro, self).get(*args, **kwargs)
+                    
+            
+            
+            class ListaPendientes(LoginRequiredMixin, ListView):
+                model = Tarea  
+                context_object_name = 'tareas'
+            
+                def get_context_data(self, **kwargs):
+                    context = super().get_context_data(**kwargs)
+                    context['tareas'] = context['tareas'].filter(usuario=self.request.user)     
+                    context['count'] = context['tareas'].filter(completo=False).count()
+                    return context
+            
+            class DetalleTarea(LoginRequiredMixin, DetailView):
+                model = Tarea
+                context_object_name = 'tarea'
+                template_name = 'base/tarea.html'
+            
+            class CrearTarea(LoginRequiredMixin, CreateView):
+                model = Tarea
+                fields = ['titulo', 'descripcion', 'completo']                      
+                success_url = reverse_lazy('tareas')    
+            
+                def form_valid(self, form):
+                    form.instance.usuario = self.request.user
+                    return super(CrearTarea, self).form_valid(form)
+            
+            class EditarTarea(LoginRequiredMixin, UpdateView):
+                model = Tarea
+                fields = ['titulo', 'descripcion', 'completo']
+                success_url = reverse_lazy('tareas')    
+            
+            class EliminarTarea(LoginRequiredMixin, DeleteView):
+                model = Tarea
+                context_object_name = 'tarea'
+                success_url = reverse_lazy('tareas')            
+        </code>
+
+        Agregamos la url al padrón..
+
+        <code>
+            from django.urls import path
+            from .views import ListaPendientes, DetalleTarea, CrearTarea, EditarTarea, EliminarTarea, Logueo, PaginaRegistro                #importamos
+            from django.contrib.auth.views import LogoutView
+            
+            urlpatterns = [ path('', ListaPendientes.as_view(), name='tareas'),
+                            path('login/', Logueo.as_view(), name='login'),
+                            path('registro/', PaginaRegistro.as_view(), name='registro'),                       # Agregamos la url para el registro
+                            path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
+                            path('tarea/< int:pk>', DetalleTarea.as_view(), name='tarea'),
+                            path('crear-tarea/', CrearTarea.as_view(), name='crear-tarea'),
+                            path('editar-tarea/< int:pk>', EditarTarea.as_view(), name='editar-tarea'),
+                            path('eliminar-tarea/< int:pk>', EliminarTarea.as_view(), name='eliminar-tarea')]             
+        </code>
+
+        Como extra seteamos el idioma al español desde Djnago..
+
+        <code>
+            # Internationalization
+            # https://docs.djangoproject.com/en/4.1/topics/i18n/
+            
+            LANGUAGE_CODE = 'es-ar'                                 #Lenguaje en español
+            
+            TIME_ZONE = 'UTC'
+            
+            USE_I18N = True
+            
+            USE_TZ = True
+            
+            
+            LOGIN_URL = 'login'
+            
+            
+            # Static files (CSS, JavaScript, Images)
+            # https://docs.djangoproject.com/en/4.1/howto/static-files/
+            
+            STATIC_URL = 'static/'
+            
+            # Default primary key field type
+            # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
+            
+            DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'            
+        </code>
+
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+
+    <p id="18">18. Barra de Búsqueda</p>
+    <pre>
+        Implementaremos dentro de tarea_list..
+        <code>
+            {% if request.user.is_authenticated %}
+                < p>{{request.user}}< /p> 
+                < a href="{% url 'logout' %}">Salir< /a>
+            {% else %}
+                < a href="{% url 'login' %}">Ingresar< /a>
+            {% endif %}
+            < hr>
+            
+            < h1>Lista de Pendientes< /h1>
+            < a href="{% url 'crear-tarea' %}">Crear Nueva Tarea< /a>
+            
+            < form method="GET">                                                    #Implementamos la barra de busqueda como form y su metodo get
+                < input type="text" name="area_buscar" value="{{valor_buscado}}">   
+                < input type="submit" value="Buscar">
+            < /form>            
+        </code>
+
+        Desarrollamos la lógica en el views.py..
+
+        <code>
+            from django.shortcuts import render, redirect
+            from django.views.generic.list import ListView
+            from django.views.generic.detail import DetailView
+            from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
+            from django.contrib.auth.forms import UserCreationForm
+            from django.contrib.auth import login
+            from django.contrib.auth.views import LoginView
+            from django.contrib.auth.mixins import LoginRequiredMixin
+            
+            
+            from django.urls import reverse_lazy
+            from .models import Tarea
+            
+            class Logueo(LoginView):
+                template_name = "base/login.html"
+                field = '__all__'
+                redirect_authenticated_users = True
+            
+                def get_success_url(self):
+                    return reverse_lazy('tareas')
+            
+            class PaginaRegistro(FormView):
+                template_name = 'base/registro.html'
+                form_class = UserCreationForm
+                redirect_authenticated_user = True
+                success_url = reverse_lazy('tareas')     
+            
+                def form_valid(self, form):
+                    usuario = form.save()
+                    if usuario is not None:
+                        login(self.request, usuario)
+                    return super(PaginaRegistro, self).form_valid(form)
+                
+                def get(self, *args, **kwargs):
+                    if self.request.user.is_authenticated:
+                        return redirect('tareas')
+                    return super(PaginaRegistro, self).get(*args, **kwargs)
+                    
+            
+            
+            class ListaPendientes(LoginRequiredMixin, ListView):
+                model = Tarea  
+                context_object_name = 'tareas'
+            
+                def get_context_data(self, **kwargs):
+                    context = super().get_context_data(**kwargs)
+                    context['tareas'] = context['tareas'].filter(usuario=self.request.user)     
+                    context['count'] = context['tareas'].filter(completo=False).count()
+            
+                    valor_buscado = self.request.GET.get('area_buscar') or ''                           # Aqui va la lógica para buscar
+                    if valor_buscado:
+                        context['tareas'] = context['tareas'].filter(titulo__icontains=valor_buscado)
+                    context['valor_buscado'] = valor_buscado
+                    return context
+            
+            class DetalleTarea(LoginRequiredMixin, DetailView):
+                model = Tarea
+                context_object_name = 'tarea'
+                template_name = 'base/tarea.html'
+            
+            class CrearTarea(LoginRequiredMixin, CreateView):
+                model = Tarea
+                fields = ['titulo', 'descripcion', 'completo']                      
+                success_url = reverse_lazy('tareas')    
+            
+                def form_valid(self, form):
+                    form.instance.usuario = self.request.user
+                    return super(CrearTarea, self).form_valid(form)
+            
+            class EditarTarea(LoginRequiredMixin, UpdateView):
+                model = Tarea
+                fields = ['titulo', 'descripcion', 'completo']
+                success_url = reverse_lazy('tareas')    
+            
+            class EliminarTarea(LoginRequiredMixin, DeleteView):
+                model = Tarea
+                context_object_name = 'tarea'
+                success_url = reverse_lazy('tareas')            
+        </code>
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+
+    <p id="19">19. Un estilo para todas las vistas</p>
+    <pre>
+        Agregamos un estilo principal y se las agregamos a las demás de la siguiente manera..
+        Creamos un archivo principal.html el cual contendrá las clases correspondientes..
+
+        <code>
+            < !DOCTYPE html>
+            < html lang="es">
+            < head>
+                < meta charset="UTF-8">
+                < meta http-equiv="X-UA-Compatible" content="IE=edge">
+                < meta name="viewport" content="width=device-width, initial-scale=1.0">
+                < title>Lista de Pendientes< /title>
+                < style>
+                    body {
+                        background-color color deseado
+                    }
+                < /style>
+            < /head>
+            < body>
+                < div class="container">
+                    {% block content %}                 Este será el container para embeber más código
+                    {% endblock content %}
+                < /div>
+            < /body>
+            < /html>            
+        </code>
+
+        Ahora dentro de cada archivo donde deseemos extender las clases principales.. Las agregamos de la siguiente manera..
+        Ejemplo para el login.html
+        <code>
+            {% extends 'base/principal.html' %}             # Extendemos 
+
+            {% block content %}                             # Embebemos el contenido
+            
+            
+            < h1>Ingresar< /h1>
+            
+            < form method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                < input type="submit" value="Ingresar">
+            
+            < /form>
+            
+            < p>No tienes una cuena? < a href="{% url 'registro' %}">Regístrate< /a>< /p>
+            
+            {% endblock content %}                      # Cerramos el contenido embebido
+        </code>
+
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+
+    <p id="20">20. Estilo General</p>
+    <pre>
+        De esta manera agregamos ahora estilos como fuentes..
+        <code>
+            < !DOCTYPE html>
+            < html lang="es">
+            < head>
+                < meta charset="UTF-8">
+                < meta http-equiv="X-UA-Compatible" content="IE=edge">
+                < meta name="viewport" content="width=device-width, initial-scale=1.0">
+                < title>Lista de Pendientes< /title>
+                < link rel="preconnect" href="https://fonts.googleapis.com">
+                < link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                < link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100&display=swap" rel="stylesheet">
+                < link rel="preconnect" href="https://fonts.googleapis.com">
+                < link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                < link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&family=Roboto:ital,wght@0,100;0,300;1,100&display=swap" rel="stylesheet">
+                < style>
+                    body{
+                        background-color: #E5D4D1;
+                        font-family: 'Abel', sans-serif;
+                        padding-top: 60PX;
+                    }
+            
+                    .container{
+                        max-width: 550px;
+                        margin: auto;
+                        background-color: #E1DFDE;
+                        -webkit-box-shadow: 2px 2px 13px -4px rgba(0,0,0, 0.21);
+                        box-shadow: 2px 2px 13px -4px rgba(0,0,0, 0.21);
+                    }
+            
+                    h1, h2, h3, h4, h5, h6{
+                        font-family: 'Lato', sans-serif;
+                    }
+            
+                    a, p{
+                        color: #996E66;
+                    }
+                < /style>
+            < /head>
+            < body>
+                < div class="container">
+                    {% block content %}
+                    {% endblock content %}
+                < /div>
+            < /body>
+            < /html>            
+        </code>
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+
+    <p id="21">21. Estilo de Barra Superior</p>
+    <pre>
+        De esta manera agregamos ahora estilos como fuentes..
+        <code>
+            < !DOCTYPE html>
+            < html lang="es">
+            < head>
+                < meta charset="UTF-8">
+                < meta http-equiv="X-UA-Compatible" content="IE=edge">
+                < meta name="viewport" content="width=device-width, initial-scale=1.0">
+                < title>Lista de Pendientes< /title>
+                < link rel="preconnect" href="https://fonts.googleapis.com">
+                < link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                < link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100&display=swap" rel="stylesheet">
+                < link rel="preconnect" href="https://fonts.googleapis.com">
+                < link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                < link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&family=Roboto:ital,wght@0,100;0,300;1,100&display=swap" rel="stylesheet">
+                < style>
+                    body{
+                        background-color: #E5D4D1;
+                        font-family: 'Abel', sans-serif;
+                        padding-top: 60PX;
+                    }
+            
+                    .container{
+                        max-width: 550px;
+                        margin: auto;
+                        background-color: #E1DFDE;
+                        -webkit-box-shadow: 2px 2px 13px -4px rgba(0,0,0, 0.21);
+                        box-shadow: 2px 2px 13px -4px rgba(0,0,0, 0.21);
+                    }
+            
+                    h1, h2, h3, h4, h5, h6{
+                        font-family: 'Lato', sans-serif;
+                    }
+            
+                    a, p{
+                        color: #996E66;
+                    }
+
+                    .barra_superior{                        # Agregamos los estilos para la barra superior.
+                        display: flex;
+                        justify-content: space-between;
+                        color: #ffff;
+                        padding: 10px;
+                        border-radius: 5px 5px 0 0;
+                        background: linear-gradient(90deg, #4d9FE3 0%, #3A8ACC 43%, #3A8ACC 100%);
+                    }
+            
+                    .barra_superior a{
+                        color: rgb(255, 255, 255);
+                        text-decoration: none;
+                    }
+                < /style>
+            < /head>
+            < body>
+                < div class="container">
+                    {% block content %}
+                    {% endblock content %}
+                < /div>
+            < /body>
+            < /html>            
+        </code>
+
+        Agregamos las clases creades dentro del encabezado de tarea_list.html
+        <code>
+            {% extends 'base/principal.html' %}
+
+            {% block content %}
+            
+            < div class="barra_superior">
+                < div>
+                    < h1>Hola {{request.user|title}}< /h1>
+                    < h3 class="margin:0">Tienes < i>{{count}}< /i> tarea{{count|pluralize}} incompleta< /h3>
+                < /div>
+                {% if request.user.is_authenticated %}
+                    < a href="{% url 'logout' %}">Salir< /a>
+                {% else %}
+                    < a href="{% url 'login' %}">Ingresar< /a>
+                {% endif %}
+            < /div>            
+        </code>
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+
+    <p id="22">22. Estilo de la Lista</p>
+    <pre>
+        Ahora le dimos los estilos desde el principal.html.. Para estilar la lista
+        <code>
+            body{
+                background-color: #E5D4D1;
+                font-family: 'Abel', sans-serif;
+                padding-top: 60PX;
+            }
+    
+            .container{
+                max-width: 550px;
+                margin: auto;
+                background-color: #E1DFDE;
+                -webkit-box-shadow: 2px 2px 13px -4px rgba(0,0,0, 0.21);
+                box-shadow: 2px 2px 13px -4px rgba(0,0,0, 0.21);
+            }
+    
+            h1, h2, h3, h4, h5, h6{
+                font-family: 'Lato', sans-serif;
+            }
+    
+            a, p{
+                color: #996E66;
+            }
+    
+            .barra_superior{
+                display: flex;
+                justify-content: space-between;
+                color: #ffff;
+                padding: 10px;
+                border-radius: 5px 5px 0 0;
+                background: linear-gradient(90deg, #4d9FE3 0%, #3A8ACC 43%, #3A8ACC 100%);
+            }
+    
+            .barra_superior a{
+                color: rgb(255, 255, 255);
+                text-decoration: none;
+            }
+    
+            .envoltorio-tarea{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 20px;
+                background-color: #ffffff;
+                border-top: 1px solid rgb(225, 225, 225);
+            }
+    
+            .titulo-tarea{
+                display: flex;
+            }
+    
+            .titulo-tarea a{
+                text-decoration: none;
+                color: #4b5156;
+                margin-left: 10px;
+            }
+    
+            .icono-tarea-completa{
+                height: 20px;
+                width: 20px;
+                background-color: rgb(105, 162, 218);
+                border-radius: 50px;
+            }
+    
+            .icono-tarea-incompleta{
+                height: 20px;
+                width: 20px;
+                background-color: rgb(218, 218, 218);
+                border-radius: 50px;
+            }
+    
+            .enlace-eliminar{
+                text-decoration: none;
+                font-weight: 900;
+                color: #EA4220;
+                font-size: 22px;
+                line-height: 0;
+            }            
+        </code>
+
+        Y creamos la estructura para estilar la tarea_list.html
+        <code>
+            {% extends 'base/principal.html' %}
+
+            {% block content %}
+            
+            < div class="barra_superior">
+                < div>
+                    < h1>Hola {{request.user|title}}< /h1>
+                    < h3 class="margin:0">Tienes < i>{{count}}< /i> tarea{{count|pluralize}} incompleta< /h3>
+                < /div>
+                {% if request.user.is_authenticated %}
+                    < a href="{% url 'logout' %}">Salir< /a>
+                {% else %}
+                    < a href="{% url 'login' %}">Ingresar< /a>
+                {% endif %}
+            < /div>
+            
+            < a href="{% url 'crear-tarea' %}">Crear Nueva Tarea< /a>
+            
+            < form method="GET">
+                < input type="text" name="area_buscar" value="{{valor_buscado}}">
+                < input type="submit" value="Buscar">
+            < /form>     
+            
+            < div class="envoltorio-items-tarea">
+                {% for tarea in tareas %}
+                < div class="envoltorio-tarea">
+                    {% if tarea.completo %}
+                    < div class="titulo-tarea">
+                        < div class="icono-tarea-completa">< /div>
+                        < i>< s>< a href="{% url 'editar-tarea' tarea.id %}">{{tarea}}< /a>< /s>< /i>
+                    < /div>
+                    < a class="enlace-eliminar " href="{% url 'eliminar-tarea' tarea.id %}">&#x2A2F;< /a>
+                    {% else %}
+                    < div class="titulo-tarea">
+                        < div class="icono-tarea-incompleta">< /div>
+                        < a href="{% url 'editar-tarea' tarea.id %}">{{tarea}}< /a>
+                        
+                    < /div>
+                    
+                    < a class="enlace-eliminar " href="{% url 'eliminar-tarea' tarea.id %}">&#x2A2F;< /a>
+                    {% endif %}
+            
+                < /div>
+                {% empty %}
+                < h3> No hay elementos en esta Lista < /h3>
+                
+                {% endfor %}
+            < /div>
+            {% endblock content %}            
+        </code>
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+
+    <p id="23">23. Estilo de la Barra de Búsqueda</p>
+    <pre>
+        Agregamos clase para el search de búsqueda y los botones
+        <code>
+            #envoltorio-agregar-buscar{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+            }
+    
+            #enlace-agregar{
+                color: #EA4220;
+                text-decoration: none;
+                font-size: 42px;
+                text-shadow: 1px 1px #81414B;
+            }
+    
+            input[type="text"],
+            input[type="password"],
+            textarea {
+                border: 1px solid #EB786F;
+                border-radius: 5px;
+                padding: 10px;
+                width: 90%;
+            }
+    
+            label {
+                padding-top: 10px !important;
+                display: block;
+            }
+    
+            .button {
+                border: 1px solid #EB796F;
+                background-color: #FAFAFA;
+                color: #EB796F;
+                padding: 10px;
+                font-size: 14px;
+                border-radius: 5px;
+                cursor: pointer;
+                text-decoration: none;
+            }            
+        </code>
+
+        Y en el archivo tarea_list.html.. Agregamos las respectivas clases.
+        <code>
+            < div id="envoltorio-agregar-buscar">
+                < form method="GET" style="margin-top: 20px; display: flex;">
+                    < input type="text" name="area_buscar" value="{{valor_buscado}}">
+                    < input class="boton" type="submit" value="Buscar">
+                < /form>     
+                < a id="enlace-agregar" href="{% url 'crear-tarea' %}">&#x1F7A5;< /a>
+            < /div>          
+        </code>
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+
+    <p id="24">24. Terminar el Sitio</p>
+    <pre>
+        Ahora procedemos aplicando clases a cada una de las páginas.. 
+            Registro, login, tarea_form, tarea_confirm_delete
+
+        Registro..
+        <code>
+            {% extends 'base/principal.html' %}
+
+            {% block content %}
+            
+            < div class="barra_superior">
+                < h1>Registrarse< /h1>
+            < /div>
+            
+            < div class="cuerpo-tarjeta">
+                < form method="POST">
+                    {% csrf_token %}
+                    < label>{{form.username.label}}< /label>
+                        {{form.username}}
+                    < label>{{form.password1.label}}< /label>
+                        {{form.password1}}
+                    < label>{{form.password2.label}}< /label>
+                        {{form.password2}}
+                    < input style="margin-top:10px" class="boton" type="submit" value="Registrar">
+                < /form>
+                
+                < p>Ya tienes una cuenta? < a href="{% url 'login' %}">Ingresa< /a>< /p>
+            
+            < /div>
+            
+            {% endblock content %}            
+        </code>
+
+        login..
+        <code>
+            {% extends 'base/principal.html' %}
+
+            {% block content %}
+            
+            
+            < div class="barra_superior">
+                < h1>Ingresar< /h1>
+            < /div>
+            
+            < div class="cuerpo-tarjeta">
+                < form method="POST">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    < input class="boton" type="submit" value="Ingresar">
+                < /form> 
+                < p>No tienes una cuena? < a href="{% url 'registro' %}">Regístrate< /a>< /p>
+            < /div>
+            
+            {% endblock content %}                
+        </code>
+
+        tarea_form..
+        <code>
+            {% extends 'base/principal.html' %}
+
+            {% block content %}
+            
+            < div class="barra_superior">
+                < a href="{% url 'tareas' %}">&#x1F860; Volver< /a>
+            < /div>
+            
+            < div class="cuerpo-tarjeta">
+                < form action="" method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                
+                    < input class="boton" type="submit" value="Enviar">
+                < /form>
+            < /div>
+            
+            {% endblock content %}              
+        </code>
+
+        Y tarea_confirm_delete..
+        <code>
+            {% extends 'base/principal.html' %}
+
+            {% block content %}
+            
+            
+            < div class="barra_superior">
+                < a href="{% url 'tareas' %}">&#x1F860; Volver< /a>
+            < /div>
+            
+            < div class="cuerpo-tarjeta">
+                < form method="POST" >
+                    {% csrf_token %}
+                
+                    < p>Vas a eliminar esta tarea: "{{tarea}}"< /p>
+                    < input class="boton" type="submit" value="Eliminar">
+                < /form>
+            < /div>
+            
+            
+            {% endblock content %}            
+        </code>
+    </pre>
+    <div class="context">
+        <a href="#arriba">Arriba</a>
+    </div>
+    <br>
+    <br>
+
 
     
     <div class="context">
         <a href="../15/index.html">Volver</a>
         <a href="../../index.html">Inicio</a>
+        <a href="../17/index.html">Siguiente</a>
     </div>
 
     <script src="js/01.js"></script>

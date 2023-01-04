@@ -21,6 +21,12 @@ pre{
     background-color: #b75f4b;
     padding: 1rem 2rem 2rem 1rem;
 }
+
+pre code {
+    background-color: black;
+    display: block;
+    padding: 0rem 2rem;
+}
 .contenido {
     max-width: 1200px;
     margin: 5rem auto 0 auto;
